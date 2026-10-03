@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bản Tin NovaPad Hub - Tạp Chí Kỹ Thuật & Tuyển Thủ</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: '#00F0FF',
+                        darkBg: '#040812'
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body class="bg-[#030610] text-gray-200 antialiased overflow-x-hidden font-sans">
+
+    <!-- ================= HEADER ĐỒNG BỘ ================= -->
+    <header class="border-b border-gray-800/80 bg-[#040812]/95 backdrop-blur sticky top-0 z-50">
+        <div class="max-w-[1440px] mx-auto px-4 lg:px-8 h-20 flex items-center justify-between gap-4">
+            <div class="flex items-center gap-8 shrink-0">
+                <a href="index.html" class="flex items-center shrink-0">
+                    <span class="text-2xl font-black tracking-widest text-white hover:text-cyan-400 transition">NOVAPAD</span>
+                </a>
+                <!-- Menu Điều Hướng: Khóa cứng 1 dòng, không bao giờ vỡ layout -->
+                <nav class="hidden lg:flex items-center space-x-6 text-[11px] xl:text-xs font-mono font-bold tracking-wider whitespace-nowrap shrink-0">
+                    <a href="index.html" class="text-cyan-400 border-b-2 border-cyan-400 py-1 inline-block">TRANG CHỦ</a>
+                    <a href="products.html" class="text-gray-300 hover:text-cyan-400 transition py-1 inline-block border-b-2 border-transparent">CATALOG / TAY CẦM</a>
+                    <a href="news.html" class="text-gray-300 hover:text-cyan-400 transition py-1 inline-block border-b-2 border-transparent">BẢN TIN HUB</a>
+                    <a href="#" class="text-gray-300 hover:text-cyan-400 transition py-1 inline-block border-b-2 border-transparent">HỖ TRỢ</a>
+                </nav>
+            </div>
+
+            <div class="flex items-center gap-3 shrink-0">
+                <a href="cart.html" class="inline-flex items-center gap-2.5 bg-[#0a101d] border border-gray-800 px-3 h-9 rounded hover:border-cyan-400 transition shrink-0">
+                    <div class="relative flex items-center">
+                        <svg class="w-4 h-4 text-cyan-400 fill-none stroke-current" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                        </svg>
+                        <span id="header-cart-badge" class="absolute -top-2 -right-2 bg-cyan-400 text-black text-[9px] font-bold rounded-full w-4 h-4 flex items-center justify-center">0</span>
+                    </div>
+                    <span id="header-cart-total" class="font-mono text-xs font-semibold text-white whitespace-nowrap">$0.00</span>
+                </a>
+                <a href="login.html" class="w-9 h-9 rounded-full bg-gray-800 flex items-center justify-center hover:bg-cyan-400 hover:text-black transition shrink-0 text-gray-300">
+                    <svg class="w-4 h-4 fill-none stroke-current" stroke-width="2" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ================= 1. BREADCRUMB & METRICS TOP BAR (Ảnh 17 & 22) ================= -->
+    <div class="border-b border-gray-800/60 bg-[#060a14] py-2.5 text-xs font-mono">
+        <div class="max-w-[1440px] mx-auto px-4 lg:px-8 flex flex-wrap items-center justify-between gap-3 text-gray-400">
+            <div class="flex items-center gap-2">
+                <a href="index.html" class="hover:text-white transition">TRANG CHỦ</a>
+                <span>&gt;</span>
+                <span class="text-cyan-400 font-semibold">NOVAPAD KNOWLEDGE HUB &amp; HARDWARE DISPATCH</span>
+            </div>
+            <div class="flex items-center gap-4 text-[11px]">
+                <span class="text-cyan-400 bg-cyan-950/60 border border-cyan-800/60 px-2 py-0.5 rounded font-bold">
+                    TELEMETRY ONLINE: V4.8.2 LIVE
+                </span>
+                <span class="text-gray-500">CẬP NHẬT 15 PHÚT TRƯỚC</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= 2. TIÊU ĐỀ CHÍNH & HERO ARTICLE (Ảnh 17 & 22) ================= -->
+    <section class="max-w-[1440px] mx-auto px-4 lg:px-8 pt-8 pb-12">
+        <!-- Title & Subtitle -->
+        <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-8">
+            <div>
+                <span class="text-cyan-400 font-mono text-xs uppercase font-semibold block mb-1">TẠP CHÍ KỸ THUẬT &amp; TUYỂN THỦ</span>
+                <h1 class="text-4xl sm:text-5xl font-black text-white tracking-tight">
+                    Bản Tin <span class="text-cyan-400">NovaPad Hub</span>
+                </h1>
+            </div>
+            <p class="text-xs sm:text-sm text-gray-400 max-w-lg leading-relaxed">
+                Khám phá công nghệ cảm biến Hall Effect, tối ưu hóa độ trễ phản hồi và phân tích phần cứng chuyên sâu cho vận động viên eSports chuyên nghiệp.
+            </p>
+        </div>
+
+        <!-- HERO ARTICLE BOX (Ảnh 17 & 22) -->
+        <div class="bg-[#070b16] border border-gray-800 rounded-2xl overflow-hidden hover:border-cyan-500/40 transition">
+            <div class="grid grid-cols-1 lg:grid-cols-12">
+                
+                <!-- Cột trái ảnh minh họa & Thông số kỹ thuật ngầm -->
+                <div class="lg:col-span-6 bg-[#040711] p-6 lg:p-8 flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-gray-800 relative">
+                    <div class="flex items-center gap-2">
+                        <span class="bg-cyan-500/20 text-cyan-400 border border-cyan-500/30 text-[10px] font-mono font-bold px-2.5 py-0.5 rounded">
+                            PHÂN TÍCH PHẦN CỨNG
+                        </span>
+                        <span class="bg-gray-800 text-gray-300 text-[10px] font-mono px-2 py-0.5 rounded">
+                            DEEP DIVE #042
+                        </span>
+                    </div>
+
+                    <!-- Ảnh lớn controller -->
+                    <div class="my-8 flex items-center justify-center min-h-[260px]">
+                        <img src="https://images.unsplash.com/photo-1600080972464-8e5f35f63d08?w=700&auto=format&fit=crop&q=80" 
+                             alt="NovaPad Apex Pro Wireless Hall Effect Controller" 
+                             class="max-h-64 object-contain filter drop-shadow-[0_15px_30px_rgba(0,240,255,0.25)]">
+                    </div>
+
+                    <!-- 2 Thông số đáy ảnh -->
+                    <div class="flex items-center gap-8 text-xs font-mono pt-4 border-t border-gray-800/80">
+                        <div>
+                            <span class="text-[10px] text-gray-500 uppercase block">DRIFT FACTOR</span>
+                            <span class="text-cyan-400 font-bold text-base">0.000%</span>
+                        </div>
+                        <div>
+                            <span class="text-[10px] text-gray-500 uppercase block">SWITCH DURABILITY</span>
+                            <span class="text-white font-bold text-base">10M+ Clicks</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cột phải nội dung bài viết chính -->
+                <div class="lg:col-span-6 p-6 lg:p-10 flex flex-col justify-between space-y-6">
+                    <div>
+                        <!-- Meta: Thời gian đọc + Ngày đăng -->
+                        <div class="flex items-center justify-between text-xs font-mono text-gray-500 mb-3">
+                            <span class="text-cyan-400 flex items-center gap-1.5 font-semibold">
+                                <svg class="w-3.5 h-3.5 fill-none stroke-current" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                                7 PHÚT ĐỌC CHUYÊN SÂU
+                            </span>
+                            <span class="flex items-center gap-1">
+                                <svg class="w-3.5 h-3.5 fill-none stroke-current" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                                18/05/2025
+                            </span>
+                        </div>
+
+                        <!-- Tiêu đề bài viết -->
+                        <h2 class="text-2xl sm:text-3xl font-black text-white leading-snug hover:text-cyan-400 transition cursor-pointer">
+                            Tại Sao Cần Hall Effect Từ Tính Là Chuẩn Mực Bắt Buộc Của Game Thủ eSports 2025? Phân Tích Hiện Tượng Stick-Drift Và Giải Pháp Vĩnh Cửu.
+                        </h2>
+
+                        <!-- Trích dẫn mô tả -->
+                        <p class="text-xs sm:text-sm text-gray-400 mt-4 leading-relaxed">
+                            Khám phá sự khác biệt cơ học giữa chiết áp than truyền thống và cảm biến từ trường Hall Effect, nguyên lý vận hành điện từ không tiếp xúc và cách NovaPad loại bỏ hoàn toàn độ trôi sau 10 triệu chu kỳ nhấn ở giải đấu khắc nghiệt.
+                        </p>
+
+                        <!-- Telemetry Input Latency Bar -->
+                        <div class="mt-6 p-4 bg-[#040711] border border-gray-800 rounded-xl font-mono text-xs">
+                            <div class="flex justify-between text-[11px] mb-1.5">
+                                <span class="text-gray-400 uppercase">ĐỘ TRỄ PHẢN HỒI (INPUT LATENCY)</span>
+                                <span class="text-cyan-400 font-bold">0.42MS (HYPERSPEED 2.4G)</span>
+                            </div>
+                            <div class="w-full bg-gray-800 h-2 rounded-full overflow-hidden flex">
+                                <div class="bg-cyan-400 h-full w-[25%]"></div>
+                                <div class="bg-gray-700 h-full w-[75%]"></div>
+                            </div>
+                            <div class="flex justify-between text-[10px] text-gray-500 mt-1">
+                                <span>NovaPad Hall Pro (0.42ms)</span>
+                                <span>Standard Potentiometer (4.2ms)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Author Info & Button CTA -->
+                    <div class="pt-6 border-t border-gray-800 flex flex-wrap items-center justify-between gap-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-purple-950 border border-purple-500/40 text-purple-400 font-bold font-mono flex items-center justify-center text-xs">
+                                HN
+                            </div>
+                            <div>
+                                <span class="text-xs font-bold text-white flex items-center gap-1 font-mono">
+                                    HOÀNG NAM
+                                    <svg class="w-3.5 h-3.5 text-cyan-400 fill-current" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                                </span>
+                                <span class="text-[10px] text-gray-500 font-mono">Kỹ sư trưởng R&amp;D • NovaPad Lab</span>
+                            </div>
+                        </div>
+
+                        <a href="#" class="bg-cyan-400 hover:bg-cyan-300 text-black font-mono font-bold text-xs px-5 py-2.5 rounded-lg flex items-center gap-2 transition shadow-[0_0_15px_rgba(0,240,255,0.3)]">
+                            ĐỌC BÀI VIẾT &rarr;
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- DÃY TAB LỌC CHUYÊN MỤC (Ảnh 17 & 22) -->
+        <div class="flex items-center justify-between gap-3 overflow-x-auto pt-8 border-b border-gray-800/80 pb-3 font-mono text-xs whitespace-nowrap">
+            <div class="flex items-center gap-2">
+                <button class="bg-cyan-400 text-black font-bold px-3.5 py-1.5 rounded">TẤT CẢ BÀI VIẾT (48)</button>
+                <button class="bg-[#0b101c] hover:bg-gray-800 text-gray-300 px-3.5 py-1.5 rounded border border-gray-800 transition">ĐÁNH GIÁ PHẦN CỨNG</button>
+                <button class="bg-[#0b101c] hover:bg-gray-800 text-gray-300 px-3.5 py-1.5 rounded border border-gray-800 transition">HƯỚNG DẪN TINH CHỈNH (TUNING)</button>
+                <button class="bg-[#0b101c] hover:bg-gray-800 text-gray-300 px-3.5 py-1.5 rounded border border-gray-800 transition">BẢN CẬP NHẬT FIRMWARE NOVAOS</button>
+                <button class="bg-[#0b101c] hover:bg-gray-800 text-gray-300 px-3.5 py-1.5 rounded border border-gray-800 transition">GIẢI ĐẤU &amp; TUYỂN THỦ</button>
+                <button class="bg-[#0b101c] hover:bg-gray-800 text-gray-300 px-3.5 py-1.5 rounded border border-gray-800 transition">MẸO FPS/MOBA</button>
+            </div>
+            <span class="text-gray-500 text-[11px] hidden sm:block">SẮP XẾP</span>
+        </div>
+    </section>
+
+    <!-- ================= 3. NỘI DUNG CHÍNH: LƯỚI BÀI VIẾT & SIDEBAR (Ảnh 18 & 21) ================= -->
+    <main class="max-w-[1440px] mx-auto px-4 lg:px-8 pb-16">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            
+            <!-- CỘT TRÁI (8 CỘT): 6 BÀI VIẾT KỸ THUẬT (Ảnh 18 & 21) -->
+            <div class="lg:col-span-8 space-y-6">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <!-- Bài 1: Deadzone & Response Curve (Đã liên kết sang article-detail.html) -->
+                    <div class="bg-[#070b16] border border-gray-800 rounded-xl overflow-hidden hover:border-cyan-500/40 transition flex flex-col justify-between group">
+                        <div>
+                            <!-- 1. Bọc thẻ <a> quanh ảnh đại diện -->
+                            <a href="article-detail.html" class="block relative h-44 w-full overflow-hidden bg-black/60 cursor-pointer">
+                                <span class="absolute top-3 left-3 bg-cyan-950/80 border border-cyan-800/80 text-cyan-400 text-[10px] font-mono px-2 py-0.5 rounded z-10 font-bold">
+                                    TUNING GUIDE
+                                </span>
+                                <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?w=500&auto=format&fit=crop&q=60" 
+                                    alt="Deadzone Tuning" 
+                                    class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                            </a>
+
+                            <div class="p-5">
+                                <span class="text-[10px] font-mono text-gray-500 block mb-1">16/05/2025 • TINH CHỈNH IN-GAME</span>
+                                
+                                <!-- 2. Bọc thẻ <a> quanh tiêu đề bài viết -->
+                                <a href="article-detail.html" class="text-white font-bold text-sm leading-snug hover:text-cyan-400 transition block">
+                                    Hướng dẫn tối ưu hóa Deadzone và Response Curve cho tựa game...
+                                </a>
+
+                                <p class="text-xs text-gray-400 mt-2 line-clamp-3 leading-relaxed">
+                                    Phân tích đường cong phản hồi Dynamic vs Linear. Cách thiết lập deadzone tiệm cận 0% với cảm biến Hall Effect mà không lo hiện tượng nháy tâm ngoài ý muốn.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="p-5 pt-3 border-t border-gray-800/80 flex items-center justify-between text-[11px] font-mono">
+                            <span class="text-gray-500 flex items-center gap-1">
+                                <svg class="w-3.5 h-3.5 fill-none stroke-current" stroke-width="2" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                                4.2k lượt xem
+                            </span>
+
+                            <!-- 3. Gắn link vào nút Đọc Bài Viết -->
+                            <a href="article-detail.html" class="text-cyan-400 hover:underline flex items-center gap-1">
+                                Đọc Bài Viết &rarr;
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Bài 2: Firmware NovaOS v4.8.2 -->
+                    <div class="bg-[#070b16] border border-gray-800 rounded-xl overflow-hidden hover:border-cyan-500/40 transition flex flex-col justify-between group">
+                        <div>
+                            <div class="relative h-44 w-full overflow-hidden bg-black/60">
+                                <span class="absolute top-3 left-3 bg-purple-950/80 border border-purple-800/80 text-purple-400 text-[10px] font-mono px-2 py-0.5 rounded z-10 font-bold">FIRMWARE UPDATE</span>
+                                <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=500&auto=format&fit=crop&q=60" alt="Firmware NovaOS" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                            </div>
+                            <div class="p-5">
+                                <span class="text-[10px] font-mono text-gray-500 block mb-1">11/05/2025 • BẢN VẼ HỆ THỐNG</span>
+                                <h3 class="text-white font-bold text-sm leading-snug hover:text-cyan-400 transition cursor-pointer">
+                                    Firmware NovaOS v4.8.2 phát hành: Mở khóa Polling Rate...
+                                </h3>
+                                <p class="text-xs text-gray-400 mt-2 line-clamp-3 leading-relaxed">
+                                    Nâng cấp thuật toán lọc nhiễu RF băng tần 2.4GHz. Giảm jitter tín hiệu xuống mức 0.1ms và hỗ trợ lưu 5 cấu hình RGB độc lập trên bộ nhớ tay cầm.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="p-5 pt-3 border-t border-gray-800/80 flex items-center justify-between text-[11px] font-mono">
+                            <span class="text-gray-500 flex items-center gap-1">⬇ 8.9k lượt tải</span>
+                            <a href="#" class="text-cyan-400 hover:underline">Đọc Bài Viết &rarr;</a>
+                        </div>
+                    </div>
+
+                    <!-- Bài 3: So sánh Cò Quang Học vs Cò Cơ Khí -->
+                    <div class="bg-[#070b16] border border-gray-800 rounded-xl overflow-hidden hover:border-cyan-500/40 transition flex flex-col justify-between group">
+                        <div>
+                            <div class="relative h-44 w-full overflow-hidden bg-black/60">
+                                <span class="absolute top-3 left-3 bg-cyan-950/80 border border-cyan-800/80 text-cyan-400 text-[10px] font-mono px-2 py-0.5 rounded z-10 font-bold">BENCHMARK LAB</span>
+                                <img src="https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?w=500&auto=format&fit=crop&q=60" alt="Optical Trigger vs Mechanical" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                            </div>
+                            <div class="p-5">
+                                <span class="text-[10px] font-mono text-gray-500 block mb-1">11/05/2025 • BENCHMARK LAB</span>
+                                <h3 class="text-white font-bold text-sm leading-snug hover:text-cyan-400 transition cursor-pointer">
+                                    So sánh Cò Quang Học (Optical Switch) vs Cò Cơ Khí Truyền...
+                                </h3>
+                                <p class="text-xs text-gray-400 mt-2 line-clamp-3 leading-relaxed">
+                                    Thử nghiệm xung nhịp bấm cò qua máy đo quang học chuyên dụng. Khám phá cách loại bỏ Debounce Delay tạo ưu thế quyết định trong các pha đấu súng góc hẹp.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="p-5 pt-3 border-t border-gray-800/80 flex items-center justify-between text-[11px] font-mono">
+                            <span class="text-gray-500 flex items-center gap-1">👁 3.1k lượt xem</span>
+                            <a href="#" class="text-cyan-400 hover:underline">Đọc Bài Viết &rarr;</a>
+                        </div>
+                    </div>
+
+                    <!-- Bài 4: Chiến thuật 4 Phím Macro Lưng M1-M4 -->
+                    <div class="bg-[#070b16] border border-gray-800 rounded-xl overflow-hidden hover:border-cyan-500/40 transition flex flex-col justify-between group">
+                        <div>
+                            <div class="relative h-44 w-full overflow-hidden bg-black/60">
+                                <span class="absolute top-3 left-3 bg-purple-950/80 border border-purple-800/80 text-purple-400 text-[10px] font-mono px-2 py-0.5 rounded z-10 font-bold">PRO TIPS</span>
+                                <img src="https://images.unsplash.com/photo-1629429408209-1f912961dbd8?w=500&auto=format&fit=crop&q=60" alt="Rear Paddles Strategy" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                            </div>
+                            <div class="p-5">
+                                <span class="text-[10px] font-mono text-gray-500 block mb-1">08/05/2025 • KỸ THUẬT DI CHUYỂN</span>
+                                <h3 class="text-white font-bold text-sm leading-snug hover:text-cyan-400 transition cursor-pointer">
+                                    Chiến thuật gán 4 Macro lưng M1-M4: Bí kíp di chuyển Bunny Hop...
+                                </h3>
+                                <p class="text-xs text-gray-400 mt-2 line-clamp-3 leading-relaxed">
+                                    Không bao giờ phải nhấc ngón tay khỏi cần ngắm. Hướng dẫn gán nút chuyển tư thế nằm, nhảy và nạp đạn tức thì giúp làm chủ mọi tình huống 1v3.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="p-5 pt-3 border-t border-gray-800/80 flex items-center justify-between text-[11px] font-mono">
+                            <span class="text-gray-500 flex items-center gap-1">👁 5.6k lượt xem</span>
+                            <a href="#" class="text-cyan-400 hover:underline">Đọc Bài Viết &rarr;</a>
+                        </div>
+                    </div>
+
+                    <!-- Bài 5: Cyber League Finals 2025 -->
+                    <div class="bg-[#070b16] border border-gray-800 rounded-xl overflow-hidden hover:border-cyan-500/40 transition flex flex-col justify-between group">
+                        <div>
+                            <div class="relative h-44 w-full overflow-hidden bg-black/60">
+                                <span class="absolute top-3 left-3 bg-cyan-950/80 border border-cyan-800/80 text-cyan-400 text-[10px] font-mono px-2 py-0.5 rounded z-10 font-bold">ESPORTS NEWS</span>
+                                <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?w=500&auto=format&fit=crop&q=60" alt="Cyber League Finals" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                            </div>
+                            <div class="p-5">
+                                <span class="text-[10px] font-mono text-gray-500 block mb-1">04/05/2025 • GIẢI ĐẤU QUỐC TẾ</span>
+                                <h3 class="text-white font-bold text-sm leading-snug hover:text-cyan-400 transition cursor-pointer">
+                                    NovaPad đồng hành cùng Giải Vô Địch Cyber League Finals 2025:...
+                                </h3>
+                                <p class="text-xs text-gray-400 mt-2 line-clamp-3 leading-relaxed">
+                                    Hơn 16 đội tuyển hàng đầu thế giới chính thức sử dụng mẫu tay cầm NovaPad CyberStrike Pro được chứng nhận độ trễ zero-variance bởi ban tổ chức.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="p-5 pt-3 border-t border-gray-800/80 flex items-center justify-between text-[11px] font-mono">
+                            <span class="text-gray-500 flex items-center gap-1">🏆 Đối Tác eSports</span>
+                            <a href="#" class="text-cyan-400 hover:underline">Đọc Bài Viết &rarr;</a>
+                        </div>
+                    </div>
+
+                    <!-- Bài 6: Cách bảo quản & thay thế nắp cần -->
+                    <div class="bg-[#070b16] border border-gray-800 rounded-xl overflow-hidden hover:border-cyan-500/40 transition flex flex-col justify-between group">
+                        <div>
+                            <div class="relative h-44 w-full overflow-hidden bg-black/60">
+                                <span class="absolute top-3 left-3 bg-gray-800 border border-gray-700 text-gray-300 text-[10px] font-mono px-2 py-0.5 rounded z-10 font-bold">BẢO TRÌ &amp; MODDING</span>
+                                <img src="https://images.unsplash.com/photo-1585060544812-6b45742d762f?w=500&auto=format&fit=crop&q=60" alt="Maintenance" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                            </div>
+                            <div class="p-5">
+                                <span class="text-[10px] font-mono text-gray-500 block mb-1">01/05/2025 • CẨM NANG PHẦN CỨNG</span>
+                                <h3 class="text-white font-bold text-sm leading-snug hover:text-cyan-400 transition cursor-pointer">
+                                    Cách bảo quản và thay thế nắp cần cao su Thumbstick Quick-swap...
+                                </h3>
+                                <p class="text-xs text-gray-400 mt-2 line-clamp-3 leading-relaxed">
+                                    Quy trình tháo lắp chốt từ tính không gây xước viền gimbal, hướng dẫn vệ sinh vòng đệm chống ma sát Anti-Friction Ring nhằm duy trì độ lướt siêu êm.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="p-5 pt-3 border-t border-gray-800/80 flex items-center justify-between text-[11px] font-mono">
+                            <span class="text-gray-500 flex items-center gap-1">🔧 Bảo trì định kỳ</span>
+                            <a href="#" class="text-cyan-400 hover:underline">Đọc Bài Viết &rarr;</a>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Phân trang Pagination (Ảnh 18 & 21) -->
+                <div class="pt-6 flex items-center justify-between font-mono text-xs border-t border-gray-800/80">
+                    <button class="px-3 py-1.5 rounded bg-[#0b101c] border border-gray-800 text-gray-500 hover:text-white transition flex items-center gap-1">
+                        &larr; TRANG TRƯỚC
+                    </button>
+                    <div class="flex items-center gap-1.5">
+                        <button class="w-8 h-8 rounded bg-cyan-400 text-black font-bold flex items-center justify-center">1</button>
+                        <button class="w-8 h-8 rounded bg-[#0b101c] border border-gray-800 text-gray-300 hover:text-white flex items-center justify-center">2</button>
+                        <button class="w-8 h-8 rounded bg-[#0b101c] border border-gray-800 text-gray-300 hover:text-white flex items-center justify-center">3</button>
+                        <span class="text-gray-600 px-1">...</span>
+                        <button class="w-8 h-8 rounded bg-[#0b101c] border border-gray-800 text-gray-300 hover:text-white flex items-center justify-center">8</button>
+                    </div>
+                    <button class="px-3 py-1.5 rounded bg-[#0b101c] border border-gray-800 text-gray-300 hover:text-white transition flex items-center gap-1">
+                        TRANG KẾ &rarr;
+                    </button>
+                </div>
+            </div>
+
+            <!-- CỘT PHẢI (4 CỘT): SIDEBAR TIỆN ÍCH & TOP BÀI ĐỌC NHIỀU (Ảnh 18 & 21) -->
+            <div class="lg:col-span-4 space-y-6">
+                
+                <!-- Box 1: Đọc Nhiều Trong Tuần (Top 5) -->
+                <div class="bg-[#070b16] border border-gray-800 rounded-2xl p-6 space-y-4">
+                    <div class="flex items-center justify-between border-b border-gray-800 pb-3 font-mono">
+                        <h3 class="text-sm font-bold text-white uppercase flex items-center gap-2">
+                            <span class="text-cyan-400">~</span> Đọc Nhiều Trong Tuần
+                        </h3>
+                        <span class="text-[10px] text-cyan-400 bg-cyan-950/60 px-2 py-0.5 rounded font-bold">TOP 5</span>
+                    </div>
+
+                    <div class="space-y-4 text-xs">
+                        <div class="flex items-start gap-3">
+                            <span class="text-cyan-400 font-mono font-bold text-sm">01</span>
+                            <div>
+                                <a href="#" class="text-white font-medium hover:text-cyan-400 transition leading-snug block">Giải mã sự khác biệt cảm biến TMR và Hall Effect: Liệu có đáng nâng cấp?</a>
+                                <span class="text-[10px] text-gray-500 font-mono mt-1 block">14.2k lượt đọc • 8 phút trước</span>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3">
+                            <span class="text-gray-500 font-mono font-bold text-sm">02</span>
+                            <div>
+                                <a href="#" class="text-white font-medium hover:text-cyan-400 transition leading-snug block">Cấu hình độ nhạy Aim Assist chuẩn thi đấu ALGS Championship cho NovaPad</a>
+                                <span class="text-[10px] text-gray-500 font-mono mt-1 block">11.8k lượt đọc • Pro Guide</span>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3">
+                            <span class="text-gray-500 font-mono font-bold text-sm">03</span>
+                            <div>
+                                <a href="#" class="text-white font-medium hover:text-cyan-400 transition leading-snug block">Lực cản lò xo Thumbstick: 40g và 60g ảnh hưởng thế nào đến độ chuẩn xác?</a>
+                                <span class="text-[10px] text-gray-500 font-mono mt-1 block">9.4k lượt đọc • Lab Test</span>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3">
+                            <span class="text-gray-500 font-mono font-bold text-sm">04</span>
+                            <div>
+                                <a href="#" class="text-white font-medium hover:text-cyan-400 transition leading-snug block">Cách thiết lập Quick Trigger Stop khóa hành trình cò súng 1.2mm</a>
+                                <span class="text-[10px] text-gray-500 font-mono mt-1 block">7.6k lượt đọc • Tips &amp; Tricks</span>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3">
+                            <span class="text-gray-500 font-mono font-bold text-sm">05</span>
+                            <div>
+                                <a href="#" class="text-white font-medium hover:text-cyan-400 transition leading-snug block">Tại sao kết nối có dây USB Type-C mạ vàng vẫn là lựa chọn số 1 trên sàn đấu...</a>
+                                <span class="text-[10px] text-gray-500 font-mono mt-1 block">6.1k lượt đọc • Hardware Logic</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Box 2: Trạm Firmware NovaOS Control Suite v4.8.2 -->
+                <div class="bg-[#070b16] border border-cyan-500/30 rounded-2xl p-6 space-y-4">
+                    <div class="flex items-center gap-2 text-[10px] font-mono text-cyan-400 uppercase font-semibold">
+                        <svg class="w-4 h-4 fill-none stroke-current" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                        TRẠM FIRMWARE NOVAOS
+                    </div>
+                    <h4 class="text-white font-bold text-base font-mono">NovaOS Control Suite v4.8.2</h4>
+                    <p class="text-xs text-gray-400 leading-relaxed">
+                        Mở khóa cấu hình Polling 2000Hz, tùy biến deadzone từng milimet, tinh chỉnh macro 4 phím lưng và cân chỉnh LED RGB Aura.
+                    </p>
+                    <div class="space-y-1 text-[11px] font-mono text-gray-500">
+                        <div>Hệ điều hành tương thích: <span class="text-gray-300">Windows 11 / 10 / SteamOS</span></div>
+                        <div>Dung lượng bộ cài: <span class="text-gray-300">168.4 MB (SHA-256 Verified)</span></div>
+                    </div>
+                    <a href="#" class="w-full bg-cyan-400 hover:bg-cyan-300 text-black font-bold font-mono text-xs py-3 rounded-lg flex items-center justify-center gap-2 transition">
+                        <svg class="w-4 h-4 fill-none stroke-current" stroke-width="2.5" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                        TẢI BỘ DRIVER WINDOWS (.EXE)
+                    </a>
+                    <a href="#" class="text-[10px] font-mono text-gray-500 hover:text-cyan-400 text-center block">
+                        XEM NHẬT KÝ THAY ĐỔI (CHANGELOG V4.8.2) &rarr;
+                    </a>
+                </div>
+
+                <!-- Box 3: Bản Tin Dispatch eSports -->
+                <div class="bg-[#070b16] border border-gray-800 rounded-2xl p-6 space-y-3">
+                    <div class="w-8 h-8 rounded bg-purple-950/60 border border-purple-800 text-purple-400 flex items-center justify-center">
+                        <svg class="w-4 h-4 fill-none stroke-current" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                    </div>
+                    <h4 class="text-white font-bold text-sm uppercase font-mono">Bản Tin Dispatch eSports</h4>
+                    <p class="text-xs text-gray-400 leading-relaxed">
+                        Nhận tài liệu phân tích kỹ thuật độc quyền, thông báo đợt mở bán tay cầm phiên bản giới hạn và cấu hình preset của các tuyển thủ pro mỗi thứ Hai.
+                    </p>
+                    <div class="space-y-2 pt-1">
+                        <input type="email" placeholder="nhap-email@tuyen-thu.vn" class="w-full bg-[#040711] border border-gray-800 text-xs text-gray-200 px-3 py-2.5 rounded-lg focus:outline-none focus:border-cyan-400 font-mono">
+                        <button class="w-full bg-gray-800 hover:bg-gray-700 text-cyan-400 font-bold font-mono text-xs py-2.5 rounded-lg transition">
+                            ĐĂNG KÝ NGAY &gt;
+                        </button>
+                    </div>
+                    <span class="text-[10px] text-gray-600 font-mono block text-center">Không spam rác. Hủy đăng ký bất kỳ lúc nào với 1 chạm.</span>
+                </div>
+
+                <!-- Box 4: NovaPad Lab - Bạn Có Câu Hỏi Phần Cứng? -->
+                <div class="p-5 bg-[#070b16] border border-gray-800 rounded-2xl flex items-start gap-3">
+                    <div class="w-10 h-10 rounded-lg bg-cyan-950/60 border border-cyan-500/40 text-cyan-400 flex items-center justify-center shrink-0">
+                        <svg class="w-5 h-5 fill-none stroke-current" stroke-width="2" viewBox="0 0 24 24"><path d="M10 2v7.31L4.62 18.2A2 2 0 0 0 6.32 21h11.36a2 2 0 0 0 1.7-2.8L14 9.31V2"></path><line x1="8" y1="2" x2="16" y2="2"></line></svg>
+                    </div>
+                    <div class="space-y-1">
+                        <span class="text-[9px] text-cyan-400 font-mono uppercase block font-semibold">NOVAPAD LAB</span>
+                        <h5 class="text-white font-bold text-xs">Bạn Có Câu Hỏi Phần Cứng?</h5>
+                        <p class="text-[11px] text-gray-400 leading-snug">Gửi câu hỏi về cơ chế stick, jitter hoặc độ nhạy để đội ngũ kỹ sư phân tích trong số Dispatch kế tiếp.</p>
+                        <a href="#" class="text-[11px] font-mono text-cyan-400 hover:underline block pt-1">GỬI THẮC MẮC KỸ THUẬT &rarr;</a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </main>
+
+    <!-- ================= 4. TỪ ĐIỂN PHẦN CỨNG TAY CẦM ESPORTS (Ảnh 19 & 20) ================= -->
+    <section class="max-w-[1440px] mx-auto px-4 lg:px-8 pb-12">
+        <div class="p-6 bg-[#070b16] border border-cyan-500/30 rounded-2xl flex flex-col md:flex-row md:items-center justify-between gap-4">
+            <div class="flex items-center gap-4">
+                <div class="w-12 h-12 rounded-xl bg-cyan-950/60 border border-cyan-500/40 text-cyan-400 flex items-center justify-center shrink-0">
+                    <svg class="w-6 h-6 fill-none stroke-current" stroke-width="2" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold text-white font-mono">Từ Điển Phần Cứng Tay Cầm eSports</h3>
+                    <p class="text-xs text-gray-400 mt-0.5">Tra cứu thuật ngữ: Hall Effect, Polling Rate, Jitter, Debounce Delay, Anti-Friction Ring, TMR Sensors.</p>
+                </div>
+            </div>
+            <a href="#" class="inline-flex items-center gap-2 bg-gray-800 hover:bg-gray-700 text-gray-200 border border-gray-700 px-4 py-2.5 rounded-lg text-xs font-mono font-bold transition whitespace-nowrap">
+                MỞ TỪ ĐIỂN THUẬT NGỮ
+                <svg class="w-3.5 h-3.5 fill-none stroke-current" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- ================= 5. CAM KẾT DỊCH VỤ 4 Ô & FOOTER (Ảnh 19 & 20) ================= -->
+    <section class="border-t border-gray-800/80 bg-[#040711] py-10">
+        <div class="max-w-[1440px] mx-auto px-4 lg:px-8">
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 text-xs">
+                <div class="flex items-center gap-3">
+                    <svg class="w-6 h-6 text-cyan-400 shrink-0 fill-none stroke-current" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                    <div>
+                        <div class="font-bold text-white uppercase">100% CHÍNH HÃNG</div>
+                        <div class="text-[11px] text-gray-500">Bảo hành điện tử 24 tháng</div>
+                    </div>
+                </div>
+                <div class="flex items-center gap-3">
+                    <svg class="w-6 h-6 text-cyan-400 shrink-0 fill-none stroke-current" stroke-width="2" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                    <div>
+                        <div class="font-bold text-white uppercase">HỎA TỐC 2H</div>
+                        <div class="text-[11px] text-gray-500">Nội thành HN &amp; TP.HCM</div>
+                    </div>
+                </div>
+                <div class="flex items-center gap-3">
+                    <svg class="w-6 h-6 text-cyan-400 shrink-0 fill-none stroke-current" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M8 12h8"></path><path d="M12 8v8"></path></svg>
+                    <div>
+                        <div class="font-bold text-white uppercase">ESPORTS GRADE</div>
+                        <div class="text-[11px] text-gray-500">Hall Effect &amp; 1000Hz Polling</div>
+                    </div>
+                </div>
+                <div class="flex items-center gap-3">
+                    <svg class="w-6 h-6 text-cyan-400 shrink-0 fill-none stroke-current" stroke-width="2" viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"></path><path d="M21 3v5h-5"></path><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"></path><path d="M8 16H3v5"></path></svg>
+                    <div>
+                        <div class="font-bold text-white uppercase">1 ĐỔI 1 TRONG 30 NGÀY</div>
+                        <div class="text-[11px] text-gray-500">Lỗi nhà sản xuất lập tức đổi</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER ĐỒNG BỘ -->
+    <footer class="bg-[#02050b] text-gray-400 text-xs py-14">
+        <div class="max-w-[1440px] mx-auto px-4 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-gray-800">
+                <div class="lg:col-span-2 space-y-4">
+                    <h3 class="text-white text-xl font-black tracking-wider">NOVAPAD STORE</h3>
+                    <p class="text-xs text-gray-400 leading-relaxed max-w-sm">
+                        Hệ sinh thái tay cầm cơ học và thiết bị ngoại vi hiệu năng cao chuẩn thi đấu Esports. Thiết kế chuẩn công thái học kết hợp công nghệ điều khiển tối tân.
+                    </p>
+                    <div class="pt-2">
+                        <span class="block text-[10px] text-gray-500 font-mono uppercase mb-2">ĐĂNG KÝ NHẬN BẢN TIN DISPATCH</span>
+                        <div class="flex max-w-sm">
+                            <input type="email" placeholder="nhap-email@esports.pro" class="bg-[#0a101d] border border-gray-800 text-xs text-gray-300 px-3 py-2 rounded-l w-full focus:outline-none focus:border-cyan-400 font-mono">
+                            <button class="bg-cyan-400 text-black font-bold px-4 py-2 rounded-r hover:bg-cyan-300 transition text-[11px]">THAM GIA</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold font-mono uppercase mb-4">SẢN PHẨM</h4>
+                    <ul class="space-y-2.5">
+                        <li><a href="products.html" class="hover:text-cyan-400 transition">NovaPad Apex Pro</a></li>
+                        <li><a href="products.html" class="hover:text-cyan-400 transition">NovaPad CyberStrike</a></li>
+                        <li><a href="products.html" class="hover:text-cyan-400 transition">Tactical Pro Suite</a></li>
+                        <li><a href="products.html" class="hover:text-cyan-400 transition">Phụ Kiện Gaming</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold font-mono uppercase mb-4">NỘI DUNG &amp; TIN TỨC</h4>
+                    <ul class="space-y-2.5">
+                        <li><a href="news.html" class="text-cyan-400 transition">Tin Tức Esports &amp; Hardware</a></li>
+                        <li><a href="news.html" class="hover:text-cyan-400 transition">Cẩm Nang Custom Gamepad</a></li>
+                        <li><a href="news.html" class="hover:text-cyan-400 transition">Review Đánh Giá Độc Quyền</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold font-mono uppercase mb-4">HỖ TRỢ &amp; DỊCH VỤ</h4>
+                    <ul class="space-y-2.5">
+                        <li><a href="#" class="hover:text-cyan-400 transition">Trung Tâm Hỗ Trợ Kỹ Thuật</a></li>
+                        <li><a href="#" class="hover:text-cyan-400 transition">Tra Cứu Bảo Hành Điện Tử</a></li>
+                        <li><a href="#" class="hover:text-cyan-400 transition">Tải Driver &amp; Firmware</a></li>
+                        <li><a href="#" class="hover:text-cyan-400 transition">Chính Sách Vận Chuyển</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="pt-6 flex flex-col sm:flex-row items-center justify-between text-[11px] text-gray-500 gap-4">
+                <p>&copy; 2025 NovaPad Gaming Gear. All rights reserved. Designed for precision &amp; overdrive.</p>
+                <div class="flex items-center gap-6">
+                    <a href="#" class="hover:text-gray-400 transition">Điều Khoản Sử Dụng</a>
+                    <a href="#" class="hover:text-gray-400 transition">Bảo Mật Thông Tin</a>
+                    <a href="#" class="hover:text-gray-400 transition">Tiêu Chuẩn Esports</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script MVC ES5 Cập nhật giỏ hàng trên Header -->
+    <script src="app/models/Cart.js"></script>
+    <script>
+        window.onload = function() {
+            if (typeof CartModel !== "undefined") {
+                var count = CartModel.getTotalCount();
+                var totalAmount = CartModel.getTotalAmount();
+                var badge = document.getElementById("header-cart-badge");
+                var totalText = document.getElementById("header-cart-total");
+                if (badge) badge.innerText = count;
+                if (totalText) totalText.innerText = "$" + totalAmount;
+            }
+        };
+    </script>
+</body>
+</html>
