@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thanh Toán Đơn Hàng - NOVAPAD ESPORTS</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: '#00F0FF',
+                        darkBg: '#040812'
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body class="bg-[#030610] text-gray-200 antialiased overflow-x-hidden font-sans">
+
+    <!-- Toast thông báo -->
+    <div id="cart-toast" class="fixed bottom-6 right-6 bg-cyan-400 text-black font-semibold px-5 py-3 rounded-lg shadow-2xl transition duration-300 transform translate-y-10 opacity-0 pointer-events-none z-50 flex items-center gap-2"></div>
+
+    <!-- ================= HEADER ĐỒNG BỘ ================= -->
+    <header class="border-b border-gray-800/80 bg-[#040812]/95 backdrop-blur sticky top-0 z-50">
+        <div class="max-w-[1440px] mx-auto px-4 lg:px-8 h-20 flex items-center justify-between gap-4">
+            <div class="flex items-center gap-8 shrink-0">
+                <a href="index.html" class="flex items-center shrink-0">
+                    <span class="text-2xl font-black tracking-widest text-white hover:text-cyan-400 transition">NOVAPAD</span>
+                </a>
+               
+                <!-- Menu Điều Hướng: Khóa cứng 1 dòng, không bao giờ vỡ layout -->
+                <nav class="hidden lg:flex items-center space-x-6 text-[11px] xl:text-xs font-mono font-bold tracking-wider whitespace-nowrap shrink-0">
+                    <a href="index.html" class="text-cyan-400 border-b-2 border-cyan-400 py-1 inline-block">TRANG CHỦ</a>
+                    <a href="products.html" class="text-gray-300 hover:text-cyan-400 transition py-1 inline-block border-b-2 border-transparent">CATALOG / TAY CẦM</a>
+                    <a href="news.html" class="text-gray-300 hover:text-cyan-400 transition py-1 inline-block border-b-2 border-transparent">BẢN TIN HUB</a>
+                    <a href="#" class="text-gray-300 hover:text-cyan-400 transition py-1 inline-block border-b-2 border-transparent">HỖ TRỢ</a>
+                </nav>
+            </div>
+
+            <div class="flex items-center gap-3 shrink-0">
+                <div class="hidden sm:flex items-center gap-2 text-xs font-mono border border-cyan-500/30 bg-cyan-950/20 text-cyan-400 px-3.5 h-9 rounded">
+                    <svg class="w-3.5 h-3.5 fill-none stroke-current" stroke-width="2" viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+                    PROFILE: PRO-V2
+                </div>
+                <a href="cart.html" class="inline-flex items-center gap-2.5 bg-[#0a101d] border border-gray-800 px-3 h-9 rounded hover:border-cyan-400 transition shrink-0">
+                    <div class="relative flex items-center">
+                        <svg class="w-4 h-4 text-cyan-400 fill-none stroke-current" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                        </svg>
+                        <span id="header-cart-badge" class="absolute -top-2 -right-2 bg-cyan-400 text-black text-[9px] font-bold rounded-full w-4 h-4 flex items-center justify-center">0</span>
+                    </div>
+                    <span id="header-cart-total" class="font-mono text-xs font-semibold text-white whitespace-nowrap">$0.00</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ================= MAIN CHECKOUT CONTENT (Ảnh 15 & 16) ================= -->
+    <main class="max-w-[1440px] mx-auto px-4 lg:px-8 py-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            
+            <!-- CỘT TRÁI (8 CỘT): DANH SÁCH MÓN HÀNG, TỌA ĐỘ VẬN CHUYỂN & CỔNG THANH TOÁN -->
+            <div class="lg:col-span-8 space-y-8">
+                
+                <!-- KHỐI 1: CHI TIẾT THIẾT BỊ GIỎ HÀNG (Ảnh 15) -->
+                <section class="bg-[#070b16] border border-gray-800 rounded-2xl overflow-hidden">
+                    <div class="p-5 border-b border-gray-800 flex items-center justify-between">
+                        <h2 class="text-base font-bold text-white uppercase font-mono flex items-center gap-2.5">
+                            <svg class="w-5 h-5 text-cyan-400 fill-none stroke-current" stroke-width="2" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                            </svg>
+                            CHI TIẾT THIẾT BỊ GIỎ HÀNG
+                        </h2>
+                        <span class="text-[10px] font-mono bg-cyan-950/60 border border-cyan-800/80 text-cyan-300 px-2.5 py-1 rounded">
+                            2 KIỆN HÀNG SẴN SÀNG
+                        </span>
+                    </div>
+
+                    <!-- Danh sách item đổ động từ Controller (hoặc dữ liệu mặc định Ảnh 15) -->
+                    <div id="checkout-items-list" class="divide-y divide-gray-800/60"></div>
+                </section>
+
+                <!-- KHỐI 2: 02. TỌA ĐỘ NHẬN HÀNG & TELEMETRY (Ảnh 15) -->
+                <section class="bg-[#070b16] border border-gray-800 rounded-2xl p-6 space-y-4">
+                    <div class="flex items-center justify-between border-b border-gray-800 pb-3">
+                        <h2 class="text-base font-bold text-white uppercase font-mono flex items-center gap-2">
+                            <svg class="w-5 h-5 text-cyan-400 fill-none stroke-current" stroke-width="2" viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+                            02. TỌA ĐỘ NHẬN HÀNG &amp; TELEMETRY
+                        </h2>
+                        <span class="text-[11px] font-mono text-cyan-400 flex items-center gap-1.5">
+                            <span class="w-2 h-2 rounded-full bg-cyan-400 inline-block animate-ping"></span>
+                            Live Tracking
+                        </span>
+                    </div>
+
+                    <!-- Row 1: Họ tên + SĐT -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="text-[11px] font-mono text-gray-400 block mb-1">HỌ VÀ TÊN GAME THỦ *</label>
+                            <div class="relative">
+                                <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-500">
+                                    <svg class="w-4 h-4 fill-none stroke-current" stroke-width="2" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                                </span>
+                                <input type="text" id="input-fullname" value="Nguyễn Hoàng Minh (CyberStriker)" class="w-full bg-[#040711] border border-gray-800 text-xs text-gray-200 pl-9 pr-3 py-2.5 rounded-lg focus:outline-none focus:border-cyan-400 font-mono">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="text-[11px] font-mono text-gray-400 block mb-1">SỐ ĐIỆN THOẠI LIÊN LẠC *</label>
+                            <div class="relative">
+                                <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-500">
+                                    <svg class="w-4 h-4 fill-none stroke-current" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                                </span>
+                                <input type="text" id="input-phone" value="0988 776 554" class="w-full bg-[#040711] border border-gray-800 text-xs text-gray-200 pl-9 pr-3 py-2.5 rounded-lg focus:outline-none focus:border-cyan-400 font-mono">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Row 2: Email kích hoạt Firmware -->
+                    <div>
+                        <label class="text-[11px] font-mono text-gray-400 block mb-1">EMAIL NHẬN MÃ KÍCH HOẠT FIRMWARE &amp; TELEMETRY VẬN CHUYỂN *</label>
+                        <div class="relative">
+                            <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-500">
+                                <svg class="w-4 h-4 fill-none stroke-current" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                            </span>
+                            <input type="email" id="input-email" value="minh.esports@novapad.gg" class="w-full bg-[#040711] border border-gray-800 text-xs text-gray-200 pl-9 pr-3 py-2.5 rounded-lg focus:outline-none focus:border-cyan-400 font-mono">
+                        </div>
+                    </div>
+
+                    <!-- Row 3: Tỉnh/Thành phố & Quận/Huyện -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="text-[11px] font-mono text-gray-400 block mb-1">TỈNH / THÀNH PHỐ *</label>
+                            <select class="w-full bg-[#040711] border border-gray-800 text-xs text-gray-200 px-3 py-2.5 rounded-lg focus:outline-none focus:border-cyan-400 font-mono">
+                                <option selected>Hà Nội</option>
+                                <option>TP. Hồ Chí Minh</option>
+                                <option>Đà Nẵng</option>
+                                <option>Cần Thơ</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="text-[11px] font-mono text-gray-400 block mb-1">QUẬN / HUYỆN *</label>
+                            <select class="w-full bg-[#040711] border border-gray-800 text-xs text-gray-200 px-3 py-2.5 rounded-lg focus:outline-none focus:border-cyan-400 font-mono">
+                                <option selected>Quận Cầu Giấy</option>
+                                <option>Quận Ba Đình</option>
+                                <option>Quận Đống Đa</option>
+                                <option>Quận Ninh Kiều</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Row 4: Địa chỉ chi tiết -->
+                    <div>
+                        <label class="text-[11px] font-mono text-gray-400 block mb-1">ĐỊA CHỈ CHI TIẾT (SỐ NHÀ, TÒA NHÀ, GAMING PHÒNG) *</label>
+                        <div class="relative">
+                            <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-500">
+                                <svg class="w-4 h-4 fill-none stroke-current" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                            </span>
+                            <input type="text" id="input-address" value="Phòng 1402, Tòa Tháp CyberPark, Phố Duy Tân" class="w-full bg-[#040711] border border-gray-800 text-xs text-gray-200 pl-9 pr-3 py-2.5 rounded-lg focus:outline-none focus:border-cyan-400 font-mono">
+                        </div>
+                    </div>
+
+                    <!-- Row 5: Ghi chú tác chiến cho Shippers -->
+                    <div>
+                        <label class="text-[11px] font-mono text-gray-400 block mb-1">GHI CHÚ TÁC CHIẾN CHO SHIPPERS</label>
+                        <input type="text" placeholder="Ví dụ: Gọi trước khi giao 15 phút, đang trong trận xếp hạng không nghe máy đột xuất..." class="w-full bg-[#040711] border border-gray-800 text-xs text-gray-400 px-3 py-2.5 rounded-lg focus:outline-none focus:border-cyan-400 font-mono">
+                    </div>
+                </section>
+
+                <!-- KHỐI PHƯƠNG THỨC VẬN CHUYỂN (Ảnh 15) -->
+                <section class="bg-[#070b16] border border-gray-800 rounded-2xl p-6">
+                    <h2 class="text-base font-bold text-white uppercase font-mono mb-4 flex items-center gap-2">
+                        <svg class="w-5 h-5 text-cyan-400 fill-none stroke-current" stroke-width="2" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                        PHƯƠNG THỨC VẬN CHUYỂN
+                    </h2>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <!-- Option 1: Giao tiêu chuẩn Toàn quốc -->
+                        <div onclick="selectShipping('standard', 0, this)" class="shipping-card p-4 rounded-xl border border-cyan-400 bg-cyan-950/20 cursor-pointer transition flex items-start gap-3 flex-1">
+                            <span class="w-3.5 h-3.5 rounded-full border-2 border-cyan-400 bg-cyan-400 mt-1 shrink-0"></span>
+                            <div class="space-y-1">
+                                <div class="flex items-center justify-between">
+                                    <span class="text-xs font-bold text-white font-mono">Giao Tiêu Chuẩn Toàn Quốc</span>
+                                    <span class="text-[11px] font-mono text-cyan-400 font-bold bg-cyan-950 px-2 py-0.5 rounded">MIỄN PHÍ</span>
+                                </div>
+                                <p class="text-[11px] text-gray-400">Đơn hàng đạt chuẩn &gt; $100. Giao hàng trong 48 - 72h có mã seal chống rách bóc.</p>
+                                <span class="text-[10px] text-gray-500 font-mono block">🛡 Đóng gói chống sốc 4 lớp</span>
+                            </div>
+                        </div>
+
+                        <!-- Option 2: Hỏa tốc 2H Nội thành -->
+                        <div onclick="selectShipping('express', 4.99, this)" class="shipping-card p-4 rounded-xl border border-gray-800 bg-[#080d18] cursor-pointer transition flex items-start gap-3 flex-1">
+                            <span class="w-3.5 h-3.5 rounded-full border-2 border-gray-600 mt-1 shrink-0"></span>
+                            <div class="space-y-1">
+                                <div class="flex items-center justify-between">
+                                    <span class="text-xs font-bold text-white font-mono">Hỏa Tốc 2H Nội Thành</span>
+                                    <span class="text-[11px] font-mono text-purple-400 font-bold">+$4.99</span>
+                                </div>
+                                <p class="text-[11px] text-gray-400">Vận chuyển ưu tiên tức thì qua đội xe cơ động tại HN &amp; TP.HCM.</p>
+                                <span class="text-[10px] text-gray-500 font-mono block">⏱ Cam kết trong 120 phút</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- KHỐI 3: 03. CỔNG THANH TOÁN MÃ HÓA 256-BIT (Ảnh 16) -->
+                <section class="bg-[#070b16] border border-gray-800 rounded-2xl p-6 space-y-5">
+                    <div class="flex items-center justify-between border-b border-gray-800 pb-3">
+                        <h2 class="text-base font-bold text-white uppercase font-mono flex items-center gap-2">
+                            <svg class="w-5 h-5 text-cyan-400 fill-none stroke-current" stroke-width="2" viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
+                            03. CỔNG THANH TOÁN MÃ HÓA 256-BIT
+                        </h2>
+                        <span class="text-[11px] font-mono text-gray-400 flex items-center gap-1.5">
+                            <svg class="w-3.5 h-3.5 text-cyan-400 fill-none stroke-current" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                            SSL SECURE
+                        </span>
+                    </div>
+
+                    <!-- 4 Tabs Cổng thanh toán -->
+                    <div class="flex flex-wrap sm:flex-nowrap gap-2 bg-[#040711] p-1.5 rounded-xl border border-gray-800">
+                        <button onclick="switchPaymentTab('card', this)" class="payment-tab-btn flex-1 py-3 text-xs font-mono font-semibold rounded-lg bg-[#0d1424] text-white border border-gray-700 shadow transition flex items-center justify-center gap-2">
+                            <svg class="w-4 h-4 text-cyan-400 fill-none stroke-current" stroke-width="2" viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
+                            Thẻ Quốc Tế
+                        </button>
+                        <button onclick="switchPaymentTab('momo', this)" class="payment-tab-btn flex-1 py-3 text-xs font-mono font-semibold rounded-lg text-gray-400 hover:text-white transition flex items-center justify-center gap-2">
+                            <svg class="w-4 h-4 fill-none stroke-current" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+                            Ví MoMo / VNPay
+                        </button>
+                        <button onclick="switchPaymentTab('bank', this)" class="payment-tab-btn flex-1 py-3 text-xs font-mono font-semibold rounded-lg text-gray-400 hover:text-white transition flex items-center justify-center gap-2">
+                            <svg class="w-4 h-4 fill-none stroke-current" stroke-width="2" viewBox="0 0 24 24"><polyline points="17 1 21 5 17 9"></polyline><path d="M3 11V9a4 4 0 0 1 4-4h14"></path><polyline points="7 23 3 19 7 15"></polyline><path d="M21 13v2a4 4 0 0 1-4 4H3"></path></svg>
+                            Chuyển Khoản 24/7
+                        </button>
+                        <button onclick="switchPaymentTab('cod', this)" class="payment-tab-btn flex-1 py-3 text-xs font-mono font-semibold rounded-lg text-gray-400 hover:text-white transition flex items-center justify-center gap-2">
+                            <svg class="w-4 h-4 fill-none stroke-current" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" rx="2"></rect><circle cx="12" cy="12" r="2"></circle></svg>
+                            Thu COD
+                        </button>
+                    </div>
+
+                    <!-- Form Thẻ Tín Dụng Quốc Tế (Tab Card) -->
+                    <div id="card-payment-form" class="space-y-4 pt-2">
+                        <div class="flex items-center justify-between text-[11px] font-mono">
+                            <span class="text-gray-400">THÔNG TIN THẺ TÍN DỤNG / GHI NỢ</span>
+                            <div class="flex gap-2">
+                                <span class="bg-gray-800 text-gray-300 px-2 py-0.5 rounded">VISA</span>
+                                <span class="bg-gray-800 text-gray-300 px-2 py-0.5 rounded">MASTERCARD</span>
+                                <span class="bg-gray-800 text-gray-300 px-2 py-0.5 rounded">JCB</span>
+                            </div>
+                        </div>
+
+                        <!-- Số thẻ -->
+                        <div>
+                            <label class="text-[10px] font-mono text-gray-400 block mb-1">MÃ SỐ THẺ IN NỔI (16 CHỮ SỐ)</label>
+                            <div class="relative">
+                                <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-500">
+                                    <svg class="w-4 h-4 fill-none stroke-current" stroke-width="2" viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
+                                </span>
+                                <input type="text" value="4890 2200 8192 4018" class="w-full bg-[#040711] border border-gray-800 text-xs text-cyan-400 pl-9 pr-10 py-2.5 rounded-lg focus:outline-none focus:border-cyan-400 font-mono tracking-wider">
+                                <span class="absolute inset-y-0 right-0 pr-3 flex items-center text-cyan-400">
+                                    <svg class="w-4 h-4 fill-none stroke-current" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- Hạn dùng + CVV -->
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="text-[10px] font-mono text-gray-400 block mb-1">HẠN DÙNG (MM/YY)</label>
+                                <input type="text" value="09/27" class="w-full bg-[#040711] border border-gray-800 text-xs text-gray-200 px-3 py-2.5 rounded-lg focus:outline-none focus:border-cyan-400 font-mono text-center">
+                            </div>
+                            <div>
+                                <label class="text-[10px] font-mono text-gray-400 block mb-1">MÃ CVC / CVV</label>
+                                <input type="password" value="888" class="w-full bg-[#040711] border border-gray-800 text-xs text-gray-200 px-3 py-2.5 rounded-lg focus:outline-none focus:border-cyan-400 font-mono text-center">
+                            </div>
+                        </div>
+
+                        <!-- Tên trên thẻ -->
+                        <div>
+                            <label class="text-[10px] font-mono text-gray-400 block mb-1">TÊN IN TRÊN MẶT THẺ</label>
+                            <input type="text" value="NGUYEN HOANG MINH" class="w-full bg-[#040711] border border-gray-800 text-xs text-gray-200 px-3 py-2.5 rounded-lg focus:outline-none focus:border-cyan-400 font-mono uppercase">
+                        </div>
+                    </div>
+
+                    <!-- Box QR E-Wallets (Ẩn mặc định) -->
+                    <div id="qr-payment-box" class="p-6 bg-[#040711] border border-dashed border-gray-700 rounded-xl text-center space-y-3" style="display: none;">
+                        <span class="text-xs font-mono text-cyan-400 uppercase font-bold block">Quét mã QR VietQR / MoMo / VNPay</span>
+                        <div class="w-32 h-32 mx-auto bg-white p-2 rounded-lg flex items-center justify-center">
+                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=NOVAPAD_ORDER_NV8902" alt="QR Payment" class="w-full h-full object-contain">
+                        </div>
+                        <p class="text-[11px] text-gray-400">Tự động điền nội dung giao dịch, xác thực thanh toán tức thì trong 3 giây.</p>
+                    </div>
+
+                    <!-- Bottom QR Box Action (Ảnh 16) -->
+                    <div class="p-3.5 bg-[#040711] border border-gray-800/80 rounded-xl flex items-center justify-between">
+                        <div class="flex items-center gap-3">
+                            <div class="w-7 h-7 rounded bg-purple-950/60 border border-purple-800 text-purple-400 flex items-center justify-center shrink-0">
+                                <svg class="w-4 h-4 fill-none stroke-current" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+                            </div>
+                            <div>
+                                <span class="text-xs font-bold text-white block">QUÉT QR VIETQR &amp; E-WALLETS</span>
+                                <span class="text-[10px] text-gray-400">Tự động điền nội dung giao dịch, xác thực thanh toán tức thì trong 3 giây.</span>
+                            </div>
+                        </div>
+                        <button onclick="switchPaymentTab('momo', document.querySelectorAll('.payment-tab-btn')[1])" class="text-xs font-mono bg-gray-800 hover:bg-gray-700 text-cyan-400 px-3 py-1.5 rounded transition whitespace-nowrap">
+                            CHỌN QUÉT MÃ
+                        </button>
+                    </div>
+                </section>
+            </div>
+
+            <!-- CỘT PHẢI (4 CỘT): TÓM TẮT ĐƠN HÀNG & CAM KẾT (Ảnh 15) -->
+            <div class="lg:col-span-4 space-y-6 sticky top-24">
+                
+                <!-- HỘP TÓM TẮT ĐƠN HÀNG (Ảnh 15) -->
+                <div class="bg-[#070b16] border border-cyan-500/40 rounded-2xl p-6 shadow-[0_0_30px_rgba(0,240,255,0.05)] space-y-5">
+                    <div class="flex items-center justify-between border-b border-gray-800 pb-3">
+                        <h3 class="text-base font-bold text-white uppercase font-mono flex items-center gap-2">
+                            <svg class="w-4 h-4 text-cyan-400 fill-none stroke-current" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                            TÓM TẮT ĐƠN HÀNG
+                        </h3>
+                        <span class="text-[10px] font-mono bg-cyan-950 text-cyan-400 border border-cyan-800/80 px-2 py-0.5 rounded">
+                            ORDER #NV-8902
+                        </span>
+                    </div>
+
+                    <!-- Breakdown chi phí -->
+                    <div class="space-y-2.5 text-xs font-mono">
+                        <div class="flex justify-between">
+                            <span class="text-gray-400">Tạm tính <span id="summary-count">(2 thiết bị):</span></span>
+                            <span id="summary-subtotal" class="text-white font-bold">$189.98</span>
+                        </div>
+                        <div class="flex justify-between text-cyan-400">
+                            <span class="flex items-center gap-1.5">
+                                <svg class="w-3.5 h-3.5 fill-none stroke-current" stroke-width="2" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                Ưu đãi Esports VIP:
+                            </span>
+                            <span class="font-bold">-$20.00</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-400">Phí vận chuyển siêu tốc:</span>
+                            <span id="summary-shipping" class="text-cyan-400 font-bold">MIỄN PHÍ (FREE)</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-400">Thuế VAT tiêu chuẩn (8%):</span>
+                            <span class="text-gray-300">Bao gồm</span>
+                        </div>
+                    </div>
+
+                    <!-- Tổng thanh toán -->
+                    <div class="pt-4 border-t border-gray-800 flex items-end justify-between font-mono">
+                        <div>
+                            <span class="text-[10px] text-gray-500 uppercase block">TỔNG THANH TOÁN:</span>
+                            <span class="text-[10px] text-gray-400">Đã bao gồm đầy đủ VAT</span>
+                        </div>
+                        <div class="text-right">
+                            <span id="summary-total" class="text-3xl font-black text-cyan-400 block leading-none">$169.98</span>
+                            <span id="summary-total-vnd" class="text-[11px] text-gray-500 block mt-1">~ 4.290.000 VND</span>
+                        </div>
+                    </div>
+
+                    <!-- Voucher code box -->
+                    <div class="pt-3 border-t border-gray-800">
+                        <span class="text-[10px] font-mono text-gray-400 uppercase block mb-1.5">MÃ KÍCH HOẠT ƯU ĐÃI / VOUCHER</span>
+                        <div class="flex">
+                            <input type="text" value="VIP2025" class="w-full bg-[#040711] border border-gray-800 text-xs text-cyan-400 px-3 py-2 rounded-l font-mono uppercase font-bold focus:outline-none">
+                            <button class="bg-gray-800 text-gray-300 font-mono text-[10px] font-bold px-3 py-2 rounded-r hover:bg-gray-700 transition whitespace-nowrap">
+                                ĐÃ ÁP DỤNG
+                            </button>
+                        </div>
+                        <span class="text-[10px] text-cyan-400 font-mono block mt-1.5 flex items-center gap-1">
+                            <svg class="w-3 h-3 fill-none stroke-current" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                            Giảm $20 cho giải đấu NovaChampionship!
+                        </span>
+                    </div>
+
+                    <!-- Nút xác nhận thanh toán CTA (Ảnh 15) -->
+                    <button onclick="handleConfirmOrder()" class="w-full bg-cyan-400 hover:bg-cyan-300 text-black font-black text-xs uppercase py-4 rounded-xl flex items-center justify-center gap-2 transition font-mono shadow-[0_0_25px_rgba(0,240,255,0.35)]">
+                        <svg class="w-4 h-4 fill-none stroke-current" stroke-width="2.5" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                        XÁC NHẬN THANH TOÁN &amp; ĐẶT HÀNG
+                    </button>
+                </div>
+
+                <!-- 4 Box cam kết chính sách bên phải (Ảnh 15) -->
+                <div class="bg-[#070b16] border border-gray-800 rounded-2xl p-5 space-y-4 text-xs">
+                    <div class="flex items-start gap-3">
+                        <svg class="w-5 h-5 text-cyan-400 shrink-0 fill-none stroke-current" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                        <div>
+                            <span class="font-bold text-white block">BẢO HÀNH 1 ĐỔI 1 TRONG 24 THÁNG</span>
+                            <p class="text-[11px] text-gray-400 mt-0.5 leading-snug">Lỗi phần cứng hoặc joystick trôi phát sinh được đổi mới nguyên seal ngay lập tức.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-3">
+                        <svg class="w-5 h-5 text-purple-400 shrink-0 fill-none stroke-current" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                        <div>
+                            <span class="font-bold text-white block">30 NGÀY DÙNG THỬ HOÀN TIỀN</span>
+                            <p class="text-[11px] text-gray-400 mt-0.5 leading-snug">Cảm giác cầm nắm không vừa tay hoặc độ trễ polling không đạt chuẩn cam kết hoàn tiền 100%.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-3">
+                        <svg class="w-5 h-5 text-cyan-400 shrink-0 fill-none stroke-current" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                        <div>
+                            <span class="font-bold text-white block">HỖ TRỢ FIRMWARE TRỌN ĐỜI</span>
+                            <p class="text-[11px] text-gray-400 mt-0.5 leading-snug">Cập nhật driver NovaOS, profile macro độc quyền cho game FPS &amp; Fighting miễn phí.</p>
+                        </div>
+                    </div>
+
+                    <div class="pt-3 border-t border-gray-800 flex items-center justify-between text-[11px] font-mono">
+                        <span class="text-gray-400">HỖ TRỢ KHẨN CẤP:</span>
+                        <a href="tel:19008899" class="text-cyan-400 font-bold flex items-center gap-1 hover:underline">
+                            <svg class="w-3.5 h-3.5 fill-none stroke-current" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                            1900 8899 (24/7)
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Box Hạ tầng kiểm định NovaCheck (Ảnh 15) -->
+                <div class="p-3.5 bg-[#070b16] border border-cyan-500/20 rounded-xl flex items-center gap-3">
+                    <div class="w-8 h-8 rounded bg-cyan-950/60 border border-cyan-500/40 text-cyan-400 flex items-center justify-center shrink-0">
+                        <svg class="w-4 h-4 fill-none stroke-current" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 10"></polyline></svg>
+                    </div>
+                    <div>
+                        <span class="text-[10px] text-gray-500 uppercase font-mono block">HẠ TẦNG KIỂM ĐỊNH NOVACHECK</span>
+                        <p class="text-[11px] text-gray-300">100% gamepad được test Jitter và deadzone quang học trước khi xuất kho niêm phong.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- ================= CAM KẾT DỊCH VỤ 4 Ô & FOOTER (Ảnh 16) ================= -->
+    <section class="border-t border-gray-800/80 bg-[#040711] py-10 mt-12">
+        <div class="max-w-[1440px] mx-auto px-4 lg:px-8">
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 text-xs">
+                <div class="flex items-center gap-3">
+                    <svg class="w-6 h-6 text-cyan-400 shrink-0 fill-none stroke-current" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                    <div>
+                        <div class="font-bold text-white uppercase">100% CHÍNH HÃNG</div>
+                        <div class="text-[11px] text-gray-500">Bảo hành điện tử 24 tháng</div>
+                    </div>
+                </div>
+                <div class="flex items-center gap-3">
+                    <svg class="w-6 h-6 text-cyan-400 shrink-0 fill-none stroke-current" stroke-width="2" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                    <div>
+                        <div class="font-bold text-white uppercase">HỎA TỐC 2H</div>
+                        <div class="text-[11px] text-gray-500">Nội thành HN &amp; TP.HCM</div>
+                    </div>
+                </div>
+                <div class="flex items-center gap-3">
+                    <svg class="w-6 h-6 text-cyan-400 shrink-0 fill-none stroke-current" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M8 12h8"></path><path d="M12 8v8"></path></svg>
+                    <div>
+                        <div class="font-bold text-white uppercase">ESPORTS GRADE</div>
+                        <div class="text-[11px] text-gray-500">Hall Effect &amp; 1000Hz Polling</div>
+                    </div>
+                </div>
+                <div class="flex items-center gap-3">
+                    <svg class="w-6 h-6 text-cyan-400 shrink-0 fill-none stroke-current" stroke-width="2" viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"></path><path d="M21 3v5h-5"></path><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"></path><path d="M8 16H3v5"></path></svg>
+                    <div>
+                        <div class="font-bold text-white uppercase">1 ĐỔI 1 TRONG 30 NGÀY</div>
+                        <div class="text-[11px] text-gray-500">Lỗi nhà sản xuất lập tức đổi</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER ĐỒNG BỘ -->
+    <footer class="bg-[#02050b] text-gray-400 text-xs py-14">
+        <div class="max-w-[1440px] mx-auto px-4 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-gray-800">
+                <div class="lg:col-span-2 space-y-4">
+                    <h3 class="text-white text-xl font-black tracking-wider">NOVAPAD STORE</h3>
+                    <p class="text-xs text-gray-400 leading-relaxed max-w-sm">
+                        Hệ sinh thái tay cầm cơ học và thiết bị ngoại vi hiệu năng cao chuẩn thi đấu Esports. Thiết kế chuẩn công thái học kết hợp công nghệ điều khiển tối tân.
+                    </p>
+                    <div class="pt-2">
+                        <span class="block text-[10px] text-gray-500 font-mono uppercase mb-2">ĐĂNG KÝ NHẬN BẢN TIN DISPATCH</span>
+                        <div class="flex max-w-sm">
+                            <input type="email" placeholder="nhap-email@esports.pro" class="bg-[#0a101d] border border-gray-800 text-xs text-gray-300 px-3 py-2 rounded-l w-full focus:outline-none focus:border-cyan-400 font-mono">
+                            <button class="bg-cyan-400 text-black font-bold px-4 py-2 rounded-r hover:bg-cyan-300 transition text-[11px]">THAM GIA</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold font-mono uppercase mb-4">SẢN PHẨM</h4>
+                    <ul class="space-y-2.5">
+                        <li><a href="products.html" class="hover:text-cyan-400 transition">NovaPad Apex Pro</a></li>
+                        <li><a href="products.html" class="hover:text-cyan-400 transition">NovaPad CyberStrike</a></li>
+                        <li><a href="products.html" class="hover:text-cyan-400 transition">Tactical Pro Suite</a></li>
+                        <li><a href="products.html" class="hover:text-cyan-400 transition">Phụ Kiện Gaming</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold font-mono uppercase mb-4">HỖ TRỢ &amp; CHÍNH SÁCH</h4>
+                    <ul class="space-y-2.5">
+                        <li><a href="#" class="hover:text-cyan-400 transition">Trung Tâm Trợ Giúp</a></li>
+                        <li><a href="#" class="hover:text-cyan-400 transition">Tra Cứu Bảo Hành Điện Tử</a></li>
+                        <li><a href="#" class="hover:text-cyan-400 transition">Chính Sách Vận Chuyển</a></li>
+                        <li><a href="#" class="hover:text-cyan-400 transition">Quy Định Đổi Trả</a></li>
+                        <li><a href="#" class="hover:text-cyan-400 transition">Tải Driver &amp; Firmware</a></li>
+                    </ul>
+                </div>
+
+                <div class="space-y-4">
+                    <div>
+                        <h4 class="text-white font-bold font-mono uppercase mb-3">CỔNG THANH TOÁN</h4>
+                        <div class="flex flex-wrap gap-2 text-[10px] font-mono">
+                            <span class="bg-gray-900 border border-gray-800 px-2 py-1 rounded text-gray-300">VISA</span>
+                            <span class="bg-gray-900 border border-gray-800 px-2 py-1 rounded text-gray-300">Mastercard</span>
+                            <span class="bg-gray-900 border border-gray-800 px-2 py-1 rounded text-cyan-400">MoMo Pay</span>
+                            <span class="bg-gray-900 border border-gray-800 px-2 py-1 rounded text-purple-400">USDT Crypto</span>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="text-white font-bold font-mono uppercase mb-2">LIÊN HỆ SHOWROOM</h4>
+                        <p class="text-[11px] text-gray-400">Tầng 8, Cyber Tower, Hà Nội</p>
+                        <p class="text-[11px] text-cyan-400 font-mono mt-0.5">Hotline: 1900 8899 (9:00 - 21:00)</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-6 flex flex-col sm:flex-row items-center justify-between text-[11px] text-gray-500 gap-4">
+                <p>&copy; 2025 NovaPad Gaming Gear. All rights reserved. Designed for precision &amp; overdrive.</p>
+                <div class="flex items-center gap-6">
+                    <a href="#" class="hover:text-gray-400 transition">Điều Khoản Sử Dụng</a>
+                    <a href="#" class="hover:text-gray-400 transition">Bảo Mật Thông Tin</a>
+                    <a href="#" class="hover:text-gray-400 transition">Tiêu Chuẩn Esports</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Nạp Scripts MVC ES5 -->
+    <script src="app/models/Cart.js"></script>
+    <script src="app/controllers/checkoutController.js"></script>
+</body>
+</html>
