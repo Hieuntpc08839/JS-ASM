@@ -1,0 +1,207 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "name": "Flagship Gamepad",
+      "parent_id": null
+    },
+    {
+      "id": 2,
+      "name": "Tactical & Limited Edition",
+      "parent_id": null
+    },
+    {
+      "id": 3,
+      "name": "Phụ kiện Mod Kit & Dock Sạc",
+      "parent_id": null
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "name": "NovaPad Apex Pro v3.2",
+      "cate_id": 1,
+      "detail": "Chassis vân Carbon siêu nhẹ, cần xoay Hall-Effect chống drift, cò Hall 2 chặng.",
+      "image": "https://images.unsplash.com/photo-1600080972464-8e5f35f63d08?w=700&auto=format&fit=crop&q=80",
+      "badge": "FLAGSHIP APEX",
+      "badge_discount": "-21% OFF",
+      "series": "WIRELESS 2.4G / TYPE-C",
+      "rating": "4.9 (120)",
+      "price": 149.99,
+      "original_price": 189.99,
+      "connection": "Wireless 2.4GHz HyperSpeed",
+      "tags": ["1000Hz", "4 Back Paddles", "42h Pin"],
+      "status": "in_stock"
+    },
+    {
+      "id": 2,
+      "name": "Quantum Strike Chroma",
+      "cate_id": 1,
+      "detail": "Dải led RGB 16.8 triệu màu Aura Sync, switch cơ Tactile Micro switch nảy dòn.",
+      "image": "https://images.unsplash.com/photo-1592840496694-26d035b52b48?w=700&auto=format&fit=crop&q=80",
+      "badge": "CHROMA RGB",
+      "badge_discount": "MỚI RA MẮT",
+      "series": "TRI-MODE CONNECTIVITY",
+      "rating": "4.8 (94)",
+      "price": 119.99,
+      "original_price": null,
+      "connection": "Wireless 2.4GHz HyperSpeed",
+      "tags": ["Hall Effect", "Gyro 6 Trục", "Custom RGB"],
+      "status": "in_stock"
+    },
+    {
+      "id": 3,
+      "name": "Stealth X Ghost Tactical",
+      "cate_id": 2,
+      "detail": "Phiên bản trắng gốm mờ, đệm cao su tổ ong bọc tay cầm chống trơn trượt khi try-hard.",
+      "image": "https://images.unsplash.com/photo-1629429408209-1f912961dbd8?w=700&auto=format&fit=crop&q=80",
+      "badge": "TẠM HẾT HÀNG",
+      "badge_discount": "PRE-ORDER ĐỢT 2",
+      "series": "ARCTIC CERAMIC EDITION",
+      "rating": "5.0 (62)",
+      "price": 89.99,
+      "original_price": null,
+      "connection": "Dây Cáp USB-C 1000Hz Ultra",
+      "tags": ["White Ceramic", "1000Hz USB", "Grip Pad"],
+      "status": "pre_order"
+    },
+    {
+      "id": 4,
+      "name": "Cyberpunk Neo-2077 Pro",
+      "cate_id": 2,
+      "detail": "Khắc laser số sê-ri độc bản, tặng kèm vali chống sốc hợp kim Titanium nguyên khối.",
+      "image": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=700&auto=format&fit=crop&q=80",
+      "badge": "LIMITED 500 PCS",
+      "badge_discount": "#084/500",
+      "series": "COLLECTOR EDITION",
+      "rating": "5.0 (48)",
+      "price": 199.99,
+      "original_price": null,
+      "connection": "Bluetooth 5.3 Low-Latency",
+      "tags": ["Titanium Box", "Laser Etched", "Gold Plated"],
+      "status": "in_stock"
+    },
+    {
+      "id": 5,
+      "name": "NovaDock Ultra Hub",
+      "cate_id": 3,
+      "detail": "Đế sạc nam châm tự hít thông minh, tích hợp hub 2 cổng USB 3.2 mở rộng dongle tiện lợi.",
+      "image": "https://images.unsplash.com/photo-1585060544812-6b45742d762f?w=700&auto=format&fit=crop&q=80",
+      "badge": "PHỤ KIỆN CAO CẤP",
+      "badge_discount": "Fast Mag-Charge",
+      "series": "DOCK SẠC TỪ TÍNH",
+      "rating": "4.7 (210)",
+      "price": 49.99,
+      "original_price": null,
+      "connection": "Dây Cáp USB-C 1000Hz Ultra",
+      "tags": ["Mag-Lock", "2x USB 3.2", "LED Status"],
+      "status": "in_stock"
+    },
+    {
+      "id": 6,
+      "name": "Hall Stick Kit Pro (4 Nắp)",
+      "cate_id": 3,
+      "detail": "Bộ 4 nắp cần xoay cao thấp tùy biến: lõm (concave), lồi (convex) bằng cao su fluoro.",
+      "image": "https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?w=700&auto=format&fit=crop&q=80",
+      "badge": "TACTICAL MOD KIT",
+      "badge_discount": "Universal Fit",
+      "series": "DIY UPGRADE KIT",
+      "rating": "4.9 (342)",
+      "price": 19.99,
+      "original_price": null,
+      "connection": "Phụ kiện cơ học",
+      "tags": ["4 Height Options", "Zero Drift", "Tool Included"],
+      "status": "in_stock"
+    }
+  ],
+  "product_variants": [
+    {
+      "id": 1,
+      "product_id": 1,
+      "variant_name": "Carbon Obsidian",
+      "price": 149.99,
+      "quantity": 45,
+      "image": "https://images.unsplash.com/photo-1600080972464-8e5f35f63d08?w=700&auto=format&fit=crop&q=80"
+    },
+    {
+      "id": 2,
+      "product_id": 1,
+      "variant_name": "Stealth White",
+      "price": 159.99,
+      "quantity": 25,
+      "image": "https://images.unsplash.com/photo-1629429408209-1f912961dbd8?w=700&auto=format&fit=crop&q=80"
+    },
+    {
+      "id": 3,
+      "product_id": 2,
+      "variant_name": "Chroma RGB Black",
+      "price": 119.99,
+      "quantity": 30,
+      "image": "https://images.unsplash.com/photo-1592840496694-26d035b52b48?w=700&auto=format&fit=crop&q=80"
+    },
+    {
+      "id": 4,
+      "product_id": 3,
+      "variant_name": "Ceramic Matte Edition",
+      "price": 89.99,
+      "quantity": 0,
+      "image": "https://images.unsplash.com/photo-1629429408209-1f912961dbd8?w=700&auto=format&fit=crop&q=80"
+    },
+    {
+      "id": 5,
+      "product_id": 4,
+      "variant_name": "Titanium Box Limited Gold",
+      "price": 199.99,
+      "quantity": 14,
+      "image": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=700&auto=format&fit=crop&q=80"
+    },
+    {
+      "id": 6,
+      "product_id": 5,
+      "variant_name": "Dual Port USB 3.2 Hub",
+      "price": 49.99,
+      "quantity": 50,
+      "image": "https://images.unsplash.com/photo-1585060544812-6b45742d762f?w=700&auto=format&fit=crop&q=80"
+    },
+    {
+      "id": 7,
+      "product_id": 6,
+      "variant_name": "Fluoro Rubber Set (4 Chiếc)",
+      "price": 19.99,
+      "quantity": 120,
+      "image": "https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?w=700&auto=format&fit=crop&q=80"
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "gametag": "ShadowAim_VN",
+      "name": "Nguyễn Trung Hiếu",
+      "email": "pilot@novapad.gg",
+      "phone": "+84 987 654 321",
+      "address": "Cần Thơ",
+      "role": "admin"
+    }
+  ],
+  "orders": [
+    {
+      "id": 1,
+      "order_code": "#NV-8902",
+      "user_id": 1,
+      "customer_name": "ShadowAim_VN",
+      "total_price": 149.99,
+      "created_date": "2026-10-02T15:30:00Z",
+      "status": "pending"
+    }
+  ],
+  "order_details": [
+    {
+      "id": 1,
+      "order_id": 1,
+      "product_id": 1,
+      "product_name": "NovaPad Apex Pro v3.2 (Carbon Obsidian)",
+      "quantity": 1,
+      "unit_price": 149.99
+    }
+  ]
+}
