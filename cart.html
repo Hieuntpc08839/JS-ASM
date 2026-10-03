@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giỏ Hàng Tác Chiến // NovaPad Esports</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: '#00F0FF',
+                        darkBg: '#040812'
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body class="bg-[#030610] text-gray-200 antialiased overflow-x-hidden font-sans min-h-screen flex flex-col justify-between">
+
+    <!-- Toast thông báo -->
+    <div id="cart-toast" class="fixed bottom-6 right-6 bg-cyan-400 text-black font-semibold px-5 py-3 rounded-lg shadow-2xl transition duration-300 transform translate-y-10 opacity-0 pointer-events-none z-50 flex items-center gap-2"></div>
+
+    <!-- ================= HEADER ĐỒNG BỘ 100% ================= -->
+    <header class="border-b border-gray-800/80 bg-[#040812]/95 backdrop-blur sticky top-0 z-50">
+        <div class="max-w-[1440px] mx-auto px-4 lg:px-8 h-20 flex items-center justify-between gap-4">
+            
+            <div class="flex items-center gap-8 shrink-0">
+                <a href="index.html" class="flex items-center shrink-0">
+                    <span class="text-2xl font-black tracking-widest text-white hover:text-cyan-400 transition">NOVAPAD</span>
+                </a>
+                    <nav class="hidden lg:flex items-center space-x-6 text-[11px] xl:text-xs font-mono font-bold tracking-wider whitespace-nowrap shrink-0">
+                        <a href="index.html" class="text-cyan-400 border-b-2 border-cyan-400 py-1 inline-block">TRANG CHỦ</a>
+                        <a href="products.html" class="text-gray-300 hover:text-cyan-400 transition py-1 inline-block border-b-2 border-transparent">CATALOG / TAY CẦM</a>
+                        <a href="news.html" class="text-gray-300 hover:text-cyan-400 transition py-1 inline-block border-b-2 border-transparent">BẢN TIN HUB</a>
+                        <a href="#" class="text-gray-300 hover:text-cyan-400 transition py-1 inline-block border-b-2 border-transparent">HỖ TRỢ</a>
+                    </nav>
+            </div>
+
+            <div class="flex items-center gap-3 shrink-0">
+                <a href="cart.html" class="inline-flex items-center gap-2.5 bg-[#0a101d] border border-cyan-400 px-3 h-9 rounded transition shrink-0">
+                    <div class="relative flex items-center">
+                        <svg class="w-4 h-4 text-cyan-400 fill-none stroke-current" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                        </svg>
+                        <span id="header-cart-badge" class="absolute -top-2 -right-2 bg-cyan-400 text-black text-[9px] font-bold rounded-full w-4 h-4 flex items-center justify-center">0</span>
+                    </div>
+                    <span id="header-cart-total" class="font-mono text-xs font-semibold text-white whitespace-nowrap">$0.00</span>
+                </a>
+                <a href="login.html" class="w-9 h-9 rounded-full bg-gray-800 flex items-center justify-center hover:bg-cyan-400 hover:text-black transition shrink-0 text-gray-300">
+                    <svg class="w-4 h-4 fill-none stroke-current" stroke-width="2" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                </a>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- ================= BREADCRUMB ================= -->
+    <div class="border-b border-gray-800/60 bg-[#060a14] py-2.5 text-xs font-mono">
+        <div class="max-w-[1440px] mx-auto px-4 lg:px-8 flex items-center justify-between gap-3 text-gray-400">
+            <div class="flex items-center gap-2">
+                <a href="index.html" class="hover:text-white transition">TRANG CHỦ</a>
+                <span>&gt;</span>
+                <span class="text-cyan-400 font-semibold">GIỎ HÀNG THIẾT BỊ TÁC CHIẾN</span>
+            </div>
+            <div class="text-[11px] text-cyan-400 font-bold bg-cyan-950/60 border border-cyan-800/60 px-2.5 py-0.5 rounded">
+                ESPORTS RIG INVENTORY
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= MAIN CART CONTENT ================= -->
+    <main class="max-w-[1440px] mx-auto px-4 lg:px-8 py-10 w-full flex-1">
+        <div class="flex flex-col lg:flex-row items-start justify-between gap-8">
+            
+            <!-- CỘT TRÁI (8 CỘT): DANH SÁCH MÓN HÀNG TRONG GIỎ -->
+            <div class="w-full lg:w-8/12 space-y-6">
+                <div class="bg-[#070b16] border border-gray-800 rounded-2xl overflow-hidden shadow-xl">
+                    <div class="p-5 border-b border-gray-800 flex items-center justify-between">
+                        <h2 class="text-base font-bold text-white uppercase font-mono flex items-center gap-2.5">
+                            <svg class="w-5 h-5 text-cyan-400 fill-none stroke-current" stroke-width="2" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                            </svg>
+                            DANH SÁCH THIẾT BỊ (<span id="cart-items-count">0</span>)
+                        </h2>
+                        <button onclick="handleClearCart()" class="text-xs font-mono text-gray-500 hover:text-red-400 transition">
+                            XÓA TOÀN BỘ
+                        </button>
+                    </div>
+
+                    <!-- Khối render động danh sách sản phẩm -->
+                    <div id="cart-table-body" class="divide-y divide-gray-800/60"></div>
+                </div>
+
+                <div class="flex items-center justify-between text-xs font-mono">
+                    <a href="products.html" class="inline-flex items-center gap-2 text-cyan-400 hover:underline">
+                        &larr; TIẾP TỤC CHỌN THÊM THIẾT BỊ
+                    </a>
+                    <span class="text-gray-500">Miễn phí giao hàng cho đơn trên $100</span>
+                </div>
+            </div>
+
+            <!-- CỘT PHẢI (4 CỘT): TỔNG KẾT VÀ TIẾN HÀNH THANH TOÁN -->
+            <div class="w-full lg:w-4/12 space-y-6 sticky top-24">
+                <div class="bg-[#070b16] border border-cyan-500/30 rounded-2xl p-6 space-y-5 shadow-[0_0_30px_rgba(0,240,255,0.05)]">
+                    <div class="flex items-center justify-between border-b border-gray-800 pb-3 font-mono">
+                        <h3 class="text-base font-bold text-white uppercase">TÓM TẮT ĐƠN HÀNG</h3>
+                        <span class="text-[10px] text-cyan-400 bg-cyan-950 px-2 py-0.5 rounded border border-cyan-800/60">READY</span>
+                    </div>
+
+                    <div class="space-y-3 text-xs font-mono">
+                        <div class="flex justify-between">
+                            <span class="text-gray-400">Tạm tính:</span>
+                            <span id="cart-subtotal" class="text-white font-bold">$0.00</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-400">Ưu đãi Esports:</span>
+                            <span class="text-cyan-400 font-bold">-$0.00</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-400">Vận chuyển:</span>
+                            <span class="text-gray-300">Tính tại bước tiếp theo</span>
+                        </div>
+                    </div>
+
+                    <div class="pt-4 border-t border-gray-800 flex items-baseline justify-between font-mono">
+                        <span class="text-xs uppercase text-gray-400">TỔNG TIỀN:</span>
+                        <div class="text-right">
+                            <span id="cart-grand-total" class="text-3xl font-black text-cyan-400 leading-none">$0.00</span>
+                            <span class="text-[10px] text-gray-500 block mt-1">Đã bao gồm VAT 8%</span>
+                        </div>
+                    </div>
+
+                    <a href="checkout.html" class="w-full bg-cyan-400 hover:bg-cyan-300 text-black font-black text-xs font-mono uppercase py-4 rounded-xl flex items-center justify-center gap-2 transition shadow-[0_0_20px_rgba(0,240,255,0.3)]">
+                        TIẾN HÀNH THANH TOÁN &rarr;
+                    </a>
+                </div>
+
+                <!-- Cam kết bảo vệ phần cứng -->
+                <div class="p-4 bg-[#070b16] border border-gray-800 rounded-xl space-y-2 text-xs font-mono text-gray-400">
+                    <div class="flex items-center gap-2 text-white font-bold">
+                        <svg class="w-4 h-4 text-cyan-400 fill-none stroke-current" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                        BẢO VỆ ĐƠN HÀNG CHÍNH HÃNG
+                    </div>
+                    <p class="text-[11px] leading-relaxed">Đổi mới nguyên seal trong 30 ngày nếu phát hiện trôi cần hoặc độ trễ không đạt chuẩn 1000Hz.</p>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- ================= FOOTER ĐỒNG BỘ ================= -->
+    <footer class="bg-[#02050b] text-gray-400 text-xs py-10 border-t border-gray-800">
+        <div class="max-w-[1440px] mx-auto px-4 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p>&copy; 2025 NovaPad Gaming Gear. All rights reserved.</p>
+            <div class="flex items-center gap-6 font-mono text-[11px]">
+                <a href="#" class="hover:text-cyan-400 transition">Điều Khoản Dịch Vụ</a>
+                <a href="#" class="hover:text-cyan-400 transition">Chính Sách Bảo Hành</a>
+                <a href="#" class="hover:text-cyan-400 transition">Hỗ Trợ Kỹ Thuật</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Nạp Scripts MVC: Model -> Controller -->
+    <script src="app/models/Cart.js"></script>
+    <script src="app/controllers/cartController.js"></script>
+</body>
+</html>
