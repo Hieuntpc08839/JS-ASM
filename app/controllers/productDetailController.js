@@ -7,14 +7,14 @@ class ProductDetailController {
     selectedAnalog = "Hall Effect v4.0";
     selectedWarranty = "24 Tháng Tiêu Chuẩn";
 
-    // Danh sách sản phẩm 
+    // Danh sách 6 sản phẩm chuẩn VND khớp chính xác với Product.js và db.json
     allProducts = [
-        new Product(1, "NovaPad Apex Pro v3.2 Wireless", "https://images.unsplash.com/photo-1600080972464-8e5f35f63d08?w=800", "Chassis vân Carbon siêu nhẹ, cần xoay Hall-Effect chống drift.", 149.99, "FLAGSHIP", "4.9 (340)", 1),
-        new Product(2, "Quantum Strike Chroma Wireless", "https://images.unsplash.com/photo-1592840496694-26d035b52b48?w=800", "Dải led RGB 16.8 triệu màu Aura Sync, switch cơ Tactile Micro switch.", 119.99, "CHROMA", "4.8 (94)", 1),
-        new Product(3, "Stealth X Ghost Tactical Ceramic", "https://images.unsplash.com/photo-1629429408209-1f912961dbd8?w=800", "Phiên bản trắng gốm mờ, đệm cao su tổ ong bọc tay cầm chống trơn trượt.", 89.99, "CERAMIC", "5.0 (62)", 2),
-        new Product(4, "Cyberpunk Neo-2077 Pro Limited", "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=800", "Khắc laser số sê-ri độc bản, tặng vali hợp kim Titanium nguyên khối.", 199.99, "LIMITED", "5.0 (48)", 1),
-        new Product(5, "NovaDock Ultra Fast Mag-Charge", "https://images.unsplash.com/photo-1585060544812-6b45742d762f?w=800", "Đế sạc nam châm tự hít thông minh, tích hợp hub 2 cổng USB 3.2.", 49.99, "ACCESSORY", "4.7 (210)", 3),
-        new Product(6, "Hall Stick Kit Pro Thumbsticks", "https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?w=800", "Bộ 4 nắp cần xoay cao thấp tùy biến: lõm (concave), lồi (convex).", 19.99, "TACTICAL", "4.9 (342)", 3)
+        new Product(1, "NovaPad Apex Pro v3.2 Wireless", "https://images.unsplash.com/photo-1600080972464-8e5f35f63d08?w=800", "Chassis vân Carbon siêu nhẹ, cần xoay Hall-Effect chống drift.", 3690000, 1),
+        new Product(2, "Quantum Strike Chroma Wireless", "https://images.unsplash.com/photo-1592840496694-26d035b52b48?w=800", "Dải led RGB 16.8 triệu màu Aura Sync, switch cơ Tactile Micro switch.", 2890000, 1),
+        new Product(3, "Stealth X Ghost Tactical Ceramic", "https://images.unsplash.com/photo-1629429408209-1f912961dbd8?w=800", "Phiên bản trắng gốm mờ, đệm cao su tổ ong bọc tay cầm chống trơn trượt.", 2190000, 2),
+        new Product(4, "Cyberpunk Neo-2077 Pro Limited", "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=800", "Khắc laser số sê-ri độc bản, tặng vali hợp kim Titanium nguyên khối.", 4890000, 2),
+        new Product(5, "NovaDock Ultra Fast Mag-Charge", "https://images.unsplash.com/photo-1585060544812-6b45742d762f?w=800", "Đế sạc nam châm tự hít thông minh, tích hợp hub 2 cổng USB 3.2.", 1190000, 3),
+        new Product(6, "Hall Stick Kit Pro Thumbsticks", "https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?w=800", "Bộ 4 nắp cần xoay cao thấp tùy biến: lõm (concave), lồi (convex).", 490000, 3)
     ];
 
     init() {
@@ -31,25 +31,28 @@ class ProductDetailController {
         const id = this.getIdFromUrl();
         this.currentProduct = this.allProducts.find(p => p.id === id) || this.allProducts[0];
 
+        // SỬA LỖI UNDEFINED: dùng .name thay vì .title
         const titleEl = document.querySelector("h1");
         if (titleEl) {
-            titleEl.innerHTML = `${this.currentProduct.title}`;
+            titleEl.innerHTML = this.currentProduct.name;
         }
 
         const mainImg = document.getElementById("main-product-img");
         if (mainImg) {
             mainImg.src = this.currentProduct.image;
-            mainImg.alt = this.currentProduct.title;
+            mainImg.alt = this.currentProduct.name;
         }
 
         this.calculatePrice();
     }
 
     calculatePrice() {
+        if (!this.currentProduct) return;
         const unitPrice = this.currentProduct.price + this.extraAnalogPrice + this.extraWarrantyPrice;
         const mainPriceDisplay = document.getElementById("main-price-display");
         if (mainPriceDisplay) {
-            mainPriceDisplay.innerText = `$${unitPrice.toFixed(2)}`;
+            // Định dạng hiển thị chuẩn tiền tệ VND
+            mainPriceDisplay.innerText = Number(unitPrice).toLocaleString('vi-VN') + " đ";
         }
     }
 
@@ -98,7 +101,7 @@ class ProductDetailController {
         const finalItemPrice = this.currentProduct.price + this.extraAnalogPrice + this.extraWarrantyPrice;
         const itemToAdd = {
             id: this.currentProduct.id,
-            name: `${this.currentProduct.title} (${this.selectedColor})`,
+            name: `${this.currentProduct.name} (${this.selectedColor})`,
             price: finalItemPrice,
             image: this.currentProduct.image,
             quantity: this.quantity
@@ -122,7 +125,7 @@ class ProductDetailController {
             const badge = document.getElementById("header-cart-badge");
             const total = document.getElementById("header-cart-total");
             if (badge) badge.innerText = CartModel.getTotalCount();
-            if (total) total.innerText = "$" + CartModel.getTotalAmount().toFixed(2);
+            if (total) total.innerText = Number(CartModel.getTotalAmount()).toLocaleString('vi-VN') + " đ";
         }
     }
 
@@ -139,10 +142,17 @@ class ProductDetailController {
 
 const detailCtrl = new ProductDetailController();
 
-
 function selectColor(name, el) { detailCtrl.setColor(name, el); }
-function selectAnalog(name, price, el) { detailCtrl.setAnalog(name, price, el); }
-function selectWarranty(name, price, el) { detailCtrl.setWarranty(name, price, el); }
+function selectAnalog(name, price, el) { 
+    // Quy đổi tùy chọn sang VND: nếu > 0 thì cộng 350.000 đ
+    const priceVnd = price > 0 ? 350000 : 0;
+    detailCtrl.setAnalog(name, priceVnd, el); 
+}
+function selectWarranty(name, price, el) { 
+    // Quy đổi gói bảo hành sang VND: nếu > 0 thì cộng 490.000 đ
+    const priceVnd = price > 0 ? 490000 : 0;
+    detailCtrl.setWarranty(name, priceVnd, el); 
+}
 function adjustQuantity(delta) { detailCtrl.changeQuantity(delta); }
 function handleAddToCartDetail() { detailCtrl.addToCart(); }
 function changeMainImage(el, url) {

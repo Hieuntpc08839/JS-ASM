@@ -33,7 +33,7 @@ class ProductItem {
 
                 <div class="flex items-center justify-between pt-3 border-t border-gray-800/80 mt-auto">
                     <div>
-                        <span class="text-white text-xl font-bold font-mono">$${Number(this.product.price).toFixed(2)}</span>
+                        <span class="text-white text-xl font-bold font-mono">${Number(this.product.price).toLocaleString('vi-VN')} đ</span>
                     </div>
                     <button class="add-cart-btn w-9 h-9 rounded-lg flex items-center justify-center bg-cyan-400 hover:bg-cyan-300 text-black transition shadow-lg" title="Thêm vào giỏ">
                         <svg class="w-4 h-4 fill-none stroke-current" stroke-width="2" viewBox="0 0 24 24">
@@ -61,13 +61,13 @@ class ProductItem {
 // Class quản lý mảng và render danh sách 
 class ProductList {
     constructor() {
-        // Khởi tạo đối tượng Product khớp chính xác với bảng products trong db.json
+        // Cập nhật giá bán chuẩn VND khớp 100% với db.json
         const p1 = new Product(
             1,
             "NovaPad Apex Pro v3.2",
             "https://images.unsplash.com/photo-1600080972464-8e5f35f63d08?w=500",
             "Chassis vân Carbon siêu nhẹ, cần xoay Hall-Effect chống drift, cò Hall 2 chặng.",
-            149.99,
+            3690000,
             1
         );
         p1.badge = "TOP 1 BESTSELLER";
@@ -78,7 +78,7 @@ class ProductList {
             "Quantum Strike Chroma",
             "https://images.unsplash.com/photo-1592840496694-26d035b52b48?w=500",
             "Dải led RGB 16.8 triệu màu Aura Sync, switch cơ Tactile Micro switch nảy dòn.",
-            119.99,
+            2890000,
             1
         );
         p2.badge = "CHUYÊN FPS";
@@ -89,7 +89,7 @@ class ProductList {
             "Stealth X Ghost Tactical",
             "https://images.unsplash.com/photo-1629429408209-1f912961dbd8?w=500",
             "Phiên bản trắng gốm mờ, đệm cao su tổ ong bọc tay cầm chống trơn trượt khi try-hard.",
-            89.99,
+            2190000,
             2
         );
         p3.badge = "TACTICAL ELITE";
@@ -100,7 +100,7 @@ class ProductList {
             "Cyberpunk Neo-2077 Pro",
             "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=500",
             "Khắc laser số sê-ri độc bản, tặng kèm vali chống sốc hợp kim Titanium nguyên khối.",
-            199.99,
+            4890000,
             3
         );
         p4.badge = "BẢN GIỚI HẠN";
@@ -134,12 +134,13 @@ class ProductList {
     }
 }
 
+// Cập nhật giỏ hàng Header sang định dạng VND
 function updateHeaderCartView() {
     if (typeof CartModel !== 'undefined') {
         const badge = document.getElementById("header-cart-badge");
         const total = document.getElementById("header-cart-total");
         if (badge) badge.innerText = CartModel.getTotalCount();
-        if (total) total.innerText = "$" + CartModel.getTotalAmount().toFixed(2);
+        if (total) total.innerText = Number(CartModel.getTotalAmount()).toLocaleString('vi-VN') + " đ";
     }
 }
 
@@ -149,7 +150,7 @@ document.addEventListener("DOMContentLoaded", () => {
     homeApp = new ProductList();
     homeApp.render();
 
-    // sự kiện click các nút lọc danh mục
+    // Sự kiện click các nút lọc danh mục
     document.querySelectorAll(".filter-btn").forEach(btn => {
         btn.addEventListener("click", () => {
             document.querySelectorAll(".filter-btn").forEach(b => {

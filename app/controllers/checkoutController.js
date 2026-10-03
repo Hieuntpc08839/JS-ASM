@@ -1,8 +1,7 @@
-
 class CheckoutController {
     constructor() {
         this.shippingFee = 0;
-        this.discountVIP = 20.00;
+        this.discountVIP = 500000; // Giảm 500.000 đ cho voucher VIP2025
         this.selectedPayment = "card";
     }
 
@@ -29,6 +28,10 @@ class CheckoutController {
         cart.forEach((item, index) => {
             const itemRow = document.createElement("div");
             itemRow.className = "p-4 sm:p-5 flex items-center justify-between gap-4";
+            const itemPrice = Number(item.price) || 0;
+            const itemQty = Number(item.quantity) || 1;
+            const rowTotal = itemPrice * itemQty;
+
             itemRow.innerHTML = `
                 <div class="flex items-center gap-4">
                     <div class="w-16 h-16 bg-black/40 border border-gray-800 rounded-xl overflow-hidden p-1 shrink-0 flex items-center justify-center">
@@ -36,12 +39,12 @@ class CheckoutController {
                     </div>
                     <div>
                         <h4 class="text-white font-bold text-sm font-mono">${item.name}</h4>
-                        <div class="text-[11px] text-gray-400 font-mono mt-1">Đơn giá: $${Number(item.price).toFixed(2)}</div>
+                        <div class="text-[11px] text-gray-400 font-mono mt-1">Đơn giá: ${itemPrice.toLocaleString('vi-VN')} đ</div>
                     </div>
                 </div>
                 <div class="flex items-center gap-4 font-mono">
-                    <span class="text-xs text-gray-400">SL: <strong class="text-white">${item.quantity}</strong></span>
-                    <span class="text-sm font-bold text-cyan-400">$${(item.price * item.quantity).toFixed(2)}</span>
+                    <span class="text-xs text-gray-400">SL: <strong class="text-white">${itemQty}</strong></span>
+                    <span class="text-sm font-bold text-cyan-400">${rowTotal.toLocaleString('vi-VN')} đ</span>
                     <button onclick="checkoutCtrl.removeItem(${index})" class="text-gray-500 hover:text-red-400 transition text-xs font-bold px-1" title="Xóa thiết bị">✕</button>
                 </div>
             `;
@@ -72,17 +75,17 @@ class CheckoutController {
         const totalVndEl = document.getElementById("summary-total-vnd");
 
         if (countEl) countEl.innerText = `(${count} thiết bị):`;
-        if (subtotalEl) subtotalEl.innerText = `$${subtotal.toFixed(2)}`;
+        if (subtotalEl) subtotalEl.innerText = Number(subtotal).toLocaleString('vi-VN') + " đ";
 
         if (shippingEl) {
-            shippingEl.innerText = this.shippingFee === 0 ? "MIỄN PHÍ (FREE)" : `$${this.shippingFee.toFixed(2)}`;
+            shippingEl.innerText = this.shippingFee === 0 ? "MIỄN PHÍ (FREE)" : Number(this.shippingFee).toLocaleString('vi-VN') + " đ";
         }
 
         const discount = subtotal > 0 ? this.discountVIP : 0;
         const finalTotal = Math.max(0, subtotal - discount + this.shippingFee);
 
-        if (totalEl) totalEl.innerText = `$${finalTotal.toFixed(2)}`;
-        if (totalVndEl) totalVndEl.innerText = `~ ${(finalTotal * 25400).toLocaleString("vi-VN")} VND`;
+        if (totalEl) totalEl.innerText = Number(finalTotal).toLocaleString('vi-VN') + " đ";
+        if (totalVndEl) totalVndEl.style.display = "none"; // Ẩn dòng quy đổi thừa
     }
 
     selectShipping(type, fee, element) {
@@ -148,7 +151,6 @@ class CheckoutController {
             items: cart
         };
 
-        // Gửi lên json-server nếu đang bật, hoặc lưu cục bộ
         if (typeof ApiService !== "undefined" && typeof ApiService.createOrder === "function") {
             await ApiService.createOrder(newOrder);
         } else {
@@ -157,7 +159,6 @@ class CheckoutController {
             localStorage.setItem("novapad_orders", JSON.stringify(orders));
         }
 
-        // Dọn giỏ hàng và hoàn tất
         CartModel.saveCart([]);
         this.updateHeaderCartView();
         alert(`Chúc mừng Pilot [${fullname}]! Đơn hàng ${orderCode} đã được khởi tạo thành công.`);
@@ -169,12 +170,11 @@ class CheckoutController {
             const badge = document.getElementById("header-cart-badge");
             const total = document.getElementById("header-cart-total");
             if (badge) badge.innerText = CartModel.getTotalCount();
-            if (total) total.innerText = "$" + CartModel.getTotalAmount().toFixed(2);
+            if (total) total.innerText = Number(CartModel.getTotalAmount()).toLocaleString('vi-VN') + " đ";
         }
     }
 }
 
-// Khởi tạo instance và adapter cho các hàm gọi từ HTML
 const checkoutCtrl = new CheckoutController();
 
 function selectShipping(type, fee, el) { 

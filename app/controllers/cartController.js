@@ -17,8 +17,9 @@ class CartController {
         const totalAmount = CartModel.getTotalAmount();
 
         if (countBadge) countBadge.innerText = totalCount;
-        if (subtotalEl) subtotalEl.innerText = `$${totalAmount.toFixed(2)}`;
-        if (grandTotalEl) grandTotalEl.innerText = `$${totalAmount.toFixed(2)}`;
+        // Định dạng tiền VND có dấu chấm phân cách hàng nghìn
+        if (subtotalEl) subtotalEl.innerText = Number(totalAmount).toLocaleString('vi-VN') + " đ";
+        if (grandTotalEl) grandTotalEl.innerText = Number(totalAmount).toLocaleString('vi-VN') + " đ";
 
         // Nếu giỏ trống
         if (cart.length === 0) {
@@ -45,6 +46,7 @@ class CartController {
             const itemName = item.name || item.title || "Thiết bị Gaming";
             const itemPrice = Number(item.price) || 0;
             const itemQty = Number(item.quantity) || 1;
+            const rowTotal = itemPrice * itemQty;
 
             row.innerHTML = `
                 <div class="flex items-center gap-4">
@@ -53,7 +55,7 @@ class CartController {
                     </div>
                     <div>
                         <h4 class="text-white font-bold text-sm font-mono hover:text-cyan-400 transition">${itemName}</h4>
-                        <div class="text-[11px] text-gray-400 font-mono mt-0.5">Đơn giá: <strong class="text-white">$${itemPrice.toFixed(2)}</strong></div>
+                        <div class="text-[11px] text-gray-400 font-mono mt-0.5">Đơn giá: <strong class="text-white">${itemPrice.toLocaleString('vi-VN')} đ</strong></div>
                     </div>
                 </div>
 
@@ -66,8 +68,8 @@ class CartController {
                     </div>
 
                     <!-- Thành tiền -->
-                    <div class="text-right min-w-[80px]">
-                        <span class="text-sm font-bold text-cyan-400 block">$${(itemPrice * itemQty).toFixed(2)}</span>
+                    <div class="text-right min-w-[100px]">
+                        <span class="text-sm font-bold text-cyan-400 block">${rowTotal.toLocaleString('vi-VN')} đ</span>
                     </div>
 
                     <!-- Nút xóa -->
@@ -118,7 +120,12 @@ class CartController {
     }
 
     updateHeaderCart() {
-        CartModel.updateHeaderCart();
+        if (typeof CartModel !== "undefined") {
+            const badge = document.getElementById("header-cart-badge");
+            const total = document.getElementById("header-cart-total");
+            if (badge) badge.innerText = CartModel.getTotalCount();
+            if (total) total.innerText = Number(CartModel.getTotalAmount()).toLocaleString('vi-VN') + " đ";
+        }
     }
 
     showToast(msg) {

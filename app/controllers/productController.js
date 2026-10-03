@@ -7,8 +7,9 @@ class ProductItem {
         const itemEl = document.createElement("div");
         itemEl.className = "bg-[#0b101c] border border-gray-800 rounded-xl overflow-hidden hover:border-cyan-500/40 transition flex flex-col justify-between group";
 
+        // Định dạng giá cũ (giá gạch) sang VND
         const origPriceHtml = this.product.origPrice
-            ? `<span class="text-gray-500 text-xs line-through ml-1.5 font-mono">$${Number(this.product.origPrice).toFixed(2)}</span>`
+            ? `<span class="text-gray-500 text-xs line-through ml-1.5 font-mono">${Number(this.product.origPrice).toLocaleString('vi-VN')} đ</span>`
             : "";
 
         const actionBtnHtml = this.product.preorder
@@ -48,7 +49,7 @@ class ProductItem {
 
                 <div class="flex items-center justify-between pt-3 border-t border-gray-800/80 mt-auto">
                     <div>
-                        <span class="text-white text-lg font-bold font-mono">$${Number(this.product.price).toFixed(2)}</span>
+                        <span class="text-white text-lg font-bold font-mono">${Number(this.product.price).toLocaleString('vi-VN')} đ</span>
                         ${origPriceHtml}
                     </div>
                     ${actionBtnHtml}
@@ -73,44 +74,45 @@ class ProductItem {
 
 class ProductList {
     constructor() {
-        const p1 = new Product(1, "NovaPad Apex Pro v3.2", "https://images.unsplash.com/photo-1600080972464-8e5f35f63d08?w=500", "Chassis vân Carbon siêu nhẹ, cần xoay Hall-Effect chống drift, cò Hall 2 chặng.", 149.99, 1);
-        p1.origPrice = 189.99; p1.badge = "FLAGSHIP APEX"; p1.extra = "-21% OFF"; p1.series = "WIRELESS 2.4G / TYPE-C"; p1.rating = "4.9 (120)";
+        // Cập nhật giá bán theo chuẩn VND
+        const p1 = new Product(1, "NovaPad Apex Pro v3.2", "https://images.unsplash.com/photo-1600080972464-8e5f35f63d08?w=500", "Chassis vân Carbon siêu nhẹ, cần xoay Hall-Effect chống drift, cò Hall 2 chặng.", 3690000, 1);
+        p1.origPrice = 4690000; p1.badge = "FLAGSHIP APEX"; p1.extra = "-21% OFF"; p1.series = "WIRELESS 2.4G / TYPE-C"; p1.rating = "4.9 (120)";
         p1.connection = "wireless"; p1.tech = ["hall", "trigger", "macro"];
         p1.platforms = ["pc", "steam", "mobile"];
         p1.tags = ["1000Hz", "4 Back Paddles", "42h Pin"];
 
-        const p2 = new Product(2, "Quantum Strike Chroma", "https://images.unsplash.com/photo-1592840496694-26d035b52b48?w=500", "Dải led RGB 16.8 triệu màu Aura Sync, switch cơ Tactile Micro switch nảy dòn.", 119.99, 1);
+        const p2 = new Product(2, "Quantum Strike Chroma", "https://images.unsplash.com/photo-1592840496694-26d035b52b48?w=500", "Dải led RGB 16.8 triệu màu Aura Sync, switch cơ Tactile Micro switch nảy dòn.", 2890000, 1);
         p2.badge = "CHROMA RGB"; p2.extra = "MỚI RA MẮT"; p2.series = "TRI-MODE CONNECTIVITY"; p2.rating = "4.8 (94)";
         p2.connection = "wireless"; p2.tech = ["hall", "mechanical"];
         p2.platforms = ["pc", "xbox", "mobile"];
         p2.tags = ["Hall Effect", "Gyro 6 Trục", "Custom RGB"];
 
-        const p3 = new Product(3, "Stealth X Ghost Tactical", "https://images.unsplash.com/photo-1629429408209-1f912961dbd8?w=500", "Phiên bản trắng gốm mờ, đệm cao su tổ ong bọc tay cầm chống trơn trượt khi try-hard.", 89.99, 2);
+        const p3 = new Product(3, "Stealth X Ghost Tactical", "https://images.unsplash.com/photo-1629429408209-1f912961dbd8?w=500", "Phiên bản trắng gốm mờ, đệm cao su tổ ong bọc tay cầm chống trơn trượt khi try-hard.", 2190000, 2);
         p3.badge = "TẠM HẾT HÀNG"; p3.extra = "PRE-ORDER ĐỢT 2"; p3.series = "ARCTIC CERAMIC EDITION"; p3.rating = "5.0 (62)"; p3.preorder = true;
         p3.connection = "cable"; p3.tech = ["hall", "trigger"];
         p3.platforms = ["pc", "steam"];
         p3.tags = ["White Ceramic", "1000Hz USB", "Grip Pad"];
 
-        const p4 = new Product(4, "Cyberpunk Neo-2077 Pro", "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=500", "Khắc laser số sê-ri độc bản, tặng kèm vali chống sốc hợp kim Titanium nguyên khối.", 199.99, 2);
+        const p4 = new Product(4, "Cyberpunk Neo-2077 Pro", "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=500", "Khắc laser số sê-ri độc bản, tặng kèm vali chống sốc hợp kim Titanium nguyên khối.", 4890000, 2);
         p4.badge = "LIMITED 500 PCS"; p4.extra = "#084/500"; p4.series = "COLLECTOR EDITION"; p4.rating = "5.0 (48)";
         p4.connection = "bluetooth"; p4.tech = ["hall", "macro", "mechanical"];
         p4.platforms = ["pc", "ps", "mobile"];
         p4.tags = ["Titanium Box", "Laser Etched", "Gold Plated"];
 
-        const p5 = new Product(5, "NovaDock Ultra Hub", "https://images.unsplash.com/photo-1585060544812-6b45742d762f?w=500", "Đế sạc nam châm tự hít thông minh, tích hợp hub 2 cổng USB 3.2 mở rộng dongle tiện lợi.", 49.99, 3);
+        const p5 = new Product(5, "NovaDock Ultra Hub", "https://images.unsplash.com/photo-1585060544812-6b45742d762f?w=500", "Đế sạc nam châm tự hít thông minh, tích hợp hub 2 cổng USB 3.2 mở rộng dongle tiện lợi.", 1190000, 3);
         p5.badge = "PHỤ KIỆN CAO CẤP"; p5.extra = "Fast Mag-Charge"; p5.series = "DOCK SẠC TỪ TÍNH"; p5.rating = "4.7 (210)";
         p5.connection = "cable"; p5.tech = [];
         p5.platforms = ["pc", "steam", "xbox", "ps", "mobile"];
         p5.tags = ["Mag-Lock", "2x USB 3.2", "LED Status"];
 
-        const p6 = new Product(6, "Hall Stick Kit Pro (4 Nắp)", "https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?w=500", "Bộ 4 nắp cần xoay cao thấp tùy biến: lõm (concave), lồi (convex) bằng cao su fluoro.", 19.99, 3);
+        const p6 = new Product(6, "Hall Stick Kit Pro (4 Nắp)", "https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?w=500", "Bộ 4 nắp cần xoay cao thấp tùy biến: lõm (concave), lồi (convex) bằng cao su fluoro.", 490000, 3);
         p6.badge = "TACTICAL MOD KIT"; p6.extra = "Universal Fit"; p6.series = "DIY UPGRADE KIT"; p6.rating = "4.9 (342)";
         p6.connection = "cable"; p6.tech = ["hall"];
         p6.platforms = ["pc", "steam", "xbox", "ps", "mobile"];
         p6.tags = ["4 Height Options", "Zero Drift", "Tool Included"];
 
         this.products = [p1, p2, p3, p4, p5, p6];
-        this.maxPrice = 250;
+        this.maxPrice = 5000000; // Mặc định mở tối đa 5 triệu đồng
         this.keyword = "";
     }
 
@@ -160,7 +162,7 @@ function updateCatalogHeaderCart() {
         const badge = document.getElementById("header-cart-badge");
         const total = document.getElementById("header-cart-total");
         if (badge) badge.innerText = CartModel.getTotalCount();
-        if (total) total.innerText = "$" + CartModel.getTotalAmount().toFixed(2);
+        if (total) total.innerText = Number(CartModel.getTotalAmount()).toLocaleString('vi-VN') + " đ";
     }
 }
 
@@ -194,7 +196,7 @@ function setChipState(chip, active) {
 
 function updatePriceLabel(value) {
     const label = document.getElementById("price-label");
-    if (label) label.innerText = "$20 - $" + value;
+    if (label) label.innerText = "<= " + Number(value).toLocaleString('vi-VN') + " đ";
 }
 
 let catalogApp;
@@ -217,11 +219,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Slider khoảng giá
     if (priceSlider) {
-        catalogApp.maxPrice = parseFloat(priceSlider.value);
-        updatePriceLabel(priceSlider.value);
         priceSlider.addEventListener("input", (e) => {
-            catalogApp.maxPrice = parseFloat(e.target.value);
-            updatePriceLabel(e.target.value);
+            const val = parseFloat(e.target.value);
+            catalogApp.maxPrice = val;
+            updatePriceLabel(val);
             catalogApp.applyAllFilters();
         });
     }
@@ -245,11 +246,11 @@ document.addEventListener("DOMContentLoaded", () => {
         resetBtn.addEventListener("click", () => {
             document.querySelectorAll(".conn-filter, .tech-filter").forEach(cb => cb.checked = cb.defaultChecked);
             chips.forEach(chip => setChipState(chip, chip.dataset.default === "true"));
-            if (priceSlider) priceSlider.value = 250;
+            if (priceSlider) priceSlider.value = 5000000;
             if (searchInput) searchInput.value = "";
-            catalogApp.maxPrice = 250;
+            catalogApp.maxPrice = 5000000;
             catalogApp.keyword = "";
-            updatePriceLabel(250);
+            updatePriceLabel(5000000);
             catalogApp.applyAllFilters();
         });
     }

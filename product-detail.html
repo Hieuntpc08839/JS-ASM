@@ -208,10 +208,10 @@
 
                 <!-- Khối Giá & Tiết kiệm -->
                 <div class="flex items-baseline gap-3 p-4 bg-[#0a101d] rounded-xl border border-gray-800">
-                    <span id="main-price-display" class="text-3xl font-black text-cyan-400 font-mono">$149.99</span>
-                    <span class="text-gray-500 line-through text-sm font-mono">$189.99</span>
+                    <span id="main-price-display" class="text-3xl font-black text-cyan-400 font-mono">3.690.000 đ</span>
+                    <span class="text-gray-500 line-through text-sm font-mono">4.690.000 đ</span>
                     <span class="bg-red-500/20 text-red-400 border border-red-500/30 text-xs font-mono font-bold px-2 py-0.5 rounded ml-auto">
-                        -21% (TIẾT KIỆM $40.00)
+                        -21% (TIẾT KIỆM 1.000.000 đ)
                     </span>
                 </div>
 
@@ -247,14 +247,14 @@
                         <div onclick="selectAnalog('Hall Effect v4.0', 0, this)" class="analog-card p-3 rounded-lg border border-cyan-400 bg-cyan-950/20 text-left cursor-pointer transition">
                             <div class="flex justify-between font-bold text-white mb-1">
                                 <span>HALL EFFECT V4.0</span>
-                                <span class="text-cyan-400">Free</span>
+                                <span class="text-cyan-400">Miễn phí</span>
                             </div>
                             <span class="text-[10px] text-gray-400 block leading-tight">Từ Tính Chống Trôi Vĩnh Cửu</span>
                         </div>
-                        <div onclick="selectAnalog('Pro Tension Kit', 15.00, this)" class="analog-card p-3 rounded-lg border border-gray-800 bg-[#0d1424] text-left cursor-pointer transition">
+                        <div onclick="selectAnalog('Pro Tension Kit', 350000, this)" class="analog-card p-3 rounded-lg border border-gray-800 bg-[#0d1424] text-left cursor-pointer transition">
                             <div class="flex justify-between font-bold text-white mb-1">
                                 <span>PRO TENSION KIT</span>
-                                <span class="text-cyan-400">+$15.00</span>
+                                <span class="text-cyan-400">+350.000 đ</span>
                             </div>
                             <span class="text-[10px] text-gray-400 block leading-tight">Tùy biến lực ghìm 45g-85g</span>
                         </div>
@@ -269,10 +269,10 @@
                             <span class="font-bold text-white block">24 Tháng Tiêu Chuẩn</span>
                             <span class="text-[10px] text-gray-400">Đã Bao Gồm</span>
                         </div>
-                        <div onclick="selectWarranty('NovaCare VIP 36T', 19.99, this)" class="warranty-card p-3 rounded-lg border border-gray-800 bg-[#0d1424] text-left cursor-pointer transition">
+                        <div onclick="selectWarranty('NovaCare VIP 36T', 490000, this)" class="warranty-card p-3 rounded-lg border border-gray-800 bg-[#0d1424] text-left cursor-pointer transition">
                             <div class="flex justify-between font-bold text-white">
                                 <span>NovaCare VIP 36T</span>
-                                <span class="text-cyan-400">+$19.99</span>
+                                <span class="text-cyan-400">+490.000 đ</span>
                             </div>
                             <span class="text-[10px] text-purple-400">1 Đổi 1 Cấp Tốc</span>
                         </div>
@@ -281,11 +281,6 @@
 
                 <!-- Bộ tăng giảm số lượng & Nút Thêm Giỏ Hàng -->
                 <div class="flex items-center gap-3 pt-2">
-                    <div class="flex items-center border border-gray-800 bg-[#0d1424] rounded-lg h-12">
-                        <button onclick="adjustQuantity(-1)" class="w-10 h-full text-gray-400 hover:text-white flex items-center justify-center font-bold text-base">&minus;</button>
-                        <span id="qty-display" class="w-10 text-center font-mono font-bold text-white">1</span>
-                        <button onclick="adjustQuantity(1)" class="w-10 h-full text-gray-400 hover:text-white flex items-center justify-center font-bold text-base">&plus;</button>
-                    </div>
                     <button onclick="handleAddToCartDetail()" class="flex-1 bg-cyan-400 hover:bg-cyan-300 text-black font-bold h-12 rounded-lg flex items-center justify-center gap-2 transition text-sm">
                         <svg class="w-5 h-5 fill-none stroke-current" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" /></svg>
                         THÊM VÀO GIỎ HÀNG
