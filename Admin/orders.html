@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&amp;family=Sora:wght@400;600;700;800&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"on-secondary-fixed-variant":"#6a0baa","error":"#ffb4ab","primary-fixed-dim":"#00dbe9","on-error":"#690005","on-tertiary":"#003641","primary-fixed":"#7df4ff","secondary":"#e0b6ff","on-tertiary-fixed-variant":"#004e5d","primary":"#dbfcff","on-primary-container":"#006970","on-tertiary-fixed":"#001f27","inverse-surface":"#e1e2eb","on-surface-variant":"#b9cacb","surface-container-low":"#191c22","surface-container-high":"#272a31","outline-variant":"#3b494b","surface-dim":"#10131a","surface":"#10131a","tertiary-fixed-dim":"#48d7f9","on-secondary-fixed":"#2e004e","on-tertiary-container":"#00687c","tertiary-container":"#8fe6ff","on-surface":"#e1e2eb","primary-container":"#00f0ff","tertiary-fixed":"#afecff","inverse-primary":"#006970","on-primary-fixed":"#002022","tertiary":"#e8f9ff","secondary-fixed-dim":"#e0b6ff","on-error-container":"#ffdad6","outline":"#849495","error-container":"#93000a","on-primary":"#00363a","surface-variant":"#32353c","inverse-on-surface":"#2e3037","surface-container-highest":"#32353c","background":"#10131a","on-secondary-container":"#d7a4ff","surface-bright":"#363940","secondary-fixed":"#f2daff","surface-tint":"#00dbe9","on-secondary":"#4c007d","secondary-container":"#6d11ad","surface-container-lowest":"#0b0e14","on-background":"#e1e2eb","on-primary-fixed-variant":"#004f54","surface-container":"#1d2026"},"borderRadius":{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},"spacing":{"space-md":"1rem","space-sm":"0.5rem","gutter-mobile":"1rem","space-xs":"0.25rem","space-xl":"2.5rem","gutter":"1.5rem","margin":"3rem","margin-mobile":"1.25rem","space-lg":"1.5rem"},"fontFamily":{"label-md":["Space Grotesk"],"body-sm":["Outfit"],"headline-xl":["Sora"],"body-md":["Outfit"],"headline-md":["Sora"],"headline-lg":["Sora"],"headline-lg-mobile":["Sora"],"body-lg":["Outfit"],"headline-xl-mobile":["Sora"],"headline-sm":["Sora"],"label-lg":["Space Grotesk"],"label-sm":["Space Grotesk"]},"fontSize":{"label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.08em","fontWeight":"600"}],"body-sm":["14px",{"lineHeight":"20px","letterSpacing":"0.01em","fontWeight":"400"}],"headline-xl":["56px",{"lineHeight":"64px","letterSpacing":"-0.02em","fontWeight":"800"}],"body-md":["16px",{"lineHeight":"24px","letterSpacing":"0em","fontWeight":"400"}],"headline-md":["28px",{"lineHeight":"36px","letterSpacing":"-0.01em","fontWeight":"600"}],"headline-lg":["40px",{"lineHeight":"48px","letterSpacing":"-0.015em","fontWeight":"700"}],"headline-lg-mobile":["28px",{"lineHeight":"36px","letterSpacing":"0em","fontWeight":"700"}],"body-lg":["18px",{"lineHeight":"28px","letterSpacing":"0em","fontWeight":"400"}],"headline-xl-mobile":["36px",{"lineHeight":"44px","letterSpacing":"-0.01em","fontWeight":"800"}],"headline-sm":["20px",{"lineHeight":"28px","letterSpacing":"0em","fontWeight":"600"}],"label-lg":["14px",{"lineHeight":"20px","letterSpacing":"0.06em","fontWeight":"700"}],"label-sm":["10px",{"lineHeight":"14px","letterSpacing":"0.1em","fontWeight":"600"}]}}}}</script></head><body class="bg-surface font-body-md text-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-72 bg-surface-container-lowest z-50 flex flex-col justify-between shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="flex flex-col"><div class="h-16 px-gutter flex items-center gap-space-sm bg-surface-container-low/50"><img alt="Brand logo. - Primary color: #00f0ff
+- Font: sora
+- Mode: dark
+- Roundness: rounded-sm
+" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1UBMl0uFDU8ZJQQCbYVJr2EDaFKHs8Aa__5gW-C92n8FaqN2F17y6eXdFPWs6ql7ZsPFws3mHpKbd5ShZ6MwLnvefNvbEplSXWW6Xu1gbYW5UpW-dhMSo6PMf15xwuTBCp198D31Qzp6vAEbT_oVSKzarXDxSCy5gYX_lbCHOTPDj98gDJi50DGeplUrwULZTEC3zgdPsW1Otk3FqLr8yuPfbqgnddufr8vwtq-CYdH80NYqpjmfVVMeBU"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-primary tracking-tight font-bold">NOVAPAD</span><span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">CORE CONTROLLER</span></div></div><div class="px-gutter pt-space-lg pb-space-sm"><span class="font-label-sm text-label-sm uppercase text-outline tracking-widest">Main Command</span></div><nav class="flex flex-col gap-space-xs px-space-sm" data-active-classes="bg-primary-container text-on-primary-container font-bold"><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-label-md text-label-md" data-path="overview-dashboard" href="index.html"><span class="material-symbols-outlined text-[20px]">grid_view</span><span>Overview / Dashboard</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-label-md text-label-md" data-path="quan-ly-san-pham" href="quan_ly_san_pham.html"><span class="material-symbols-outlined text-[20px]">sports_esports</span><span>Quản Lý Sản Phẩm</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-label-md text-label-md" data-path="quan-ly-bai-viet" href="quan_ly_bai_viet.html"><span class="material-symbols-outlined text-[20px]">feed</span><span>Quản Lý Bài Viết</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-label-md text-label-md" data-path="quan-ly-danh-muc" href="quan_ly_danh_muc.html"><span class="material-symbols-outlined text-[20px]">category</span><span>Quản Lý Danh Mục</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-label-md text-label-md" data-path="quan-ly-nguoi-dung" href="quan_ly_nguoi_dung.html"><span class="material-symbols-outlined text-[20px]">group</span><span>Quản Lý Người Dùng</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-label-md text-label-md" data-path="cai-dat-he-thong" href="#"><span class="material-symbols-outlined text-[20px]">tune</span><span>Cài Đặt Hệ Thống</span></a></nav></div><div class="p-gutter bg-surface-container-low/40"><div class="flex items-center justify-between p-space-sm rounded-lg bg-surface-container-lowest/80"><div class="flex flex-col"><span class="font-label-sm text-label-sm text-outline uppercase">SYS-ENGINE</span><span class="font-label-md text-label-md text-primary-fixed">V4.92-PROD</span></div><span class="h-2 w-2 rounded-full bg-primary-container animate-pulse"></span></div></div></aside><div class="pl-72"><header class="fixed top-0 left-72 right-0 h-16 bg-surface-container-lowest/90 backdrop-blur-xl z-40 px-gutter shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="w-full h-full flex items-center justify-between gap-gutter"><div class="flex items-center gap-space-md"><img alt="Brand logo. - Primary color: #00f0ff
+- Font: sora
+- Mode: dark
+- Roundness: rounded-sm
+" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1UBMl0uFDU8ZJQQCbYVJr2EDaFKHs8Aa__5gW-C92n8FaqN2F17y6eXdFPWs6ql7ZsPFws3mHpKbd5ShZ6MwLnvefNvbEplSXWW6Xu1gbYW5UpW-dhMSo6PMf15xwuTBCp198D31Qzp6vAEbT_oVSKzarXDxSCy5gYX_lbCHOTPDj98gDJi50DGeplUrwULZTEC3zgdPsW1Otk3FqLr8yuPfbqgnddufr8vwtq-CYdH80NYqpjmfVVMeBU"/><span class="font-label-md text-label-md text-on-surface-variant bg-surface-container-high px-space-sm py-space-xs rounded-lg uppercase tracking-wider">NOVAPAD ADMIN HQ // SYS-ROOT</span></div><div class="flex items-center gap-gutter"><div class="hidden xl:flex items-center gap-space-lg"><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-primary-container text-[18px]">memory</span><span class="font-label-sm text-label-sm text-on-surface-variant">CPU LOAD:</span><span class="font-label-sm text-label-sm text-primary font-bold">23.4%</span></div><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-tertiary-fixed-dim text-[18px]">wifi_tethering</span><span class="font-label-sm text-label-sm text-on-surface-variant">LATENCY:</span><span class="font-label-sm text-label-sm text-primary font-bold">12ms</span></div><div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-secondary text-[18px]">sports_esports</span><span class="font-label-sm text-label-sm text-on-surface-variant">PILOTS ONLINE:</span><span class="font-label-sm text-label-sm text-primary font-bold">1,842</span></div></div><div class="relative flex items-center"><span class="material-symbols-outlined absolute left-space-sm text-on-surface-variant text-[18px]">search</span><input class="bg-surface-container-high font-body-sm text-body-sm text-on-surface placeholder:text-outline rounded-lg pl-9 pr-space-md py-space-xs outline-none focus:bg-surface-container-highest transition-colors w-64 lg:w-80" placeholder="Search telemetry, hardware ID, pilots..." type="text"/></div><div class="flex items-center gap-space-sm"><button aria-label="Notifications" class="p-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors flex items-center justify-center"><span class="material-symbols-outlined text-[20px]">notifications</span></button><button aria-label="Audit Log" class="p-space-xs rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors flex items-center justify-center"><span class="material-symbols-outlined text-[20px]">terminal</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center ml-space-xs"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></div></header><main class="relative pt-16 w-full px-gutter min-h-screen bg-surface"><div class="flex flex-col w-full pb-space-xl">
+<!-- Top Ambient Glow Field -->
+<div class="relative w-full overflow-hidden mb-space-lg">
+<div class="absolute -top-32 left-1/4 w-96 h-96 bg-primary-container/10 rounded-full blur-3xl pointer-events-none"></div>
+<div class="absolute -top-24 right-1/3 w-80 h-80 bg-secondary-container/20 rounded-full blur-3xl pointer-events-none"></div>
+<!-- Screen Title Bar & Action Center -->
+<div class="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-space-md py-space-sm">
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs mb-space-xs">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-primary-fixed-dim">CMS TELEMETRY HUB</span>
+<span class="inline-block w-1.5 h-1.5 rounded-full bg-primary-container animate-ping"></span>
+<span class="font-label-sm text-label-sm text-outline">SYS-NODE: EDIT-09</span>
+</div>
+<h1 class="font-headline-md text-headline-md text-primary font-bold tracking-tight">
+          Quản Lý Bài Viết &amp; Tin Tức Kỹ Thuật
+        </h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+          Trung tâm điều phối thông tin công nghệ, cẩm nang switch cơ học &amp; giải đấu NovaPad eSports.
+        </p>
+</div>
+<!-- Action Navigation Mode Switcher -->
+<div class="flex items-center gap-space-sm flex-wrap">
+<div class="flex bg-surface-container-lowest p-1 rounded-xl shadow-inner">
+<button class="flex items-center gap-space-xs px-space-md py-space-xs rounded-lg bg-primary-container text-on-primary-container font-label-md text-label-md transition-all shadow-md" id="tab-editor-btn">
+<span class="material-symbols-outlined text-[18px]">edit_document</span>
+<span>+ Viết Bài Mới</span>
+</button>
+<a class="flex items-center gap-space-xs px-space-md py-space-xs rounded-lg text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-colors" href="#article-repository">
+<span class="material-symbols-outlined text-[18px]">view_list</span>
+<span>Danh Sách (18 Bài Đã Đăng)</span>
+</a>
+</div>
+<button class="flex items-center gap-space-xs px-space-md py-space-xs rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-primary font-label-md text-label-md transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[18px]">tune</span>
+<span>Cấu Hình SEO</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Telemetry Metrics Bar (4 Mini Bento Tiles) -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-md mb-space-xl">
+<!-- Stat 1 -->
+<div class="relative overflow-hidden rounded-xl bg-surface-container-low p-space-md shadow-sm transition-transform hover:-translate-y-0.5">
+<div class="absolute -right-4 -bottom-4 w-20 h-20 bg-primary-container/5 rounded-full blur-xl"></div>
+<div class="flex items-center justify-between mb-space-xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Đã Xuất Bản</span>
+<span class="p-1.5 rounded-lg bg-surface-container-high text-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+</span>
+</div>
+<div class="flex items-baseline gap-space-xs">
+<span class="font-headline-md text-headline-md text-on-surface font-bold">18</span>
+<span class="font-label-sm text-label-sm text-primary-fixed-dim font-medium">+2 tuần này</span>
+</div>
+<div class="w-full bg-surface-container-highest h-1 rounded-full mt-3 overflow-hidden">
+<div class="bg-primary-container h-full w-[82%] rounded-full"></div>
+</div>
+</div>
+<!-- Stat 2 -->
+<div class="relative overflow-hidden rounded-xl bg-surface-container-low p-space-md shadow-sm transition-transform hover:-translate-y-0.5">
+<div class="flex items-center justify-between mb-space-xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Bản Nháp / Đang Xử Lý</span>
+<span class="p-1.5 rounded-lg bg-surface-container-high text-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">history_edu</span>
+</span>
+</div>
+<div class="flex items-baseline gap-space-xs">
+<span class="font-headline-md text-headline-md text-on-surface font-bold">04</span>
+<span class="font-label-sm text-label-sm text-outline">Chờ kiểm duyệt</span>
+</div>
+<div class="w-full bg-surface-container-highest h-1 rounded-full mt-3 overflow-hidden">
+<div class="bg-secondary h-full w-[35%] rounded-full"></div>
+</div>
+</div>
+<!-- Stat 3 -->
+<div class="relative overflow-hidden rounded-xl bg-surface-container-low p-space-md shadow-sm transition-transform hover:-translate-y-0.5">
+<div class="flex items-center justify-between mb-space-xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Lượt Đọc Tháng Này</span>
+<span class="p-1.5 rounded-lg bg-surface-container-high text-tertiary-fixed-dim flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">query_stats</span>
+</span>
+</div>
+<div class="flex items-baseline gap-space-xs">
+<span class="font-headline-md text-headline-md text-primary-fixed font-bold">125.4K</span>
+<span class="font-label-sm text-label-sm text-primary-container font-semibold">↑ 18.2%</span>
+</div>
+<div class="w-full bg-surface-container-highest h-1 rounded-full mt-3 overflow-hidden">
+<div class="bg-tertiary-fixed-dim h-full w-[68%] rounded-full"></div>
+</div>
+</div>
+<!-- Stat 4 -->
+<div class="relative overflow-hidden rounded-xl bg-surface-container-low p-space-md shadow-sm transition-transform hover:-translate-y-0.5">
+<div class="flex items-center justify-between mb-space-xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Tương Tác / Bình Luận</span>
+<span class="p-1.5 rounded-lg bg-surface-container-high text-on-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">forum</span>
+</span>
+</div>
+<div class="flex items-baseline gap-space-xs">
+<span class="font-headline-md text-headline-md text-on-surface font-bold">842</span>
+<span class="font-label-sm text-label-sm text-outline">98% hài lòng</span>
+</div>
+<div class="w-full bg-surface-container-highest h-1 rounded-full mt-3 overflow-hidden">
+<div class="bg-secondary-container h-full w-[54%] rounded-full"></div>
+</div>
+</div>
+</div>
+<!-- Main Split Editor Workspace -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-gutter mb-space-xl items-start">
+<!-- LEFT PANEL: Primary WYSIWYG & Content Pipeline (8 Cols) -->
+<div class="xl:col-span-8 flex flex-col gap-space-md">
+<!-- Article Title Input Module 
+<div class="rounded-xl bg-surface-container-lowest p-space-lg shadow-sm">
+<div class="flex items-center justify-between mb-space-xs">
+<label class="font-label-sm text-label-sm uppercase tracking-wider text-outline flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-primary-container">title</span>
+            Tiêu Đề Bài Viết Kỹ Thuật
+          </label>
+<span class="font-label-sm text-label-sm text-outline" id="title-char-count">92 / 120 ký tự</span>
+</div>
+<textarea class="w-full bg-surface-container-high text-on-surface font-headline-sm text-headline-sm p-space-sm rounded-lg outline-none focus:bg-surface-container-highest transition-colors resize-none leading-snug" rows="2">Kỹ Thuật Cảm Biến Hall-Effect: Vì Sao Tuyển Thủ eSports Loại Bỏ Hoàn Toàn Stick Drift?</textarea>
+-->
+<!-- Slug & Permalink Preview Bar 
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-xs mt-space-sm pt-space-xs bg-surface-container-low px-space-sm py-space-xs rounded-lg">
+<div class="flex items-center gap-space-xs min-w-0 overflow-hidden">
+<span class="material-symbols-outlined text-outline text-[16px]">link</span>
+<span class="font-label-sm text-label-sm text-outline shrink-0">SLUG:</span>
+<span class="font-label-sm text-label-sm text-primary-fixed-dim truncate">/tin-tuc/ky-thuat-hall-effect-chong-stick-drift</span>
+</div>
+<button class="flex items-center gap-1 text-on-surface-variant hover:text-primary font-label-sm text-label-sm shrink-0 transition-colors">
+<span class="material-symbols-outlined text-[14px]">edit</span>
+<span>Chỉnh slug</span>
+</button>
+</div>
+</div>
+-->
+<!-- Excerpt Module 
+<div class="rounded-xl bg-surface-container-lowest p-space-lg shadow-sm">
+<label class="font-label-sm text-label-sm uppercase tracking-wider text-outline flex items-center gap-1 mb-space-xs">
+<span class="material-symbols-outlined text-[16px] text-tertiary-fixed-dim">short_text</span>
+          Tóm Tắt Ngắn (Excerpt &amp; Meta Description)
+        </label>
+<textarea class="w-full bg-surface-container-high text-body-sm font-body-sm text-on-surface p-space-sm rounded-lg outline-none focus:bg-surface-container-highest transition-colors resize-none" rows="2">Tìm hiểu sâu về nguyên lý vật lý từ trường vĩnh cửu trên cần analog Hall-Effect, loại bỏ hoàn toàn hiện tượng hao mòn ma sát than chì truyền thống và cách công nghệ này mang lại lợi thế deadzone 0.1% cho game thủ chuyên nghiệp.</textarea>
+</div>
+-->
+<!-- Rich WYSIWYG Workspace
+<div class="rounded-xl bg-surface-container-lowest overflow-hidden shadow-sm flex flex-col">
+
+ -->  
+  <!-- Rich Text Ribbon / Command Bar 
+<div class="flex flex-wrap items-center gap-1 p-space-sm bg-surface-container-low">
+<div class="flex items-center gap-0.5 bg-surface-container-high p-1 rounded-lg">
+<button class="p-1.5 rounded hover:bg-surface-container-highest text-on-surface transition-colors" title="Bold">
+<span class="material-symbols-outlined text-[18px]">format_bold</span>
+</button>
+<button class="p-1.5 rounded hover:bg-surface-container-highest text-on-surface transition-colors" title="Italic">
+<span class="material-symbols-outlined text-[18px]">format_italic</span>
+</button>
+<button class="p-1.5 rounded hover:bg-surface-container-highest text-on-surface transition-colors" title="Underline">
+<span class="material-symbols-outlined text-[18px]">format_underlined</span>
+</button>
+<button class="p-1.5 rounded hover:bg-surface-container-highest text-on-surface-variant transition-colors" title="Strikethrough">
+<span class="material-symbols-outlined text-[18px]">strikethrough_s</span>
+</button>
+</div>
+<div class="flex items-center gap-0.5 bg-surface-container-high p-1 rounded-lg">
+<button class="px-2 py-1 rounded hover:bg-surface-container-highest text-on-surface font-label-sm text-label-sm transition-colors" title="Heading 1">
+              H1
+            </button>
+<button class="px-2 py-1 rounded bg-surface-container-highest text-primary-container font-label-sm text-label-sm transition-colors" title="Heading 2">
+              H2
+            </button>
+<button class="px-2 py-1 rounded hover:bg-surface-container-highest text-on-surface font-label-sm text-label-sm transition-colors" title="Heading 3">
+              H3
+            </button>
+</div>
+<div class="flex items-center gap-0.5 bg-surface-container-high p-1 rounded-lg">
+<button class="p-1.5 rounded hover:bg-surface-container-highest text-on-surface transition-colors" title="Bullet List">
+<span class="material-symbols-outlined text-[18px]">format_list_bulleted</span>
+</button>
+<button class="p-1.5 rounded hover:bg-surface-container-highest text-on-surface transition-colors" title="Numbered List">
+<span class="material-symbols-outlined text-[18px]">format_list_numbered</span>
+</button>
+<button class="p-1.5 rounded bg-surface-container-highest text-primary transition-colors" title="Blockquote">
+<span class="material-symbols-outlined text-[18px]">format_quote</span>
+</button>
+</div>
+<div class="flex items-center gap-0.5 bg-surface-container-high p-1 rounded-lg">
+<button class="p-1.5 rounded hover:bg-surface-container-highest text-on-surface transition-colors" title="Code Block">
+<span class="material-symbols-outlined text-[18px]">code_blocks</span>
+</button>
+<button class="p-1.5 rounded hover:bg-surface-container-highest text-on-surface transition-colors" title="Table Insert">
+<span class="material-symbols-outlined text-[18px]">table</span>
+</button>
+<button class="p-1.5 rounded hover:bg-surface-container-highest text-on-surface transition-colors" title="Link Insert">
+<span class="material-symbols-outlined text-[18px]">link</span>
+</button>
+<button class="p-1.5 rounded bg-primary-container/20 text-primary-container hover:bg-primary-container/30 transition-colors" title="Insert Visual Gear Render">
+<span class="material-symbols-outlined text-[18px]">add_photo_alternate</span>
+</button>
+</div>
+<div class="ml-auto flex items-center gap-space-xs text-outline font-label-sm text-label-sm">
+<span class="inline-block w-2 h-2 rounded-full bg-primary-fixed-dim"></span>
+<span>Tự động lưu: 1 phút trước</span>
+</div>
+</div>
+-->
+<!-- Editable Content Canvas
+<div class="p-space-lg space-y-space-md text-on-surface font-body-md text-body-md min-h-[440px] bg-surface-container-lowest">
+<h2 class="font-headline-md text-headline-md text-primary font-bold">
+            1. Cơ Chế Vật Lý: Sự Thoái Hóa Của Biến Trở Potentiometer Cũ Kỹ
+          </h2>
+<p class="text-on-surface-variant leading-relaxed">
+            Trong suốt hai thập kỷ qua, hầu hết các tay cầm thương mại phổ biến đều phụ thuộc vào cụm biến trở chổi quét kim loại (potentiometers). Khi vận động viên gạt cần di chuyển trong những pha flick góc 180 độ ở các tựa game như <span class="text-primary font-medium">Apex Legends</span> hay <span class="text-primary font-medium">Call of Duty: Warzone</span>, chân tiếp xúc vật lý cọ xát trực tiếp lên dải than dẫn điện. 
+          </p>
+           -->
+<!-- Callout Quote Card inside article
+<div class="p-space-md rounded-xl bg-surface-container-high/60 my-space-md">
+<div class="flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-primary-container text-[24px] shrink-0 mt-0.5">electrical_services</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-primary uppercase tracking-wider font-semibold">KẾT QUẢ ĐO KIỂM PHÒNG LAB NOVAPAD:</span>
+<p class="font-body-sm text-body-sm text-on-surface italic mt-1">
+                  "Sau 450 giờ thử nghiệm rung lắc với tần số xung lực 8Hz, joystick ALPS biến trở tiêu chuẩn ghi nhận độ trôi deadzone trung bình là 4.8%, trong khi module Hall-Effect NovaPad giữ mức sai số tiệm cận 0.02%."
+                </p>
+</div>
+</div>
+</div>
+<h2 class="font-headline-md text-headline-md text-primary font-bold">
+            2. Hall Effect Sensor: Cảm Ứng Từ Không Tiếp Xúc
+          </h2>
+<p class="text-on-surface-variant leading-relaxed">
+            Bằng cách tích hợp nam châm neodymium vĩnh cửu kết hợp vi mạch cảm biến điện từ, vị trí trục tọa độ X/Y được định vị tức thời thông qua sự biến thiên của điện áp Hall mà không cần bất kỳ sự cọ xát cơ học nào. Điều này chấm dứt hoàn toàn nguy cơ hao mòn bụi than - nguyên nhân cốt lõi sinh ra hiện tượng stick drift.
+          </p>
+           -->
+<!-- Inline Telemetry Diagram Preview
+<div class="p-space-md rounded-xl bg-surface-container-low flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-outline">BẢNG SO SÁNH HIỆU SUẤT TRUYỀN DẪN VẬT LÝ</span>
+<span class="font-label-sm text-label-sm text-primary-container font-mono">TEL-SPEC // REV 4</span>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-space-sm pt-space-xs">
+<div class="bg-surface-container-high p-space-sm rounded-lg">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Chu Kỳ Vòng Đời</span>
+<p class="font-headline-sm text-headline-sm text-primary font-bold mt-1">5,000,000+</p>
+<span class="font-label-sm text-label-sm text-primary-fixed-dim">Gấp 5 lần linh kiện cũ</span>
+</div>
+<div class="bg-surface-container-high p-space-sm rounded-lg">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Tỷ Lệ Lỗi Deadzone</span>
+<p class="font-headline-sm text-headline-sm text-secondary font-bold mt-1">&lt; 0.05%</p>
+<span class="font-label-sm text-label-sm text-outline">Gần như tuyệt đối</span>
+</div>
+<div class="bg-surface-container-high p-space-sm rounded-lg">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Độ Phân Giải Tọa Độ</span>
+<p class="font-headline-sm text-headline-sm text-tertiary-fixed-dim font-bold mt-1">12-bit ADC</p>
+<span class="font-label-sm text-label-sm text-outline">4096 bước vi điểm</span>
+</div>
+</div>
+</div>
+</div>
+ -->
+<!-- Footer status bar inside editor 
+<div class="px-space-md py-space-xs bg-surface-container-low flex items-center justify-between text-outline font-label-sm text-label-sm">
+<div class="flex items-center gap-space-md">
+<span>Độ dài: 1,420 từ</span>
+<span>Thời gian đọc dự kiến: ~6 phút</span>
+<span>Bộ mã: UTF-8</span>
+</div>
+<div class="flex items-center gap-space-xs text-primary-fixed-dim">
+<span class="material-symbols-outlined text-[16px]">security</span>
+<span>Auto-Sanitized HTML5</span>
+</div>
+</div>
+</div>
+</div>
+-->
+<!-- RIGHT PANEL: Publishing Metadata, Cover Media & Tag Matrix (4 Cols) -->
+<div class="xl:col-span-4 flex flex-col gap-space-md">
+<!-- Primary Save / Publish Card -->
+<div class="rounded-xl bg-surface-container-lowest p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface uppercase tracking-wider font-bold">Trạng Thái &amp; Xuất Bản</span>
+<span class="px-2.5 py-1 rounded-full bg-primary-container/20 text-primary-container font-label-sm text-label-sm font-semibold flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+            Đã Xuất Bản
+          </span>
+</div>
+<!-- Metadata Attributes -->
+<div class="space-y-space-xs bg-surface-container-low p-space-sm rounded-lg">
+<div class="flex items-center justify-between text-body-sm font-body-sm py-1">
+<span class="text-on-surface-variant flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-outline">person</span>
+              Tác giả:
+            </span>
+<span class="text-on-surface font-medium">Admin Dev / Hoàng Long</span>
+</div>
+<div class="flex items-center justify-between text-body-sm font-body-sm py-1">
+<span class="text-on-surface-variant flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-outline">calendar_month</span>
+              Ngày đăng:
+            </span>
+<span class="text-primary font-mono font-medium">24/10/2025 - 14:32</span>
+</div>
+<div class="flex items-center justify-between text-body-sm font-body-sm py-1">
+<span class="text-on-surface-variant flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-outline">visibility</span>
+              Chế độ hiển thị:
+            </span>
+<span class="text-tertiary-fixed-dim font-medium">Công khai toàn cầu</span>
+</div>
+</div>
+<!-- Action CTA Stack -->
+<div class="flex flex-col gap-space-xs pt-space-xs">
+<button class="w-full py-space-sm px-space-md rounded-lg bg-primary-container text-on-primary-container font-label-md text-label-md font-bold uppercase tracking-wider hover:opacity-90 transition-opacity shadow-lg flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[20px]">cloud_done</span>
+<span>Cập Nhật Thay Đổi</span>
+</button>
+<div class="grid grid-cols-2 gap-space-xs">
+<button class="py-space-xs px-space-sm rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-md text-label-md transition-colors flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-[18px]">preview</span>
+<span>Xem Trước</span>
+</button>
+<button class="py-space-xs px-space-sm rounded-lg bg-surface-container-high hover:bg-surface-container-highest text-error font-label-md text-label-md transition-colors flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-[18px]">archive</span>
+<span>Gỡ Bài</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Category Taxonomy Selector 
+<div class="rounded-xl bg-surface-container-lowest p-space-lg shadow-sm flex flex-col gap-space-sm">
+<label class="font-label-sm text-label-sm uppercase tracking-wider text-outline flex items-center justify-between">
+<span>Danh Mục Chuyên Mục</span>
+<span class="text-primary-container cursor-pointer hover:underline">+ Tạo mới</span>
+</label>
+<div class="relative">
+<select class="w-full appearance-none bg-surface-container-high text-on-surface font-body-md text-body-md px-space-md py-space-sm rounded-lg outline-none cursor-pointer focus:bg-surface-container-highest transition-colors">
+<option selected="">Cẩm Nang Phần Cứng (Hardware Guide)</option>
+<option>Review Sản Phẩm &amp; Tay Cầm Mod</option>
+<option>Tin Tức Giải Đấu eSports</option>
+<option>Thủ Thuật &amp; Tối Ưu NovaOS</option>
+<option>Thông Cáo Báo Chí &amp; Cập Nhật Firmware</option>
+</select>
+<span class="material-symbols-outlined absolute right-space-sm top-1/2 -translate-y-1/2 pointer-events-none text-on-surface-variant text-[20px]">expand_more</span>
+</div>
+</div>
+//Cover Thumbnail Card Upload Preview
+<div class="rounded-xl bg-surface-container-lowest p-space-lg shadow-sm flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<label class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Ảnh Đại Diện (Cover Art 16:9)</label>
+<button class="text-primary-fixed-dim hover:text-primary font-label-sm text-label-sm">Thay đổi ảnh</button>
+</div>
+<div class="relative w-full h-44 rounded-lg overflow-hidden group bg-surface-container-high">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Futuristic exploded isometric diagram render of a high-end black esports gamepad showing the magnetic Hall-Effect sensor assembly with glowing neon cyan magnetic flux lines and purple particle field on a dark carbon fiber surface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6c7AKw6QjZk4isTBDDjHmE4q1mfc7CNpRR-uzv6fbrD2GRjyvDazu4fPu5qqjDqybre4jXsWRMu-hSn08EOk3G0wTPWNwPXtJiI1ROQ6E51T0wKgVYsP3v975RnkF75VaOKyZvvIL1gMMXIHiY6dCCmjGjhGfpL8WCq0IkKOpIALKpTw3FWKlz9jgZTqZ2xtvFRxg12HCx_wIaDhqvk_U9ij9clJxkdPa-ELszXLXtDPbYYuM3HPn"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/90 via-transparent to-transparent flex items-end p-space-sm">
+<div class="flex items-center justify-between w-full">
+<span class="font-label-sm text-label-sm text-primary font-mono">1920x1080px (WEBP)</span>
+<span class="p-1 rounded bg-surface-container-highest/80 text-on-surface text-[14px] material-symbols-outlined">zoom_in</span>
+</div>
+</div>
+</div>
+</div>
+//Tag Matrix & Hardware Keywords
+<div class="rounded-xl bg-surface-container-lowest p-space-lg shadow-sm flex flex-col gap-space-sm">
+<label class="font-label-sm text-label-sm uppercase tracking-wider text-outline">Tags &amp; Định Tuyến Tương Thích</label>
+<div class="flex flex-wrap gap-1.5">
+<span class="inline-flex items-center gap-1 px-space-sm py-1 rounded-lg bg-surface-container-high text-primary font-label-sm text-label-sm">
+            #HallEffect
+            <button class="hover:text-error text-[14px] material-symbols-outlined">close</button>
+</span>
+<span class="inline-flex items-center gap-1 px-space-sm py-1 rounded-lg bg-surface-container-high text-primary font-label-sm text-label-sm">
+            #StickDrift
+            <button class="hover:text-error text-[14px] material-symbols-outlined">close</button>
+</span>
+<span class="inline-flex items-center gap-1 px-space-sm py-1 rounded-lg bg-surface-container-high text-secondary font-label-sm text-label-sm">
+            #ApexLegends
+            <button class="hover:text-error text-[14px] material-symbols-outlined">close</button>
+</span>
+<span class="inline-flex items-center gap-1 px-space-sm py-1 rounded-lg bg-surface-container-high text-tertiary-fixed-dim font-label-sm text-label-sm">
+            #eSportsHardware
+            <button class="hover:text-error text-[14px] material-symbols-outlined">close</button>
+</span>
+<span class="inline-flex items-center gap-1 px-space-sm py-1 rounded-lg bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm">
+            #NovaPadPro
+            <button class="hover:text-error text-[14px] material-symbols-outlined">close</button>
+</span>
+</div>
+<div class="relative mt-space-xs">
+<input class="w-full bg-surface-container-high text-body-sm font-body-sm text-on-surface px-space-sm py-space-xs rounded-lg outline-none placeholder:text-outline focus:bg-surface-container-highest transition-colors" placeholder="Nhập thêm tag mới rồi nhấn Enter..." type="text"/>
+</div>
+</div>
+</div>
+</div>
+-->
+<!-- ARTICLE REPOSITORY / TABLE SECTION -->
+<div class="flex flex-col gap-space-md" id="article-repository">
+<!-- Table Header & Sub-filters -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm">
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold">
+          Kho Lưu Trữ &amp; Quản Trị Bài Viết
+        </h2>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-primary-fixed-dim font-label-sm text-label-sm">
+          Tổng 22 bản ghi
+        </span>
+</div>
+<!-- Mini Search & Category Filters -->
+<div class="flex items-center gap-space-xs">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-2.5 top-1/2 -translate-y-1/2 text-[18px] text-outline">filter_list</span>
+<input class="bg-surface-container-lowest text-body-sm font-body-sm text-on-surface pl-8 pr-3 py-1.5 rounded-lg outline-none focus:bg-surface-container-high transition-colors w-48 sm:w-60" placeholder="Lọc theo từ khóa..." type="text"/>
+</div>
+<button class="p-2 rounded-lg bg-surface-container-lowest hover:bg-surface-container-high text-on-surface-variant transition-colors" title="Bộ lọc nâng cao">
+<span class="material-symbols-outlined text-[20px]">tune</span>
+</button>
+</div>
+</div>
+<!-- Telemetry Table Container -->
+<div class="overflow-x-auto rounded-xl bg-surface-container-lowest shadow-sm">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low text-outline font-label-sm text-label-sm uppercase tracking-wider">
+<th class="py-space-sm px-space-md w-12">
+<input class="accent-primary-container rounded cursor-pointer" type="checkbox"/>
+</th>
+<th class="py-space-sm px-space-md">Bài Viết / Chuyên Mục</th>
+<th class="py-space-sm px-space-md">Tác Giả</th>
+<th class="py-space-sm px-space-md">Trạng Thái</th>
+<th class="py-space-sm px-space-md">Hiệu Suất Đọc</th>
+<th class="py-space-sm px-space-md">Thời Gian</th>
+<th class="py-space-sm px-space-md text-right">Thao Tác Quản Trị</th>
+</tr>
+</thead>
+<tbody class="divide-y-0 text-body-sm font-body-sm">
+<!-- Row 1: Active Article Being Edited -->
+<tr class="bg-surface-container-low/40 hover:bg-surface-container-high/40 transition-colors">
+<td class="py-space-sm px-space-md">
+<input checked="" class="accent-primary-container rounded cursor-pointer" type="checkbox"/>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-14 h-10 rounded-lg overflow-hidden shrink-0 bg-surface-container-high">
+<img class="w-full h-full object-cover" data-alt="Close up photo of an illuminated magnetic Hall-Effect analog switch component isolated with subtle electric cyan highlights and dark backdrop." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrs6Wbp7ZRueX3Bl76Z6iGJCWPbeALMVYIx1cLsqZRHLb9X3dbUbValY8WjiOXERdmjEKn-_i9vlG95kyNmVW6hwxRBhGkIxEXP0tPBe2IyPYvlsxlVJaan2ZgyjcfavSlmK0lxLsy_V4Qya1FEB6-HLsEQZumFqJ14Pu0CSJjX1lrBeisn2BgeTk0ZfNTwGLqXOO-eqL9OO9IIrHKaBjr0W5FLZJtXmWfCD0g7x7Ai5b6Z6l8_vt3"/>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-sm text-body-md text-primary font-bold truncate max-w-md">Kỹ Thuật Cảm Biến Hall-Effect: Vì Sao Tuyển Thủ eSports Loại Bỏ Hoàn Toàn Stick Drift?</span>
+<div class="flex items-center gap-space-xs mt-0.5">
+<span class="font-label-sm text-label-sm text-tertiary-fixed-dim uppercase">Cẩm Nang Phần Cứng</span>
+<span class="text-outline">•</span>
+<span class="font-label-sm text-label-sm text-outline">Slug: /ky-thuat-hall-effect...</span>
+</div>
+</div>
+</div>
+</td>
+<td class="py-space-sm px-space-md text-on-surface whitespace-nowrap">
+              Hoàng Long
+            </td>
+<td class="py-space-sm px-space-md whitespace-nowrap">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-primary-container/15 text-primary font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+                Đã Đăng
+              </span>
+</td>
+<td class="py-space-sm px-space-md whitespace-nowrap">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-primary-fixed font-bold">14.8K reads</span>
+<span class="font-label-sm text-label-sm text-outline">184 bình luận</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md text-outline font-mono text-label-sm whitespace-nowrap">
+              24/10/2025
+            </td>
+<td class="py-space-sm px-space-md text-right whitespace-nowrap">
+<div class="inline-flex items-center gap-1">
+<button class="p-1.5 rounded hover:bg-surface-container-highest text-on-surface-variant hover:text-primary transition-colors" title="Xem trước trang thực tế">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="p-1.5 rounded bg-primary-container/10 hover:bg-primary-container/20 text-primary-container transition-colors" title="Sửa bài viết">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+<button class="p-1.5 rounded hover:bg-surface-container-highest text-on-surface-variant hover:text-secondary transition-colors" title="Ẩn hiển thị">
+<span class="material-symbols-outlined text-[18px]">visibility_off</span>
+</button>
+<button class="p-1.5 rounded hover:bg-surface-container-highest text-outline hover:text-error transition-colors" title="Xóa vĩnh viễn">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2: Polling Rate Tech Article -->
+<tr class="hover:bg-surface-container-high/30 transition-colors">
+<td class="py-space-sm px-space-md">
+<input class="accent-primary-container rounded cursor-pointer" type="checkbox"/>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-14 h-10 rounded-lg overflow-hidden shrink-0 bg-surface-container-high">
+<img class="w-full h-full object-cover" data-alt="High tech hardware testing oscillograph measuring 8000Hz polling rate microsecond latency waves in dark gaming laboratory with vibrant cyan readout curves." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAIQqOf0Hf9ljJw9J7aLwYLU_e2GS7621mA7GgBeLSS8zuXcIhT_g2F_deQj_a578_w_AaJ4HLQxNQ6raxaSzoEX049luhsYK1ww37Ib7p1LQdIUVmRjU2CliSabfwzv7U8rSDv0eBvarQFV858Ng74WPppwIxy_0lgY6jo_GltH-1lRe312D45vkc-zg4Pllhc2xOseFOug7A2eYQfp5uxAi53orVPgPLtHphBPaBF1z3TlCHqUn9X"/>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-sm text-body-md text-on-surface font-semibold truncate max-w-md">Phân Tích Độ Trễ Polling Rate 1000Hz vs 8000Hz Trên Bộ Điều Khiển Cao Cấp</span>
+<div class="flex items-center gap-space-xs mt-0.5">
+<span class="font-label-sm text-label-sm text-tertiary-fixed-dim uppercase">Review &amp; Đo Kiểm</span>
+<span class="text-outline">•</span>
+<span class="font-label-sm text-label-sm text-outline">Slug: /polling-rate-1000hz-vs-8000hz</span>
+</div>
+</div>
+</div>
+</td>
+<td class="py-space-sm px-space-md text-on-surface whitespace-nowrap">
+              TechLab Team
+            </td>
+<td class="py-space-sm px-space-md whitespace-nowrap">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-primary-container/15 text-primary font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+                Đã Đăng
+              </span>
+</td>
+<td class="py-space-sm px-space-md whitespace-nowrap">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-primary-fixed font-bold">34.2K reads</span>
+<span class="font-label-sm text-label-sm text-outline">320 bình luận</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md text-outline font-mono text-label-sm whitespace-nowrap">
+              18/10/2025
+            </td>
+<td class="py-space-sm px-space-md text-right whitespace-nowrap">
+<div class="inline-flex items-center gap-1">
+<button class="p-1.5 rounded hover:bg-surface-container-highest text-on-surface-variant hover:text-primary transition-colors" title="Xem trước">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="p-1.5 rounded hover:bg-surface-container-highest text-on-surface-variant hover:text-primary-container transition-colors" title="Sửa bài">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+<button class="p-1.5 rounded hover:bg-surface-container-highest text-on-surface-variant hover:text-secondary transition-colors" title="Ẩn hiển thị">
+<span class="material-symbols-outlined text-[18px]">visibility_off</span>
+</button>
+<button class="p-1.5 rounded hover:bg-surface-container-highest text-outline hover:text-error transition-colors" title="Xóa vĩnh viễn">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3: Draft Guide Article -->
+<tr class="hover:bg-surface-container-high/30 transition-colors">
+<td class="py-space-sm px-space-md">
+<input class="accent-primary-container rounded cursor-pointer" type="checkbox"/>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-14 h-10 rounded-lg overflow-hidden shrink-0 bg-surface-container-high flex items-center justify-center text-outline">
+<span class="material-symbols-outlined text-[24px]">draft</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-sm text-body-md text-on-surface font-semibold truncate max-w-md">Hướng Dẫn Tinh Chỉnh Deadzone Trên Phần Mềm NovaOS Dành Cho FPS Pro</span>
+<div class="flex items-center gap-space-xs mt-0.5">
+<span class="font-label-sm text-label-sm text-secondary uppercase">Thủ Thuật Mod</span>
+<span class="text-outline">•</span>
+<span class="font-label-sm text-label-sm text-outline">Slug: /huong-dan-deadzone-novaos</span>
+</div>
+</div>
+</div>
+</td>
+<td class="py-space-sm px-space-md text-on-surface whitespace-nowrap">
+              Vũ Phong (Modder)
+            </td>
+<td class="py-space-sm px-space-md whitespace-nowrap">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-secondary-container/30 text-secondary font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                Bản Nháp
+              </span>
+</td>
+<td class="py-space-sm px-space-md whitespace-nowrap">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-outline font-bold">0 reads</span>
+<span class="font-label-sm text-label-sm text-outline">Chưa đăng</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md text-outline font-mono text-label-sm whitespace-nowrap">
+              22/10/2025
+            </td>
+<td class="py-space-sm px-space-md text-right whitespace-nowrap">
+<div class="inline-flex items-center gap-1">
+<button class="p-1.5 rounded hover:bg-surface-container-highest text-on-surface-variant hover:text-primary transition-colors" title="Xem trước">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="p-1.5 rounded hover:bg-surface-container-highest text-secondary transition-colors" title="Tiếp tục viết">
+<span class="material-symbols-outlined text-[18px]">edit_note</span>
+</button>
+<button class="p-1.5 rounded hover:bg-surface-container-highest text-primary-container transition-colors" title="Đăng bài ngay">
+<span class="material-symbols-outlined text-[18px]">publish</span>
+</button>
+<button class="p-1.5 rounded hover:bg-surface-container-highest text-outline hover:text-error transition-colors" title="Xóa">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 4: Tournament Championship Recap -->
+<tr class="hover:bg-surface-container-high/30 transition-colors">
+<td class="py-space-sm px-space-md">
+<input class="accent-primary-container rounded cursor-pointer" type="checkbox"/>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-14 h-10 rounded-lg overflow-hidden shrink-0 bg-surface-container-high">
+<img class="w-full h-full object-cover" data-alt="eSports arena championship stage crowd cheering with giant neon blue stage screens showcasing the NovaPad trophy cup and victorious player team." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7RxVGq5jfILTZUZAk08shQBwP8aqsAw7bjLgqT-VUNSIzBHEWqYZjep3mtp9GrtC0Dizx49aSiU-sGvKlpnX-6KF7OX47IAbuWGqwu9AKd_DQP94Esk98PbPeVveyd_oNFuwYe-5FoeeDEMuYthjyp-pzpPhBr9ANa58B9sVMtCBIYr9RkkK-H9d_oBnLTHHuK4BoCfemaBWP0toh0_ccJaxlna4CQOuRwR6zg7Cus7Bb03zZa3Zq"/>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-headline-sm text-body-md text-on-surface font-semibold truncate max-w-md">Tổng Kết Giải Đấu NovaPad Championship Mùa 4: Kỷ Lục Đăng Ký Mới</span>
+<div class="flex items-center gap-space-xs mt-0.5">
+<span class="font-label-sm text-label-sm text-on-secondary-container uppercase">Tin Tức Giải Đấu</span>
+<span class="text-outline">•</span>
+<span class="font-label-sm text-label-sm text-outline">Slug: /tong-ket-novapad-championship-m4</span>
+</div>
+</div>
+</div>
+</td>
+<td class="py-space-sm px-space-md text-on-surface whitespace-nowrap">
+              Media Admin
+            </td>
+<td class="py-space-sm px-space-md whitespace-nowrap">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-primary-container/15 text-primary font-label-sm text-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+                Đã Đăng
+              </span>
+</td>
+<td class="py-space-sm px-space-md whitespace-nowrap">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-primary-fixed font-bold">52.1K reads</span>
+<span class="font-label-sm text-label-sm text-outline">498 bình luận</span>
+</div>
+</td>
+<td class="py-space-sm px-space-md text-outline font-mono text-label-sm whitespace-nowrap">
+              12/10/2025
+            </td>
+<td class="py-space-sm px-space-md text-right whitespace-nowrap">
+<div class="inline-flex items-center gap-1">
+<button class="p-1.5 rounded hover:bg-surface-container-highest text-on-surface-variant hover:text-primary transition-colors" title="Xem trước">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+<button class="p-1.5 rounded hover:bg-surface-container-highest text-on-surface-variant hover:text-primary-container transition-colors" title="Sửa bài">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+<button class="p-1.5 rounded hover:bg-surface-container-highest text-on-surface-variant hover:text-secondary transition-colors" title="Ẩn hiển thị">
+<span class="material-symbols-outlined text-[18px]">visibility_off</span>
+</button>
+<button class="p-1.5 rounded hover:bg-surface-container-highest text-outline hover:text-error transition-colors" title="Xóa">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<!-- Bottom Pagination Bar -->
+<div class="p-space-md bg-surface-container-low flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm text-body-sm font-body-sm text-on-surface-variant">
+<div class="flex items-center gap-space-xs">
+<span>Đang hiển thị 1-4 trên tổng số 18 bài đã đăng tải</span>
+</div>
+<div class="flex items-center gap-1">
+<button class="p-1.5 rounded-lg bg-surface-container-high text-outline hover:text-on-surface disabled:opacity-40" disabled="">
+<span class="material-symbols-outlined text-[18px]">chevron_left</span>
+</button>
+<button class="px-3 py-1 rounded-lg bg-primary-container text-on-primary-container font-label-sm text-label-sm font-bold">1</button>
+<button class="px-3 py-1 rounded-lg hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm">2</button>
+<button class="px-3 py-1 rounded-lg hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm">3</button>
+<span class="px-1 text-outline">...</span>
+<button class="px-3 py-1 rounded-lg hover:bg-surface-container-high text-on-surface font-label-sm text-label-sm">5</button>
+<button class="p-1.5 rounded-lg bg-surface-container-high text-on-surface hover:text-primary">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<script>
+    // Simple inline character counter for the article headline
+    const titleInput = document.querySelector('textarea');
+    const charCounter = document.getElementById('title-char-count');
+    if (titleInput && charCounter) {
+      titleInput.addEventListener('input', (e) => {
+        const length = e.target.value.length;
+        charCounter.textContent = `${length} / 120 ký tự`;
+        if (length > 110) {
+          charCounter.classList.add('text-error');
+        } else {
+          charCounter.classList.remove('text-error');
+        }
+      });
+    }
+  </script>
+</div></main></div>
+<script>
+  (async () => {
+    const candidates = ['../db.json', 'db.json'];
+    let data = null;
+    for (const url of candidates) {
+      try {
+        const res = await fetch(url, { cache: 'no-store' });
+        if (!res.ok) continue;
+        data = await res.json();
+        break;
+      } catch (error) {
+        // keep trying next fallback
+      }
+    }
+    if (!data) return;
+
+    const escapeHtml = (value = '') => String(value)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#039;');
+
+    const postTbody = document.querySelector('#article-repository tbody');
+    const posts = Array.isArray(data.posts) ? data.posts : [];
+    if (!postTbody) return;
+
+    postTbody.innerHTML = posts.map(post => {
+      const statusMap = {
+        published: ['bg-primary-container/15 text-primary', 'Đã Đăng'],
+        draft: ['bg-secondary-container text-on-secondary-container', 'Bản Nháp'],
+        archived: ['bg-surface-container-high text-on-surface-variant', 'Lưu Trữ']
+      };
+      const [statusClass, statusLabel] = statusMap[post.status] || statusMap.archived;
+      const created = post.created_at ? new Date(post.created_at).toLocaleDateString('vi-VN') : 'N/A';
+      const views = Number(post.views || 0).toLocaleString('vi-VN');
+      const likes = Number(post.likes || 0).toLocaleString('vi-VN');
+      const comments = Number(post.comments || 0).toLocaleString('vi-VN');
+
+      return `
+        <tr class="hover:bg-surface-container-high/30 transition-colors">
+          <td class="py-space-sm px-space-md"></td>
+          <td class="py-space-sm px-space-md">
+            <div class="flex flex-col min-w-0">
+              <span class="font-headline-sm text-body-md text-on-surface font-semibold">${escapeHtml(post.title || '')}</span>
+              <span class="font-label-sm text-label-sm text-outline">${escapeHtml(post.category || '')} · ${escapeHtml(post.slug || '')}</span>
+            </div>
+          </td>
+          <td class="py-space-sm px-space-md">${escapeHtml(post.author || '')}</td>
+          <td class="py-space-sm px-space-md"><span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full ${statusClass}">${statusLabel}</span></td>
+          <td class="py-space-sm px-space-md"><div class="flex flex-col"><span>${views} lượt xem</span><span class="text-outline">${likes} thích · ${comments} bình luận</span></div></td>
+          <td class="py-space-sm px-space-md">${created}</td>
+          <td class="py-space-sm px-space-md"></td>
+        </tr>`;
+    }).join('');
+  })();
+</script>
+</body>
+</html>
