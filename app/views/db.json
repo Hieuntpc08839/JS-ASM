@@ -1,0 +1,83 @@
+{
+  "categories": [
+    { "id": 1, "name": "Tay cầm PlayStation", "parent_id": null },
+    { "id": 2, "name": "Tay cầm Xbox", "parent_id": null },
+    { "id": 3, "name": "Phụ kiện đi kèm", "parent_id": null }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "name": "Sony DualSense Wireless Controller",
+      "cate_id": 1,
+      "detail": "Tay cầm chính hãng cho PS5 với tính năng Haptic Feedback và Adaptive Triggers.",
+      "image": "dualsense-main.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Xbox Elite Wireless Controller Series 2",
+      "cate_id": 2,
+      "detail": "Tay cầm cao cấp dành cho game thủ chuyên nghiệp, tùy chỉnh phím linh hoạt.",
+      "image": "xbox-elite-main.jpg"
+    }
+  ],
+  "product_variants": [
+    {
+      "id": 1,
+      "product_id": 1,
+      "variant_name": "Màu Trắng (Standard)",
+      "price": 1690000,
+      "quantity": 50,
+      "image": "dualsense-white.jpg"
+    },
+    {
+      "id": 2,
+      "product_id": 1,
+      "variant_name": "Màu Đen (Midnight Black)",
+      "price": 1790000,
+      "quantity": 20,
+      "image": "dualsense-black.jpg"
+    },
+    {
+      "id": 3,
+      "product_id": 2,
+      "variant_name": "Bản Core (Trắng)",
+      "price": 3200000,
+      "quantity": 15,
+      "image": "xbox-elite-core.jpg"
+    },
+    {
+      "id": 4,
+      "product_id": 2,
+      "variant_name": "Bản Full (Đen + Phụ kiện)",
+      "price": 4500000,
+      "quantity": 8,
+      "image": "xbox-elite-full.jpg"
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "name": "Nguyễn Trung Hiếu",
+      "email": "hieupc08839@fpt.edu.vn",
+      "phone": "0987654321",
+      "address": "Cần Thơ"
+    }
+  ],
+  "orders": [
+    {
+      "id": 1,
+      "user_id": 1,
+      "created_date": "2026-09-23T15:30:00Z",
+      "status": "pending"
+    }
+  ],
+  "order_details": [
+    {
+      "id": 1,
+      "order_id": 1,
+      "product_id": 1,
+      "quantity": 2,
+      "unit_price": 1690000
+    }
+  ]
+}
