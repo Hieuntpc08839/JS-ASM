@@ -1,0 +1,302 @@
+/*
+ * NOVAPAD - COMMON ADMIN CSS
+ * Dùng chung cho:
+ *   - category.html
+ *   - index.html
+ *   - users.html
+ *
+ * Mục tiêu:
+ *   1. Đồng nhất font
+ *   2. Đồng nhất sidebar / navigation
+ *   3. Đồng nhất khoảng cách giữa sidebar và main
+ *   4. Đồng nhất header và typography
+ *   5. Giữ nguyên màu sắc / layout Tailwind hiện tại
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --np-ink: #090c14;
+    --np-sidebar: #0b0f17;
+    --np-panel: #151922;
+    --np-panel2: #1b202a;
+    --np-line: #282e39;
+    --np-cyan: #16d9ef;
+    --np-violet: #c78cff;
+    --np-text: #e2e8f0;
+    --np-muted: #94a3b8;
+}
+
+/* =========================================================
+   1. GLOBAL / FONT
+   ========================================================= */
+
+html,
+body {
+    font-family: 'Inter', sans-serif !important;
+    background: var(--np-ink);
+}
+
+body,
+body * {
+    font-family: 'Inter', sans-serif;
+}
+
+button,
+input,
+select,
+textarea {
+    font-family: 'Inter', sans-serif !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+small,
+b,
+span,
+a,
+label,
+button,
+input,
+select,
+textarea {
+    font-family: 'Inter', sans-serif;
+}
+
+/* Không để browser tự thay font tiếng Việt */
+body {
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+}
+
+/* =========================================================
+   2. NOVAPAD SIDEBAR - GIỐNG CATEGORY.HTML
+   ========================================================= */
+
+aside.fixed.left-0.top-0 {
+    width: 16rem !important;       /* w-64 = 256px */
+    background: var(--np-sidebar) !important;
+    border-color: var(--np-line) !important;
+    z-index: 40;
+}
+
+aside.fixed.left-0.top-0 > div:first-child {
+    height: 5rem !important;       /* h-20 */
+    border-color: var(--np-line) !important;
+}
+
+/* Logo */
+aside.fixed.left-0.top-0 > div:first-child b {
+    font-size: 1.125rem !important;
+    line-height: 1.75rem;
+    font-weight: 700 !important;
+    letter-spacing: normal;
+}
+
+aside.fixed.left-0.top-0 > div:first-child small {
+    font-size: 8px !important;
+    line-height: 1;
+    font-weight: 700 !important;
+    letter-spacing: .2em !important;
+}
+
+/* Main Command */
+aside.fixed.left-0.top-0 > div:nth-child(2) {
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
+    padding-top: 2rem !important;
+    font-size: 9px !important;
+    font-weight: 700 !important;
+    letter-spacing: .2em !important;
+}
+
+/* Navigation */
+aside.fixed.left-0.top-0 nav {
+    margin-top: 1rem !important;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+    font-size: .875rem !important;
+    line-height: 1.25rem !important;
+    font-weight: 600 !important;
+}
+
+aside.fixed.left-0.top-0 nav a {
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+    border-radius: .5rem;
+    padding: .75rem 1rem !important;
+    color: #94a3b8;
+    font-size: .875rem !important;
+    line-height: 1.35rem !important;
+    font-weight: 600 !important;
+    text-decoration: none;
+    transition: background-color .15s ease, color .15s ease;
+}
+
+aside.fixed.left-0.top-0 nav a:hover {
+    background: rgba(255, 255, 255, .05);
+}
+
+aside.fixed.left-0.top-0 nav a span {
+    flex: 0 0 1rem;
+    width: 1rem;
+    text-align: center;
+    color: inherit;
+}
+
+/* Active navigation - giữ đúng style category */
+aside.fixed.left-0.top-0 nav a.bg-cyanx\/10,
+aside.fixed.left-0.top-0 nav a[class*="bg-cyanx/10"] {
+    background: rgba(22, 217, 239, .10) !important;
+    color: var(--np-cyan) !important;
+}
+
+/* =========================================================
+   3. MAIN - SỬA LỖI SIDEBAR ĐÈ CHỮ
+   ========================================================= */
+
+/*
+ * Category gốc đang dùng lg:ml-52 (208px)
+ * nhưng sidebar là w-64 (256px).
+ *
+ * Vì vậy main phải cách trái 256px.
+ */
+main[class*="lg:ml-52"],
+main[class*="lg:ml-64"] {
+    margin-left: 16rem !important; /* 256px */
+}
+
+/* =========================================================
+   4. TOP HEADER
+   ========================================================= */
+
+main > header.sticky {
+    height: 5rem !important;
+    min-height: 5rem !important;
+    border-color: var(--np-line) !important;
+    background: rgba(11, 14, 20, .95) !important;
+    padding-left: 1.75rem !important;
+    padding-right: 1.75rem !important;
+}
+
+main > header.sticky input {
+    width: 16rem;
+    border-color: var(--np-line) !important;
+    background: var(--np-panel) !important;
+    font-size: .75rem !important;
+}
+
+main > header.sticky button {
+    font-family: 'Inter', sans-serif !important;
+}
+
+/* =========================================================
+   5. PAGE CONTENT
+   ========================================================= */
+
+main > header.sticky + div {
+    padding: 2rem !important;
+}
+
+/* =========================================================
+   6. TIÊU ĐỀ TRANG - ĐỒNG NHẤT 3 FILE
+   ========================================================= */
+
+main h1 {
+    font-family: 'Inter', sans-serif !important;
+    font-size: 2.25rem !important;      /* text-4xl */
+    line-height: 1.15 !important;
+    font-weight: 800 !important;
+    letter-spacing: -.025em !important;
+    color: #f1f5f9 !important;
+}
+
+/* Subtitle / mô tả */
+main h1 + div,
+main h1 + p {
+    font-family: 'Inter', sans-serif !important;
+}
+
+/* Các dòng SYS / DATA ARCHITECTURE */
+main > header.sticky + div > div:first-child > div:first-child {
+    font-family: 'Inter', sans-serif !important;
+    font-size: 10px !important;
+    font-weight: 700 !important;
+    letter-spacing: .05em !important;
+}
+
+/* =========================================================
+   7. HEADING PHỤ
+   ========================================================= */
+
+main h2 {
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 700 !important;
+}
+
+main p,
+main label,
+main small,
+main button,
+main input,
+main select,
+main textarea {
+    font-family: 'Inter', sans-serif !important;
+}
+
+/* =========================================================
+   8. CARD / PANEL
+   ========================================================= */
+
+main .bg-panel {
+    background: var(--np-panel) !important;
+}
+
+main .bg-panel2 {
+    background: var(--np-panel2) !important;
+}
+
+main [class*="border-line"] {
+    border-color: var(--np-line) !important;
+}
+
+/* =========================================================
+   9. RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1023px) {
+    main[class*="lg:ml-52"],
+    main[class*="lg:ml-64"] {
+        margin-left: 0 !important;
+    }
+
+    main > header.sticky {
+        padding-left: 1.25rem !important;
+        padding-right: 1.25rem !important;
+    }
+
+    main > header.sticky + div {
+        padding: 1.5rem !important;
+    }
+
+    main h1 {
+        font-size: 2rem !important;
+    }
+}
+
+@media (max-width: 640px) {
+    main > header.sticky + div {
+        padding: 1rem !important;
+    }
+
+    main h1 {
+        font-size: 1.75rem !important;
+    }
+}

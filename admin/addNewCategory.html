@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>NovaPad - Thêm danh mục mới</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        ink: '#090c14',
+                        panel: '#151922',
+                        panel2: '#1b202a',
+                        line: '#282e39',
+                        cyanx: '#16d9ef',
+                        violetx: '#c78cff'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="../style/admin-custom.css">
+</head>
+
+
+<body class="bg-[#0a0d14] text-slate-200 font-['Inter'] antialiased min-h-screen flex">
+
+
+    <!-- ==================== SIDEBAR ==================== -->
+
+    <aside class="w-64 min-w-[256px] bg-[#0f131d] border-r border-slate-800 flex flex-col justify-between shrink-0 min-h-screen">
+
+        <div>
+
+            <!-- LOGO -->
+            <div class="h-20 p-5 border-b border-slate-800 flex items-center gap-3">
+
+                <div class="w-8 h-8 shrink-0 rounded bg-cyan-500/20 border border-cyan-400/50 flex items-center justify-center text-cyan-400">
+
+                    <svg class="w-5 h-5"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24">
+
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M13 10V3L4 14h7v7l9-11h-7z">
+                        </path>
+
+                    </svg>
+
+                </div>
+
+                <div>
+
+                    <h1 class="text-sm font-bold tracking-wider text-slate-100">
+                        NOVAPAD
+                    </h1>
+
+                    <p class="text-[10px] text-cyan-400 tracking-widest font-mono">
+                        CORE CONTROLLER
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- NAVIGATION -->
+            <nav class="p-4 space-y-1 text-sm">
+
+                <div class="px-3 py-2 text-[11px] font-semibold text-slate-500 uppercase tracking-wider">
+                    MAIN COMMAND
+                </div>
+
+
+                <a href="index.html"
+                    class="w-full h-12 flex items-center gap-3 px-3 rounded-lg text-slate-400 hover:bg-slate-800/60 hover:text-slate-200 transition-all">
+
+                    <span>▦</span>
+                    <span>Overview / Dashboard</span>
+
+                </a>
+
+
+                <a href="products.html"
+                    class="w-full h-12 flex items-center gap-3 px-3 rounded-lg text-slate-400 hover:bg-slate-800/60 hover:text-slate-200 transition-all">
+
+                    <span>▱</span>
+                    <span>Quản Lý Sản Phẩm</span>
+
+                </a>
+
+
+                <a href="#"
+                    class="w-full h-12 flex items-center gap-3 px-3 rounded-lg text-slate-400 hover:bg-slate-800/60 hover:text-slate-200 transition-all">
+
+                    <span>▤</span>
+                    <span>Quản Lý Bài Viết</span>
+
+                </a>
+
+
+                <!-- ACTIVE -->
+                <a href="category.html"
+                    class="w-full h-12 flex items-center gap-3 px-3 rounded-lg bg-cyan-500/10 text-cyan-400 font-medium border border-cyan-500/20">
+
+                    <span>♢</span>
+                    <span>Quản Lý Danh Mục</span>
+
+                </a>
+
+
+                <a href="users.html"
+                    class="w-full h-12 flex items-center gap-3 px-3 rounded-lg text-slate-400 hover:bg-slate-800/60 hover:text-slate-200 transition-all">
+
+                    <span>♙</span>
+                    <span>Quản Lý Người Dùng</span>
+
+                </a>
+
+
+                <a href="#"
+                    class="w-full h-12 flex items-center gap-3 px-3 rounded-lg text-slate-400 hover:bg-slate-800/60 hover:text-slate-200 transition-all">
+
+                    <span>☷</span>
+                    <span>Cài Đặt Hệ Thống</span>
+
+                </a>
+
+            </nav>
+
+        </div>
+
+
+        <!-- SYSTEM STATUS -->
+        <div class="p-4 border-t border-slate-800">
+
+            <div class="bg-slate-900 p-3 rounded border border-slate-800 text-xs font-mono text-slate-400">
+
+                <div class="text-cyan-400">
+                    SYS-ENGINE v4.02-PROD
+                </div>
+
+                <div class="mt-1 text-slate-500">
+                    LATENCY: 12ms
+                </div>
+
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <!-- ==================== MAIN ==================== -->
+
+    <main class="flex-1 min-w-0">
+
+
+        <!-- HEADER -->
+        <header class="sticky top-0 z-20 h-20 flex items-center justify-between border-b border-slate-800 bg-[#0b0e14]/95 px-5 lg:px-7 backdrop-blur">
+
+            <div class="flex items-center gap-4">
+
+                <div class="rounded border border-cyan-500/30 bg-cyan-500/10 px-3 py-1.5">
+
+                    <span class="font-mono text-xs text-cyan-400">
+                        SYS-OPS // NODE CREATION
+                    </span>
+
+                </div>
+
+                <div class="hidden h-5 w-px bg-slate-700 md:block"></div>
+
+                <div class="hidden font-mono text-xs text-slate-400 md:block">
+
+                    <span class="text-slate-500">
+                        MODE:
+                    </span>
+
+                    CREATE_NEW_TAXONOMY
+
+                </div>
+
+            </div>
+
+
+            <div class="flex items-center gap-3">
+
+                <!-- SEARCH -->
+                <div class="relative hidden md:block">
+
+                    <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24">
+
+                        <circle cx="11" cy="11" r="7" stroke-width="2"></circle>
+
+                        <path d="m20 20-4-4" stroke-width="2"></path>
+
+                    </svg>
+
+                    <input
+                        type="text"
+                        placeholder="Search telemetry, hardware ID..."
+                        class="w-80 rounded-lg border border-slate-700 bg-[#111827] py-2 pl-10 pr-4 text-xs text-slate-300 outline-none placeholder:text-slate-500 focus:border-cyan-500/50">
+
+                </div>
+
+
+                <!-- AVATAR -->
+                <div class="flex h-10 w-10 items-center justify-center rounded-full border border-slate-700 bg-[#182336]">
+
+                    <span class="text-xs font-bold text-cyan-400">
+                        AD
+                    </span>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- ==================== CONTENT ==================== -->
+
+        <div class="p-6 lg:p-8">
+
+
+            <!-- TITLE -->
+            <div class="flex flex-col justify-between gap-4 xl:flex-row xl:items-center">
+
+                <div>
+
+                    <div class="flex items-center gap-2 text-xs font-mono text-slate-400">
+
+                        <a href="category.html"
+                            class="hover:text-cyanx">
+
+                            QUẢN LÝ DANH MỤC
+
+                        </a>
+
+                        <span>/</span>
+
+                        <span class="text-cyanx font-bold">
+                            THÊM DANH MỤC MỚI
+                        </span>
+
+                    </div>
+
+
+                    <h1 class="mt-2 text-3xl font-extrabold tracking-tight">
+                        Thêm Danh Mục Mới
+                    </h1>
+
+
+                    <p class="mt-1 text-sm text-slate-400">
+                        Khởi tạo danh mục mới trong cây phân cấp NOVAPAD.
+                    </p>
+
+                </div>
+
+
+                <a href="category.html"
+                    class="self-start rounded-lg border border-line bg-panel px-5 py-2.5 text-xs font-bold text-slate-300 hover:bg-slate-800">
+
+                    ← QUAY LẠI
+
+                </a>
+
+            </div>
+
+
+            <!-- FORM -->
+            <form id="categoryForm"
+                class="mt-8 grid gap-6 lg:grid-cols-12">
+
+
+                <!-- LEFT -->
+                <div class="lg:col-span-8 space-y-6">
+
+
+                    <!-- BASIC INFO -->
+                    <section class="rounded-xl border border-line bg-[#0d1119] p-6">
+
+                        <div class="flex items-center justify-between border-b border-line pb-4">
+
+                            <h2 class="text-base font-bold">
+                                <span class="text-cyanx">01.</span>
+                                Thông Tin Danh Mục
+                            </h2>
+
+                            <span class="text-[10px] font-mono text-slate-500">
+                                BASIC INFO
+                            </span>
+
+                        </div>
+
+
+                        <div class="mt-6 space-y-5">
+
+
+                            <!-- NAME -->
+                            <div>
+
+                                <label class="block text-[11px] font-bold tracking-wider text-slate-300 uppercase">
+                                    Tên Danh Mục Mới
+                                    <span class="text-rose-500">*</span>
+                                </label>
+
+                                <input
+                                    id="catName"
+                                    type="text"
+                                    required
+                                    placeholder="VD: Tay Cầm Bluetooth"
+                                    class="mt-2 w-full rounded-lg bg-panel2 border border-line px-4 py-3 text-sm text-slate-100 placeholder:text-slate-600 outline-none focus:border-cyanx">
+
+                            </div>
+
+
+                            <!-- TYPE -->
+                            <div>
+
+                                <label class="block text-[11px] font-bold tracking-wider text-slate-300 uppercase">
+                                    Loại Danh Mục
+                                </label>
+
+                                <select id="catType"
+                                    class="mt-2 w-full rounded-lg bg-panel2 border border-line px-4 py-3 text-sm text-slate-100 outline-none focus:border-cyanx">
+
+                                    <option value="product">
+                                        Sản Phẩm (Hardware)
+                                    </option>
+
+                                    <option value="article">
+                                        Bài Viết & Cẩm Nang
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+
+                            <!-- SLUG -->
+                            <div>
+
+                                <div class="flex items-center justify-between">
+
+                                    <label class="block text-[11px] font-bold tracking-wider text-slate-300 uppercase">
+                                        Đường Dẫn (Slug)
+                                    </label>
+
+                                    <span class="text-[10px] font-mono text-cyanx">
+                                        AUTO
+                                    </span>
+
+                                </div>
+
+
+                                <div class="mt-2 flex rounded-lg border border-line bg-panel2 overflow-hidden">
+
+                                    <span class="flex items-center bg-slate-800 px-3 text-xs font-mono text-slate-400 border-r border-line">
+                                        /catalog/
+                                    </span>
+
+                                    <input
+                                        id="catSlug"
+                                        type="text"
+                                        class="w-full bg-transparent px-4 py-3 text-sm text-slate-200 outline-none">
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- PARENT -->
+                            <div>
+
+                                <label class="block text-[11px] font-bold tracking-wider text-slate-300 uppercase">
+                                    Danh Mục Cha
+                                </label>
+
+                                <select id="catParent"
+                                    class="mt-2 w-full rounded-lg bg-panel2 border border-line px-4 py-3 text-sm text-slate-100 outline-none focus:border-cyanx">
+
+                                </select>
+
+                            </div>
+
+
+                            <!-- DESCRIPTION -->
+                            <div>
+
+                                <label class="block text-[11px] font-bold tracking-wider text-slate-300 uppercase">
+                                    Mô Tả Ngắn
+                                </label>
+
+                                <textarea
+                                    id="catDescription"
+                                    rows="5"
+                                    placeholder="Nhập mô tả cho danh mục..."
+                                    class="mt-2 w-full rounded-lg bg-panel2 border border-line px-4 py-3 text-sm text-slate-200 placeholder:text-slate-600 outline-none focus:border-cyanx resize-none"></textarea>
+
+                            </div>
+
+
+                            <!-- ORDER -->
+                            <div>
+
+                                <label class="block text-[11px] font-bold tracking-wider text-slate-300 uppercase">
+                                    Thứ Tự Hiển Thị
+                                </label>
+
+                                <input
+                                    id="catOrder"
+                                    type="number"
+                                    min="1"
+                                    value="1"
+                                    class="mt-2 w-full rounded-lg bg-panel2 border border-line px-4 py-3 text-sm outline-none focus:border-cyanx">
+
+                            </div>
+
+                        </div>
+
+                    </section>
+
+
+                    <!-- ICON -->
+                    <section class="rounded-xl border border-line bg-[#0d1119] p-6">
+
+                        <div class="flex items-center justify-between border-b border-line pb-4">
+
+                            <h2 class="text-base font-bold">
+                                <span class="text-violetx">02.</span>
+                                Biểu Tượng
+                            </h2>
+
+                            <span class="text-[10px] font-mono text-slate-500">
+                                OPTIONAL
+                            </span>
+
+                        </div>
+
+
+                        <div class="mt-6 grid grid-cols-5 gap-2">
+
+                            <button type="button"
+                                class="icon-btn rounded-lg bg-cyanx/10 border border-cyanx p-3 text-cyanx">
+                                ♧
+                            </button>
+
+                            <button type="button"
+                                class="icon-btn rounded-lg bg-panel2 border border-line p-3">
+                                ☷
+                            </button>
+
+                            <button type="button"
+                                class="icon-btn rounded-lg bg-panel2 border border-line p-3">
+                                ♮
+                            </button>
+
+                            <button type="button"
+                                class="icon-btn rounded-lg bg-panel2 border border-line p-3">
+                                ϟ
+                            </button>
+
+                            <button type="button"
+                                class="icon-btn rounded-lg bg-panel2 border border-line p-3">
+                                ▤
+                            </button>
+
+                        </div>
+
+                    </section>
+
+                </div>
+
+
+                <!-- RIGHT -->
+                <div class="lg:col-span-4 space-y-6">
+
+
+                    <!-- DISPLAY -->
+                    <section class="rounded-xl border border-line bg-[#0d1119] p-6">
+
+                        <h2 class="text-base font-bold border-b border-line pb-4">
+
+                            <span class="text-cyanx">
+                                03.
+                            </span>
+
+                            Cài Đặt Hiển Thị
+
+                        </h2>
+
+
+                        <div class="mt-6 space-y-5">
+
+                            <label class="flex items-center justify-between p-3 rounded-lg bg-panel2 border border-line">
+
+                                <div>
+
+                                    <div class="text-xs font-bold">
+                                        Hiển Thị
+                                    </div>
+
+                                    <div class="text-[10px] text-slate-500">
+                                        Hiển thị danh mục ngoài giao diện
+                                    </div>
+
+                                </div>
+
+                                <input
+                                    id="catStatus"
+                                    type="checkbox"
+                                    checked
+                                    class="h-4 w-4 accent-cyan-400">
+
+                            </label>
+
+
+                            <label class="flex items-center justify-between p-3 rounded-lg bg-panel2 border border-line">
+
+                                <div>
+
+                                    <div class="text-xs font-bold">
+                                        Danh Mục Nổi Bật
+                                    </div>
+
+                                    <div class="text-[10px] text-slate-500">
+                                        Ghim danh mục lên khu vực nổi bật
+                                    </div>
+
+                                </div>
+
+                                <input
+                                    id="catFeatured"
+                                    type="checkbox"
+                                    class="h-4 w-4 accent-violet-400">
+
+                            </label>
+
+                        </div>
+
+                    </section>
+
+
+                    <!-- PREVIEW -->
+                    <section class="rounded-xl border border-line bg-[#0d1119] p-6">
+
+                        <div class="text-[10px] font-mono text-cyanx uppercase tracking-wider">
+                            LIVE PREVIEW // UI STOREFRONT
+                        </div>
+
+
+                        <div class="mt-3 rounded-xl border border-line bg-panel p-4 flex items-center gap-3">
+
+                            <div
+                                id="previewIcon"
+                                class="w-10 h-10 rounded-lg bg-cyanx/10 border border-cyanx/30 flex items-center justify-center text-cyanx font-bold text-lg">
+
+                                ♧
+
+                            </div>
+
+
+                            <div class="min-w-0 flex-1">
+
+                                <div
+                                    id="previewName"
+                                    class="text-sm font-bold truncate">
+
+                                    Tên danh mục mới...
+
+                                </div>
+
+                                <div
+                                    id="previewSlug"
+                                    class="text-[10px] font-mono text-slate-500 truncate">
+
+                                    /catalog/ten-danh-muc-moi
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </section>
+
+
+                    <!-- SAVE -->
+                    <button
+                        type="submit"
+                        class="w-full rounded-lg bg-cyanx py-3 text-xs font-extrabold text-[#061015] hover:bg-cyan-300">
+
+                        ＋ KÍCH HOẠT & LƯU DANH MỤC
+
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </main>
+
+
+    <!-- ==================== JAVASCRIPT ==================== -->
+
+    <script>
+
+        const STORAGE_KEY = "novapad_categories";
+
+
+        const nameInput =
+            document.getElementById("catName");
+
+        const slugInput =
+            document.getElementById("catSlug");
+
+        const parentInput =
+            document.getElementById("catParent");
+
+        const descriptionInput =
+            document.getElementById("catDescription");
+
+        const orderInput =
+            document.getElementById("catOrder");
+
+        const typeInput =
+            document.getElementById("catType");
+
+        const statusInput =
+            document.getElementById("catStatus");
+
+        const previewName =
+            document.getElementById("previewName");
+
+        const previewSlug =
+            document.getElementById("previewSlug");
+
+        const imageButtons =
+            document.querySelectorAll(".icon-btn");
+
+        let selectedIcon = "♧";
+
+
+        function getCategories() {
+
+            const data =
+                localStorage.getItem(STORAGE_KEY);
+
+
+            if (!data) {
+
+                const defaults = [
+
+                    {
+                        id: 1,
+                        name: "Tay Cầm Gaming",
+                        slug: "tay-cam-gaming",
+                        parentId: null,
+                        description: "Danh mục tay cầm chơi game dành cho NOVAPAD.",
+                        type: "product",
+                        order: 1,
+                        status: true,
+                        featured: false,
+                        products: 8
+                    },
+
+                    {
+                        id: 2,
+                        name: "Tay cầm không dây Tri-Mode",
+                        slug: "tay-cam-khong-day-tri-mode",
+                        parentId: 1,
+                        description: "Tay cầm không dây hỗ trợ nhiều chế độ kết nối.",
+                        type: "product",
+                        order: 1,
+                        status: true,
+                        featured: false,
+                        products: 8
+                    }
+
+                ];
+
+
+                localStorage.setItem(
+                    STORAGE_KEY,
+                    JSON.stringify(defaults)
+                );
+
+
+                return defaults;
+
+            }
+
+
+            try {
+
+                return JSON.parse(data);
+
+            } catch {
+
+                return [];
+
+            }
+
+        }
+
+
+        function slugify(text) {
+
+            return text
+                .toLowerCase()
+                .normalize("NFD")
+                .replace(/[\u0300-\u036f]/g, "")
+                .replace(/[đĐ]/g, "d")
+                .replace(/[^a-z0-9\s-]/g, "")
+                .trim()
+                .replace(/\s+/g, "-")
+                .replace(/-+/g, "-");
+
+        }
+
+
+        function loadParentCategories() {
+
+            const categories =
+                getCategories();
+
+
+            parentInput.innerHTML = `
+                <option value="">
+                    -- MỤC GỐC (ROOT NODE) --
+                </option>
+            `;
+
+
+            categories
+                .filter(category => category.parentId === null)
+                .forEach(category => {
+
+                    const option =
+                        document.createElement("option");
+
+
+                    option.value =
+                        category.id;
+
+
+                    option.textContent =
+                        category.name;
+
+
+                    parentInput.appendChild(option);
+
+                });
+
+        }
+
+
+        nameInput.addEventListener("input", function () {
+
+            const slug =
+                slugify(this.value);
+
+
+            slugInput.value =
+                slug;
+
+
+            previewName.textContent =
+                this.value || "Tên danh mục mới...";
+
+
+            previewSlug.textContent =
+                "/catalog/" +
+                (slug || "ten-danh-muc-moi");
+
+        });
+
+
+        slugInput.addEventListener("input", function () {
+
+            this.value =
+                slugify(this.value);
+
+
+            previewSlug.textContent =
+                "/catalog/" +
+                (this.value || "ten-danh-muc-moi");
+
+        });
+
+
+        imageButtons.forEach(button => {
+
+            button.addEventListener("click", function () {
+
+                imageButtons.forEach(item => {
+
+                    item.classList.remove(
+                        "bg-cyanx/10",
+                        "border-cyanx",
+                        "text-cyanx"
+                    );
+
+                    item.classList.add(
+                        "bg-panel2",
+                        "border-line"
+                    );
+
+                });
+
+
+                this.classList.remove(
+                    "bg-panel2",
+                    "border-line"
+                );
+
+
+                this.classList.add(
+                    "bg-cyanx/10",
+                    "border-cyanx",
+                    "text-cyanx"
+                );
+
+
+                selectedIcon =
+                    this.textContent.trim();
+
+
+                document.getElementById(
+                    "previewIcon"
+                ).textContent = selectedIcon;
+
+            });
+
+        });
+
+
+        document
+            .getElementById("categoryForm")
+            .addEventListener("submit", function (event) {
+
+                event.preventDefault();
+
+
+                const name =
+                    nameInput.value.trim();
+
+
+                if (!name) {
+
+                    alert(
+                        "Vui lòng nhập tên danh mục."
+                    );
+
+                    nameInput.focus();
+
+                    return;
+
+                }
+
+
+                const slug =
+                    slugInput.value.trim() ||
+                    slugify(name);
+
+
+                const categories =
+                    getCategories();
+
+
+                const slugExists =
+                    categories.some(
+                        category => category.slug === slug
+                    );
+
+
+                if (slugExists) {
+
+                    alert(
+                        "Slug này đã tồn tại. Hãy đổi tên danh mục."
+                    );
+
+                    return;
+
+                }
+
+
+                const parentId =
+                    parentInput.value
+                        ? Number(parentInput.value)
+                        : null;
+
+
+                const newCategory = {
+
+                    id: Date.now(),
+
+                    name: name,
+
+                    slug: slug,
+
+                    parentId: parentId,
+
+                    description:
+                        descriptionInput.value.trim(),
+
+                    type:
+                        typeInput.value,
+
+                    order:
+                        Number(orderInput.value) || 1,
+
+                    status:
+                        statusInput.checked,
+
+                    featured:
+                        document.getElementById(
+                            "catFeatured"
+                        ).checked,
+
+                    products: 0
+
+                };
+
+
+                categories.push(newCategory);
+
+
+                localStorage.setItem(
+                    STORAGE_KEY,
+                    JSON.stringify(categories)
+                );
+
+
+                alert(
+                    "Đã thêm danh mục: " +
+                    name
+                );
+
+
+                window.location.href =
+                    "category.html";
+
+            });
+
+
+        loadParentCategories();
+
+    </script>
+
+</body>
+
+</html>
