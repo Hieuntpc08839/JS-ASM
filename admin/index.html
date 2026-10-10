@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="vi" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOVAPAD - Bảng Điều Khiển Trung Tâm</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../styles/custom.css">
+</head>
+<body class="bg-[#0a0d14] text-slate-200 font-sans antialiased min-h-screen flex">
+
+    
+    <aside class="w-64 bg-[#0f131d] border-r border-slate-800 flex flex-col justify-between shrink-0">
+        <div>
+            
+            <div class="p-5 border-b border-slate-800 flex items-center space-x-3">
+                <div class="w-8 h-8 rounded bg-cyan-500/20 border border-cyan-400/50 flex items-center justify-center text-cyan-400 font-bold">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                </div>
+                <div>
+                    <h1 class="text-sm font-bold tracking-wider text-slate-100">NOVAPAD</h1>
+                    <p class="text-[10px] text-cyan-400 tracking-widest font-mono">CORE CONTROLLER</p>
+                </div>
+            </div>
+
+           
+            <nav class="p-4 space-y-1 text-sm">
+                <div class="px-3 py-2 text-[11px] font-semibold text-slate-500 uppercase tracking-wider">MAIN COMMAND</div>
+                
+                <a href="index.html" class="flex items-center space-x-3 px-3 py-2.5 rounded-lg bg-cyan-500/10 text-cyan-400 font-medium border border-cyan-500/20">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path></svg>
+                    <span>Overview / Dashboard</span>
+                </a>
+
+                <a href="products.html" class="flex items-center space-x-3 px-3 py-2.5 rounded-lg text-slate-400 hover:bg-slate-800/60 hover:text-slate-200 transition-all">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path></svg>
+                    <span>Quản Lý Sản Phẩm</span>
+                </a>
+
+                <a href="#" class="flex items-center space-x-3 px-3 py-2.5 rounded-lg text-slate-400 hover:bg-slate-800/60 hover:text-slate-200 transition-all">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"></path></svg>
+                    <span>Quản Lý Bài Viết</span>
+                </a>
+
+                <a href="#" class="flex items-center space-x-3 px-3 py-2.5 rounded-lg text-slate-400 hover:bg-slate-800/60 hover:text-slate-200 transition-all">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h10M7 12h10M7 17h10"></path></svg>
+                    <span>Quản Lý Danh Mục</span>
+                </a>
+
+                <a href="#" class="flex items-center space-x-3 px-3 py-2.5 rounded-lg text-slate-400 hover:bg-slate-800/60 hover:text-slate-200 transition-all">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                    <span>Quản Lý Người Dùng</span>
+                </a>
+
+                <a href="#" class="flex items-center space-x-3 px-3 py-2.5 rounded-lg text-slate-400 hover:bg-slate-800/60 hover:text-slate-200 transition-all">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path></svg>
+                    <span>Cài Đặt Hệ Thống</span>
+                </a>
+            </nav>
+        </div>
+
+        <div class="p-4 border-t border-slate-800">
+            <div class="bg-slate-900 p-3 rounded border border-slate-800 text-xs font-mono text-slate-400">
+                <div class="text-cyan-400">SYS-ENGINE v4.02-PROD</div>
+                <div class="mt-1 text-slate-500">LATENCY: 12ms</div>
+            </div>
+        </div>
+    </aside>
+
+    
+    <main class="flex-1 flex flex-col min-w-0 overflow-y-auto">
+        
+        <header class="h-16 border-b border-slate-800 bg-[#0f131d]/50 px-6 flex items-center justify-between sticky top-0 backdrop-blur z-10">
+            <div class="flex items-center space-x-3 text-xs font-mono">
+                <span class="px-2 py-0.5 rounded bg-cyan-500/20 text-cyan-400 border border-cyan-500/30">SYS-OPS // REALTIME FEED</span>
+                <span class="text-slate-500">|</span>
+                <span class="text-slate-400">ADMIN LOAD: 23.4%</span>
+            </div>
+
+            <div class="flex items-center space-x-4">
+                <div class="relative w-64">
+                    <input type="text" placeholder="Search telemetry, hardware ID..." class="w-full bg-slate-900 border border-slate-800 rounded-lg py-1.5 pl-8 pr-3 text-xs text-slate-300 focus:outline-none focus:border-cyan-500">
+                    <svg class="w-4 h-4 text-slate-500 absolute left-2.5 top-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                </div>
+                <div class="w-8 h-8 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center font-bold text-xs text-cyan-400">
+                    AD
+                </div>
+            </div>
+        </header>
+
+        <div class="p-6 space-y-6">
+            
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                <div>
+                    <h2 class="text-xl font-bold tracking-tight text-slate-100 uppercase font-mono">BẢNG ĐIỀU KHIỂN TRUNG TÂM // SYS-COMMAND OVERVIEW</h2>
+                    <p class="text-xs text-slate-400 mt-1">Giám sát thời gian thực luồng doanh thu, đơn hàng, người dùng trực tuyến và tình trạng node telemetry toàn cầu trên kiến trúc NovaNet.</p>
+                </div>
+                <div class="flex items-center space-x-3 shrink-0">
+                    <button class="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-medium rounded border border-slate-700 flex items-center space-x-2">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                        <span>XUẤT BÁO CÁO</span>
+                    </button>
+                    <button class="px-3 py-1.5 bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-semibold text-xs rounded flex items-center space-x-2">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2a1 1 0 01-.293.707L13 13.414V19a1 1 0 01-.447.894l-4 2A1 1 0 017 21v-7.586L3.293 6.707A1 1 0 013 6V4z"></path></svg>
+                        <span>LỌC DỮ LIỆU (30)</span>
+                    </button>
+                </div>
+            </div>
+
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+               
+                <div class="bg-[#111622] border border-slate-800 p-4 rounded-xl relative overflow-hidden">
+                    <div class="text-xs font-mono text-slate-400 uppercase">DOANH THU THÁNG</div>
+                    <div class="text-2xl font-bold font-mono text-slate-100 mt-2">$342,850.00</div>
+                    <div class="text-xs text-emerald-400 mt-2 flex items-center space-x-1">
+                        <span>+14.4% vs tháng trước</span>
+                    </div>
+                </div>
+
+                
+                <div class="bg-[#111622] border border-slate-800 p-4 rounded-xl">
+                    <div class="text-xs font-mono text-slate-400 uppercase">ĐƠN HÀNG MỚI (CYCLE)</div>
+                    <div class="text-2xl font-bold font-mono text-slate-100 mt-2">1,842 <span class="text-xs font-normal text-slate-400">ĐƠN ĐẶT</span></div>
+                    <div class="text-xs text-cyan-400 mt-2">Tỷ lệ checkout: 4.2%</div>
+                </div>
+
+                
+                <div class="bg-[#111622] border border-slate-800 p-4 rounded-xl">
+                    <div class="text-xs font-mono text-slate-400 uppercase">PILOTS ONLINE & SYNAPSE</div>
+                    <div class="text-2xl font-bold font-mono text-slate-100 mt-2">18,420 <span class="text-xs font-semibold text-emerald-400">LIVE</span></div>
+                    <div class="text-xs text-slate-400 mt-2">Phản hồi telemetry: 0.5ms</div>
+                </div>
+
+                
+                <div class="bg-[#111622] border border-slate-800 p-4 rounded-xl">
+                    <div class="text-xs font-mono text-slate-400 uppercase">CẢNH BÁO KHO & HW</div>
+                    <div class="text-2xl font-bold font-mono text-amber-400 mt-2">03 <span class="text-xs font-normal text-amber-500">PRIORITY EVENT</span></div>
+                    <div class="text-xs text-amber-400/80 mt-2">2 sản phẩm sắp cạn kho</div>
+                </div>
+            </div>
+
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                <a href="products.html" class="bg-[#151b2a] hover:bg-slate-800 border border-slate-800 p-3 rounded-lg flex items-center justify-between text-xs font-medium text-slate-200 transition-all">
+                    <span>THÊM SẢN PHẨM</span>
+                    <svg class="w-4 h-4 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                </a>
+                <button class="bg-[#151b2a] hover:bg-slate-800 border border-slate-800 p-3 rounded-lg flex items-center justify-between text-xs font-medium text-slate-200 transition-all">
+                    <span>SOẠN BÀI VIẾT</span>
+                    <svg class="w-4 h-4 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                </button>
+                <button class="bg-[#151b2a] hover:bg-slate-800 border border-slate-800 p-3 rounded-lg flex items-center justify-between text-xs font-medium text-slate-200 transition-all">
+                    <span>CẤU HÌNH DANH MỤC</span>
+                    <svg class="w-4 h-4 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                </button>
+                <button class="bg-[#151b2a] hover:bg-slate-800 border border-slate-800 p-3 rounded-lg flex items-center justify-between text-xs font-medium text-slate-200 transition-all">
+                    <span>PHÂN QUYỀN PILOT</span>
+                    <svg class="w-4 h-4 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                </button>
+            </div>
+
+            
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                
+                <div class="lg:col-span-2 bg-[#111622] border border-slate-800 p-5 rounded-xl">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="font-bold text-sm text-slate-200">Doanh Thu Tuần T2 - CN</h3>
+                        <div class="flex items-center space-x-4 text-xs">
+                            <span class="flex items-center space-x-1 text-cyan-400"><span class="w-2 h-2 rounded-full bg-cyan-400 inline-block"></span> Apex Pro</span>
+                            <span class="flex items-center space-x-1 text-purple-400"><span class="w-2 h-2 rounded-full bg-purple-400 inline-block"></span> CyberStrike</span>
+                        </div>
+                    </div>
+                    
+                    <div class="h-48 w-full flex items-end justify-between pt-6 border-b border-slate-800 px-2 relative">
+                        <svg class="absolute inset-0 w-full h-full" preserveAspectRatio="none" viewBox="0 0 500 150">
+                            <path d="M0,100 Q125,20 250,70 T500,30" fill="none" stroke="#00F0FF" stroke-width="3"/>
+                            <path d="M0,120 Q125,60 250,110 T500,70" fill="none" stroke="#A855F7" stroke-width="2" stroke-dasharray="4"/>
+                        </svg>
+                    </div>
+                    <div class="flex justify-between text-[11px] font-mono text-slate-500 mt-3">
+                        <span>T2 (MON)</span><span>T3 (TUE)</span><span>T4 (WED)</span><span>T5 (THU)</span><span>T6 (FRI)</span><span>T7 (SAT)</span><span>CN (SUN)</span>
+                    </div>
+                </div>
+
+                
+                <div class="bg-[#111622] border border-slate-800 p-5 rounded-xl flex flex-col justify-between">
+                    <div>
+                        <h3 class="font-bold text-sm text-slate-200 mb-4">Phân Bổ Tỷ Trọng</h3>
+                        <div class="flex justify-center py-4 relative">
+                            <div class="w-32 h-32 rounded-full border-8 border-cyan-400 border-t-purple-500 flex flex-col items-center justify-center">
+                                <span class="text-sm font-bold font-mono">$342.8K</span>
+                                <span class="text-[10px] text-slate-400">TỔNG CHÍ</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="space-y-2 text-xs">
+                        <div class="flex justify-between text-slate-300">
+                            <span>Tay Cầm Thi Đấu Apex</span>
+                            <span class="font-bold font-mono text-cyan-400">68% ($233.1K)</span>
+                        </div>
+                        <div class="flex justify-between text-slate-300">
+                            <span>Phụ Kiện Mod & Acc</span>
+                            <span class="font-bold font-mono text-purple-400">22% ($75.4K)</span>
+                        </div>
+                        <div class="flex justify-between text-slate-300">
+                            <span>Dịch Vụ NovaCare VIP</span>
+                            <span class="font-bold font-mono text-slate-400">10% ($34.2K)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                
+                <div class="lg:col-span-2 bg-[#111622] border border-slate-800 p-5 rounded-xl">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="font-bold text-sm text-slate-200">Đơn Hàng Gần Đây & Giao Dịch</h3>
+                        <a href="products.html" class="text-xs text-cyan-400 hover:underline">TẤT CẢ ĐƠN HÀNG &rarr;</a>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left text-xs">
+                            <thead class="text-slate-500 uppercase border-b border-slate-800 font-mono">
+                                <tr>
+                                    <th class="pb-2">MÃ ĐƠN</th>
+                                    <th class="pb-2">KHÁCH HÀNG</th>
+                                    <th class="pb-2">SẢN PHẨM</th>
+                                    <th class="pb-2">TỔNG TIỀN</th>
+                                    <th class="pb-2">PHƯƠNG THỨC</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-800/50">
+                                <tr>
+                                    <td class="py-3 font-mono text-cyan-400">#NP-8021</td>
+                                    <td class="py-3 text-slate-200 font-medium">Vortex_Pilot00</td>
+                                    <td class="py-3 text-slate-400">NovaPad Apex Pro</td>
+                                    <td class="py-3 font-bold text-slate-100">$189.99</td>
+                                    <td class="py-3"><span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">CREDIT (VISA)</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="py-3 font-mono text-cyan-400">#NP-8820</td>
+                                    <td class="py-3 text-slate-200 font-medium">NeonStriker_VN</td>
+                                    <td class="py-3 text-slate-400">CyberStrike HE</td>
+                                    <td class="py-3 font-bold text-slate-100">$129.50</td>
+                                    <td class="py-3"><span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">CRYPTO (USDT)</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="py-3 font-mono text-cyan-400">#NP-8810</td>
+                                    <td class="py-3 text-slate-200 font-medium">ShadowKage_JP</td>
+                                    <td class="py-3 text-slate-400">NovaLock Charge</td>
+                                    <td class="py-3 font-bold text-slate-100">$79.99</td>
+                                    <td class="py-3"><span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">E-WALLET (MOMO)</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                
+                <div class="bg-[#111622] border border-slate-800 p-5 rounded-xl">
+                    <h3 class="font-bold text-sm text-slate-200 mb-4">Top Hardware Performance</h3>
+                    <div class="space-y-4 text-xs">
+                        <div class="flex items-center justify-between p-2 rounded bg-slate-900/60 border border-slate-800">
+                            <div>
+                                <div class="font-semibold text-slate-200">01. NovaPad Apex Pro v3.2</div>
+                                <div class="text-[11px] text-slate-500">Đã xuất kho: 500 chiếc</div>
+                            </div>
+                            <div class="text-right">
+                                <div class="font-bold text-cyan-400">$101,000</div>
+                                <div class="text-[10px] text-emerald-400">95% quota</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between p-2 rounded bg-slate-900/60 border border-slate-800">
+                            <div>
+                                <div class="font-semibold text-slate-200">02. CyberStrike HE Elite</div>
+                                <div class="text-[11px] text-slate-500">Đã xuất kho: 420 chiếc</div>
+                            </div>
+                            <div class="text-right">
+                                <div class="font-bold text-cyan-400">$54,390</div>
+                                <div class="text-[10px] text-emerald-400">82% quota</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>
