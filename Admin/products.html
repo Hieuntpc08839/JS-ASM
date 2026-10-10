@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="vi" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOVAPAD - Quản Lý Sản Phẩm (Giao Diện UI)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../styles/custom.css">
+   
+    <script src="../models/Category.js"></script>
+    <script src="../services/productService.js"></script>
+    <script src="../controllers/productDetailController.js"></script>
+</head>
+<body class="bg-[#0a0d14] text-slate-200 font-sans antialiased min-h-screen flex">
+
+   
+    <aside class="w-64 bg-[#0f131d] border-r border-slate-800 flex flex-col justify-between shrink-0 hidden md:flex">
+        <div>
+            
+            <div class="p-5 border-b border-slate-800 flex items-center space-x-3">
+                <div class="w-8 h-8 rounded bg-cyan-500/20 border border-cyan-400/50 flex items-center justify-center text-cyan-400 font-bold">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                </div>
+                <div>
+                    <h1 class="text-sm font-bold tracking-wider text-slate-100">NOVAPAD</h1>
+                    <p class="text-[10px] text-cyan-400 tracking-widest font-mono">CORE CONTROLLER</p>
+                </div>
+            </div>
+
+            
+            <nav class="p-4 space-y-1 text-sm">
+                <div class="px-3 py-2 text-[11px] font-semibold text-slate-500 uppercase tracking-wider">MAIN COMMAND</div>
+                
+                <a href="index.html" class="flex items-center space-x-3 px-3 py-2.5 rounded-lg text-slate-400 hover:bg-slate-800/60 hover:text-slate-200 transition-all">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path></svg>
+                    <span>Overview / Dashboard</span>
+                </a>
+
+                <a href="#" class="flex items-center space-x-3 px-3 py-2.5 rounded-lg bg-cyan-500/10 text-cyan-400 font-medium border border-cyan-500/20">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path></svg>
+                    <span>Quản Lý Sản Phẩm</span>
+                </a>
+
+                <a href="#" class="flex items-center space-x-3 px-3 py-2.5 rounded-lg text-slate-400 hover:bg-slate-800/60 hover:text-slate-200 transition-all">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"></path></svg>
+                    <span>Quản Lý Bài Viết</span>
+                </a>
+
+                <a href="#" class="flex items-center space-x-3 px-3 py-2.5 rounded-lg text-slate-400 hover:bg-slate-800/60 hover:text-slate-200 transition-all">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h10M7 12h10M7 17h10"></path></svg>
+                    <span>Quản Lý Danh Mục</span>
+                </a>
+                 <a href="#" class="flex items-center space-x-3 px-3 py-2.5 rounded-lg text-slate-400 hover:bg-slate-800/60 hover:text-slate-200 transition-all">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                    <span>Quản Lý Người Dùng</span>
+                </a>
+
+                <a href="#" class="flex items-center space-x-3 px-3 py-2.5 rounded-lg text-slate-400 hover:bg-slate-800/60 hover:text-slate-200 transition-all">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path></svg>
+                    <span>Cài Đặt Hệ Thống</span>
+                </a>
+            </nav>
+        </div>
+
+        <div class="p-4 border-t border-slate-800">
+            <div class="bg-slate-900 p-3 rounded border border-slate-800 text-xs font-mono text-slate-400">
+                <div class="text-cyan-400">SYS-ENGINE v4.02-PROD</div>
+                <div class="mt-1 text-slate-500">LATENCY: 12ms</div>
+            </div>
+        </div>
+    </aside>
+
+    <main class="flex-1 flex flex-col min-w-0 overflow-y-auto">
+       
+        <header class="h-14 border-b border-slate-800 bg-[#0f131d]/50 px-6 flex items-center justify-between sticky top-0 backdrop-blur z-10 text-xs font-mono">
+            <div class="flex items-center space-x-2 text-slate-400">
+                <span>CORE CONTROLLER</span>
+                <span>&gt;</span>
+                <span>INVENTORY MATRIX</span>
+                <span>&gt;</span>
+                <span class="text-cyan-400 font-semibold">CATALOG_EXP_404</span>
+            </div>
+            <div class="flex items-center space-x-3">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span class="text-slate-400">CONNECTED TO HARDWARE SYNC</span>
+            </div>
+        </header>
+
+        <div class="p-6 space-y-6">
+            
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                <div>
+                    <div class="flex items-center space-x-3">
+                        <h2 class="text-2xl font-bold tracking-tight text-slate-100 font-mono">Quản Lý Sản Phẩm</h2>
+                        <span class="px-2.5 py-0.5 rounded text-[10px] font-mono bg-cyan-500/10 text-cyan-400 border border-cyan-500/30">HARDWARE CATALOG</span>
+                    </div>
+                    <p class="text-xs text-slate-400 mt-1">Hệ thống đồng bộ kho phần cứng thi đấu NovaPad Real-time Sync Hub</p>
+                </div>
+                
+               
+                <div class="flex items-center space-x-3 shrink-0 text-xs font-medium">
+                    <button class="px-3.5 py-2 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-lg border border-slate-700 flex items-center space-x-2 transition-all cursor-pointer">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                        <span>XUẤT CSV / EXCEL</span>
+                    </button>
+                    <button class="px-3.5 py-2 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-lg border border-slate-700 flex items-center space-x-2 transition-all cursor-pointer">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2a1 1 0 01-.293.707L13 13.414V19a1 1 0 01-.447.894l-4 2A1 1 0 017 21v-7.586L3.293 6.707A1 1 0 013 6V4z"></path></svg>
+                        <span>BỘ LỌC NÂNG CAO</span>
+                    </button>
+                   
+                    <button class="px-4 py-2 bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold rounded-lg flex items-center space-x-2 shadow-lg shadow-cyan-500/20 transition-all cursor-pointer">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+                        <span>+ THÊM SẢN PHẨM MỚI</span>
+                    </button>
+                </div>
+            </div>
+
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="bg-[#111622] border border-slate-800 p-4 rounded-xl flex items-center justify-between">
+                    <div>
+                        <div class="text-[11px] font-mono text-slate-400 uppercase">TỔNG SẢN PHẨM</div>
+                        <div class="text-2xl font-bold font-mono text-slate-100 mt-1">24 <span class="text-xs font-normal text-slate-400">SKUs</span></div>
+                    </div>
+                    <div class="w-10 h-10 rounded-lg bg-slate-800/80 border border-slate-700 flex items-center justify-center text-slate-300">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path></svg>
+                    </div>
+                </div>
+
+                <div class="bg-[#111622] border border-slate-800 p-4 rounded-xl flex items-center justify-between">
+                    <div>
+                        <div class="text-[11px] font-mono text-slate-400 uppercase">SẴN HÀNG</div>
+                        <div class="text-2xl font-bold font-mono text-cyan-400 mt-1">18 <span class="text-xs font-normal text-slate-400">Đang bán</span></div>
+                    </div>
+                    <div class="w-10 h-10 rounded-lg bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                    </div>
+                </div>
+
+                <div class="bg-[#111622] border border-slate-800 p-4 rounded-xl flex items-center justify-between">
+                    <div>
+                        <div class="text-[11px] font-mono text-slate-400 uppercase">SẮP HẾT HÀNG</div>
+                        <div class="text-2xl font-bold font-mono text-amber-400 mt-1">4 <span class="text-xs font-normal text-amber-500/80">&lt; 20 units</span></div>
+                    </div>
+                    <div class="w-10 h-10 rounded-lg bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                    </div>
+                </div>
+
+                <div class="bg-[#111622] border border-slate-800 p-4 rounded-xl flex items-center justify-between">
+                    <div>
+                        <div class="text-[11px] font-mono text-slate-400 uppercase">TẠM NGỪNG / HẾT</div>
+                        <div class="text-2xl font-bold font-mono text-rose-400 mt-1">2 <span class="text-xs font-normal text-rose-500/80">Restock req</span></div>
+                    </div>
+                    <div class="w-10 h-10 rounded-lg bg-rose-500/10 border border-rose-500/30 flex items-center justify-center text-rose-400">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="bg-[#111622] border border-slate-800 rounded-xl overflow-hidden">
+                
+                <div class="p-4 border-b border-slate-800 flex justify-between items-center text-xs font-mono">
+                    <div class="flex items-center space-x-2 text-slate-300">
+                        <span class="w-2 h-2 bg-cyan-400 rounded-full"></span>
+                        <span class="font-bold">DANH SÁCH PHẦN CỨNG NOVAPAD (5 / 24 HIỂN THỊ)</span>
+                    </div>
+                    <div class="flex items-center space-x-2 text-slate-400">
+                        <span>Sắp xếp theo:</span>
+                        <select class="bg-slate-900 text-slate-200 border border-slate-800 rounded px-2 py-1 focus:outline-none">
+                            <option>Giá cao nhất &darr;</option>
+                            <option>Giá thấp nhất &uarr;</option>
+                            <option>Mới nhất</option>
+                        </select>
+                    </div>
+                </div>
+
+                
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-xs">
+                        <thead class="bg-slate-900/80 text-slate-400 uppercase font-mono border-b border-slate-800">
+                            <tr>
+                                <th class="py-3 px-4 w-10 text-center"><input type="checkbox" class="rounded bg-slate-800 border-slate-700 text-cyan-500"></th>
+                                <th class="py-3 px-4">SẢN PHẨM & FIRMWARE</th>
+                                <th class="py-3 px-4">MÃ ĐỊNH DANH (SKU)</th>
+                                <th class="py-3 px-4">PHÂN LOẠI</th>
+                                <th class="py-3 px-4">ĐƠN GIÁ</th>
+                                <th class="py-3 px-4">TỒN KHO</th>
+                                <th class="py-3 px-4 text-right">THAO TÁC</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-800/60">
+                            
+                            
+                            <tr class="hover:bg-slate-800/30 transition-colors">
+                                <td class="py-3.5 px-4 text-center"><input type="checkbox" class="rounded bg-slate-800 border-slate-700 text-cyan-500"></td>
+                                <td class="py-3.5 px-4">
+                                    <div class="flex items-center space-x-3">
+                                        <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=200&auto=format&fit=crop&q=80" class="w-10 h-10 rounded-lg object-cover border border-slate-700 shrink-0" alt="Product">
+                                        <div>
+                                            <div class="flex items-center space-x-2">
+                                                <span class="font-bold text-slate-100 hover:text-cyan-400 transition-colors">NovaPad Apex Pro v3.2 Wireless</span>
+                                                <span class="px-1.5 py-0.2 rounded text-[9px] font-mono bg-cyan-500/20 text-cyan-400 border border-cyan-500/30">PRO</span>
+                                            </div>
+                                            <div class="text-[10px] text-slate-400 font-mono mt-0.5">POLL: 4000Hz &bull; HALL EFFECT SENSORS</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="py-3.5 px-4 font-mono text-slate-300">NP-APX-PRO-V32</td>
+                                <td class="py-3.5 px-4"><span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">Tay cầm thi đấu</span></td>
+                                <td class="py-3.5 px-4 font-mono font-bold text-cyan-400">$149.99</td>
+                                <td class="py-3.5 px-4">
+                                    <div class="w-28 space-y-1">
+                                        <div class="flex justify-between text-[10px] font-mono">
+                                            <span class="text-slate-300">342 units</span>
+                                            <span class="text-emerald-400">Đủ hàng</span>
+                                        </div>
+                                        <div class="w-full h-1.5 bg-slate-800 rounded-full overflow-hidden">
+                                            <div class="bg-emerald-400 h-full rounded-full" style="width: 85%;"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                                
+                                <td class="py-3.5 px-4 text-right">
+                                    <div class="flex items-center justify-end space-x-2">
+                                        <button class="p-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded border border-slate-700 transition-all cursor-pointer" title="Xem chi tiết">
+                                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+                                        </button>
+                                        <button class="px-2.5 py-1.5 bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-400 rounded border border-cyan-500/30 font-medium flex items-center space-x-1 transition-all cursor-pointer" title="Sửa sản phẩm">
+                                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
+                                            <span>Sửa</span>
+                                        </button>
+                                        <button class="px-2.5 py-1.5 bg-rose-500/10 hover:bg-rose-500/20 text-rose-400 rounded border border-rose-500/30 font-medium flex items-center space-x-1 transition-all cursor-pointer" title="Xóa sản phẩm">
+                                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg>
+                                            <span>Xóa</span>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            
+                            <tr class="hover:bg-slate-800/30 transition-colors">
+                                <td class="py-3.5 px-4 text-center"><input type="checkbox" class="rounded bg-slate-800 border-slate-700 text-cyan-500"></td>
+                                <td class="py-3.5 px-4">
+                                    <div class="flex items-center space-x-3">
+                                        <img src="https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=200&auto=format&fit=crop&q=80" class="w-10 h-10 rounded-lg object-cover border border-slate-700 shrink-0" alt="Product">
+                                        <div>
+                                            <div class="flex items-center space-x-2">
+                                                <span class="font-bold text-slate-100 hover:text-cyan-400 transition-colors">NovaPad CyberStrike HE Elite</span>
+                                                <span class="px-1.5 py-0.2 rounded text-[9px] font-mono bg-indigo-500/20 text-indigo-400 border border-indigo-500/30">SUB</span>
+                                            </div>
+                                            <div class="text-[10px] text-slate-400 font-mono mt-0.5">TACTILE MECHANICAL &bull; HE TRIGGER 0.1mm</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="py-3.5 px-4 font-mono text-slate-300">NP-CS-ELITE-01</td>
+                                <td class="py-3.5 px-4"><span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">Tay cầm Hall-Effect</span></td>
+                                <td class="py-3.5 px-4 font-mono font-bold text-cyan-400">$129.50</td>
+                                <td class="py-3.5 px-4">
+                                    <div class="w-28 space-y-1">
+                                        <div class="flex justify-between text-[10px] font-mono">
+                                            <span class="text-slate-300">18 units</span>
+                                            <span class="text-amber-400">Sắp hết</span>
+                                        </div>
+                                        <div class="w-full h-1.5 bg-slate-800 rounded-full overflow-hidden">
+                                            <div class="bg-amber-400 h-full rounded-full" style="width: 20%;"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                              
+                                <td class="py-3.5 px-4 text-right">
+                                    <div class="flex items-center justify-end space-x-2">
+                                        <button class="p-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded border border-slate-700 transition-all cursor-pointer" title="Xem chi tiết">
+                                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+                                        </button>
+                                        <button class="px-2.5 py-1.5 bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-400 rounded border border-cyan-500/30 font-medium flex items-center space-x-1 transition-all cursor-pointer" title="Sửa sản phẩm">
+                                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
+                                            <span>Sửa</span>
+                                        </button>
+                                        <button class="px-2.5 py-1.5 bg-rose-500/10 hover:bg-rose-500/20 text-rose-400 rounded border border-rose-500/30 font-medium flex items-center space-x-1 transition-all cursor-pointer" title="Xóa sản phẩm">
+                                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg>
+                                            <span>Xóa</span>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            
+                            <tr class="hover:bg-slate-800/30 transition-colors">
+                                <td class="py-3.5 px-4 text-center"><input type="checkbox" class="rounded bg-slate-800 border-slate-700 text-cyan-500"></td>
+                                <td class="py-3.5 px-4">
+                                    <div class="flex items-center space-x-3">
+                                        <img src="https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=200&auto=format&fit=crop&q=80" class="w-10 h-10 rounded-lg object-cover border border-slate-700 shrink-0" alt="Product">
+                                        <div>
+                                            <div class="flex items-center space-x-2">
+                                                <span class="font-bold text-slate-100 hover:text-cyan-400 transition-colors">NovaDock Magnetic Fast Charge</span>
+                                                <span class="px-1.5 py-0.2 rounded text-[9px] font-mono bg-purple-500/20 text-purple-400 border border-purple-500/30">DOCK</span>
+                                            </div>
+                                            <div class="text-[10px] text-slate-400 font-mono mt-0.5">DUAL-SLOT FAST 65W</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="py-3.5 px-4 font-mono text-slate-300">NP-DCK-MAG-V2</td>
+                                <td class="py-3.5 px-4"><span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">Dock sạc từ tính</span></td>
+                                <td class="py-3.5 px-4 font-mono font-bold text-cyan-400">$49.99</td>
+                                <td class="py-3.5 px-4">
+                                    <div class="w-28 space-y-1">
+                                        <div class="flex justify-between text-[10px] font-mono">
+                                            <span class="text-slate-300">120 units</span>
+                                            <span class="text-emerald-400">Còn hàng</span>
+                                        </div>
+                                        <div class="w-full h-1.5 bg-slate-800 rounded-full overflow-hidden">
+                                            <div class="bg-emerald-400 h-full rounded-full" style="width: 60%;"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                                
+                                <td class="py-3.5 px-4 text-right">
+                                    <div class="flex items-center justify-end space-x-2">
+                                        <button class="p-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded border border-slate-700 transition-all cursor-pointer" title="Xem chi tiết">
+                                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+                                        </button>
+                                        <button class="px-2.5 py-1.5 bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-400 rounded border border-cyan-500/30 font-medium flex items-center space-x-1 transition-all cursor-pointer" title="Sửa sản phẩm">
+                                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
+                                            <span>Sửa</span>
+                                        </button>
+                                        <button class="px-2.5 py-1.5 bg-rose-500/10 hover:bg-rose-500/20 text-rose-400 rounded border border-rose-500/30 font-medium flex items-center space-x-1 transition-all cursor-pointer" title="Xóa sản phẩm">
+                                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg>
+                                            <span>Xóa</span>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            
+                            <tr class="hover:bg-slate-800/30 transition-colors bg-rose-950/10">
+                                <td class="py-3.5 px-4 text-center"><input type="checkbox" class="rounded bg-slate-800 border-slate-700 text-cyan-500"></td>
+                                <td class="py-3.5 px-4">
+                                    <div class="flex items-center space-x-3">
+                                        <img src="https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf?w=200&auto=format&fit=crop&q=80" class="w-10 h-10 rounded-lg object-cover border border-slate-700 shrink-0 opacity-60" alt="Product">
+                                        <div>
+                                            <div class="flex items-center space-x-2">
+                                                <span class="font-bold text-slate-300 line-through">Precision Aim Stick Kit v4</span>
+                                                <span class="px-1.5 py-0.2 rounded text-[9px] font-mono bg-slate-800 text-slate-400 border border-slate-700">MOD</span>
+                                            </div>
+                                            <div class="text-[10px] text-rose-400 font-mono mt-0.5">OUT OF STOCK &bull; HẾT HÀNG</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="py-3.5 px-4 font-mono text-slate-400">NP-ACC-STK-06</td>
+                                <td class="py-3.5 px-4"><span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">Phụ kiện Mod</span></td>
+                                <td class="py-3.5 px-4 font-mono font-bold text-slate-400">$19.99</td>
+                                <td class="py-3.5 px-4">
+                                    <div class="w-28 space-y-1">
+                                        <div class="flex justify-between text-[10px] font-mono">
+                                            <span class="text-rose-400">0 units</span>
+                                            <span class="text-rose-400">Hết hàng</span>
+                                        </div>
+                                        <div class="w-full h-1.5 bg-slate-800 rounded-full overflow-hidden">
+                                            <div class="bg-rose-500 h-full rounded-full" style="width: 0%;"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                                
+                                <td class="py-3.5 px-4 text-right">
+                                    <div class="flex items-center justify-end space-x-2">
+                                        <button class="p-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded border border-slate-700 transition-all cursor-pointer" title="Xem chi tiết">
+                                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+                                        </button>
+                                        <button class="px-2.5 py-1.5 bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-400 rounded border border-cyan-500/30 font-medium flex items-center space-x-1 transition-all cursor-pointer" title="Sửa sản phẩm">
+                                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
+                                            <span>Sửa</span>
+                                        </button>
+                                        <button class="px-2.5 py-1.5 bg-rose-500/10 hover:bg-rose-500/20 text-rose-400 rounded border border-rose-500/30 font-medium flex items-center space-x-1 transition-all cursor-pointer" title="Xóa sản phẩm">
+                                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg>
+                                            <span>Xóa</span>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+
+                          
+                            <tr class="hover:bg-slate-800/30 transition-colors">
+                                <td class="py-3.5 px-4 text-center"><input type="checkbox" class="rounded bg-slate-800 border-slate-700 text-cyan-500"></td>
+                                <td class="py-3.5 px-4">
+                                    <div class="flex items-center space-x-3">
+                                        <img src="https://images.unsplash.com/photo-1600080972464-8e5f35f63d08?w=200&auto=format&fit=crop&q=80" class="w-10 h-10 rounded-lg object-cover border border-slate-700 shrink-0" alt="Product">
+                                        <div>
+                                            <div class="flex items-center space-x-2">
+                                                <span class="font-bold text-slate-100 hover:text-cyan-400 transition-colors">NovaPad Striker Tournament</span>
+                                                <span class="px-1.5 py-0.2 rounded text-[9px] font-mono bg-amber-500/20 text-amber-400 border border-amber-500/30">8K HZ</span>
+                                            </div>
+                                            <div class="text-[10px] text-slate-400 font-mono mt-0.5">ULTRA-FAST 8000Hz WIRED</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="py-3.5 px-4 font-mono text-slate-300">NP-STR-996</td>
+                                <td class="py-3.5 px-4"><span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">Tay cầm thi đấu</span></td>
+                                <td class="py-3.5 px-4 font-mono font-bold text-cyan-400">$89.00</td>
+                                <td class="py-3.5 px-4">
+                                    <div class="w-28 space-y-1">
+                                        <div class="flex justify-between text-[10px] font-mono">
+                                            <span class="text-slate-300">54 units</span>
+                                            <span class="text-emerald-400">Còn hàng</span>
+                                        </div>
+                                        <div class="w-full h-1.5 bg-slate-800 rounded-full overflow-hidden">
+                                            <div class="bg-emerald-400 h-full rounded-full" style="width: 45%;"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                                
+                                <td class="py-3.5 px-4 text-right">
+                                    <div class="flex items-center justify-end space-x-2">
+                                        <button class="p-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded border border-slate-700 transition-all cursor-pointer" title="Xem chi tiết">
+                                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+                                        </button>
+                                        <button class="px-2.5 py-1.5 bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-400 rounded border border-cyan-500/30 font-medium flex items-center space-x-1 transition-all cursor-pointer" title="Sửa sản phẩm">
+                                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
+                                            <span>Sửa</span>
+                                        </button>
+                                        <button class="px-2.5 py-1.5 bg-rose-500/10 hover:bg-rose-500/20 text-rose-400 rounded border border-rose-500/30 font-medium flex items-center space-x-1 transition-all cursor-pointer" title="Xóa sản phẩm">
+                                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg>
+                                            <span>Xóa</span>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+
+                
+                <div class="p-4 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 gap-3">
+                    <div class="font-mono">
+                        Hiển thị <span class="text-slate-200 font-bold">1 - 5</span> trên tổng số <span class="text-slate-200 font-bold">24</span> phần cứng
+                    </div>
+                    <div class="flex items-center space-x-1 font-mono">
+                        <button class="px-2.5 py-1 bg-slate-900 border border-slate-800 rounded text-slate-400">&lt;</button>
+                        <button class="px-3 py-1 bg-cyan-500 text-slate-950 font-bold rounded">1</button>
+                        <button class="px-3 py-1 bg-slate-900 border border-slate-800 rounded text-slate-300">2</button>
+                        <button class="px-3 py-1 bg-slate-900 border border-slate-800 rounded text-slate-300">3</button>
+                        <button class="px-2.5 py-1 bg-slate-900 border border-slate-800 rounded text-slate-400">&gt;</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>
