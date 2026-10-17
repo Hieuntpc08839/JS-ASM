@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đặt Hàng Thành Công // NovaPad Deploy</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body class="bg-[#030610] text-gray-200 antialiased min-h-screen flex items-center justify-center p-4 font-sans">
+    
+    <div class="max-w-md w-full bg-[#070b16] border border-cyan-500/40 rounded-2xl p-8 text-center space-y-6 shadow-[0_0_40px_rgba(0,240,255,0.15)]">
+        <!-- Icon Check Thành công -->
+        <div class="w-16 h-16 bg-cyan-950/60 border border-cyan-400 rounded-full flex items-center justify-center mx-auto text-cyan-400 shadow-[0_0_20px_rgba(0,240,255,0.3)]">
+            <svg class="w-8 h-8 fill-none stroke-current" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        </div>
+
+        <div class="space-y-2">
+            <span class="text-cyan-400 font-mono text-[10px] uppercase font-bold tracking-widest">// DEPLOYMENT CONFIRMED</span>
+            <h1 class="text-2xl font-black text-white uppercase font-mono tracking-wide">XÁC NHẬN ĐƠN HÀNG THÀNH CÔNG!</h1>
+            <p class="text-xs text-gray-400">Kiện hàng gaming gear của bạn đã được tiếp nhận và đang tiến hành đóng gói chống sốc kép.</p>
+        </div>
+
+        <!-- Chi tiết đơn hàng vừa đặt -->
+        <div class="p-4 bg-[#040711] border border-gray-800 rounded-xl text-left space-y-2 font-mono text-xs">
+            <div class="flex justify-between">
+                <span class="text-gray-500">MÃ ĐƠN HÀNG:</span>
+                <span class="text-cyan-400 font-bold" id="order-code-display">#NV-8902</span>
+            </div>
+            <div class="flex justify-between">
+                <span class="text-gray-500">GAME THỦ:</span>
+                <span class="text-white" id="customer-name-display">---</span>
+            </div>
+            <div class="flex justify-between">
+                <span class="text-gray-500">TỔNG THANH TOÁN:</span>
+                <span class="text-white font-bold" id="order-total-display">0 đ</span>
+            </div>
+            <div class="flex justify-between">
+                <span class="text-gray-500">TRẠNG THÁI:</span>
+                <span class="text-green-400 font-bold">READY TO DEPLOY</span>
+            </div>
+        </div>
+
+        <div class="flex gap-3 pt-2">
+            <a href="index.html" class="flex-1 bg-gray-800 hover:bg-gray-700 text-gray-300 font-mono text-xs font-bold py-3.5 rounded-xl transition">
+                VỀ TRANG CHỦ
+            </a>
+            <a href="products.html" class="flex-1 bg-cyan-400 hover:bg-cyan-300 text-black font-mono text-xs font-bold py-3.5 rounded-xl transition shadow-[0_0_15px_rgba(0,240,255,0.3)]">
+                TIẾP TỤC XEM CATALOG &rarr;
+            </a>
+        </div>
+    </div>
+
+    <!-- Hiển thị dữ liệu động của đơn hàng vừa tạo -->
+    <script>
+        const lastOrder = JSON.parse(localStorage.getItem("novapad_last_order"));
+        if (lastOrder) {
+            document.getElementById("order-code-display").innerText = lastOrder.order_code || "#NV-PENDING";
+            document.getElementById("customer-name-display").innerText = lastOrder.customer_name || "Game thủ";
+            document.getElementById("order-total-display").innerText = Number(lastOrder.total_price || 0).toLocaleString("vi-VN") + " đ";
+        }
+    </script>
+</body>
+</html>
