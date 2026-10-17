@@ -1,4 +1,3 @@
-// app/views/ProductList.js
 import Component from "./Component.js";
 import ProductItem from "./ProductItem.js";
 

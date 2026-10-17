@@ -1,4 +1,3 @@
-// app/models/Cart.js
 export default class Cart {
     constructor(storageKey = "novapad_cart_data") {
         this.storageKey = storageKey;
@@ -18,7 +17,7 @@ export default class Cart {
         localStorage.setItem(this.storageKey, JSON.stringify(this.items));
     }
 
-    // Getter tính tổng tiền (Slide 4.2)
+    // Getter tính tổng tiền 
     get totalAmount() {
         return this.items.reduce((sum, item) => sum + (Number(item.price || 0) * Number(item.quantity || 1)), 0);
     }
