@@ -105,16 +105,6 @@ async function initHomePage() {
     // Gọi API lấy dữ liệu từ JSON-Server
     let products = await getProducts();
 
-    // Dữ liệu dự phòng nếu JSON Server bị gián đoạn
-    if (!products || products.length === 0) {
-        products = [
-            { id: 1, name: "NovaPad Apex Pro v3.2", cate_id: 1, price: 3690000, image: "https://images.unsplash.com/photo-1600080972464-8e5f35f63d08?w=700", detail: "Chassis vân Carbon siêu nhẹ, cần xoay Hall-Effect chống drift.", badge: "TOP 1 BESTSELLER", rating: "★ 4.9 (1.8K)" },
-            { id: 2, name: "Quantum Strike Chroma", cate_id: 1, price: 2890000, image: "https://images.unsplash.com/photo-1592840496694-26d035b52b48?w=700", detail: "Dải led RGB 16.8 triệu màu Aura Sync, switch cơ Tactile Micro switch.", badge: "CHUYÊN FPS", rating: "★ 4.8 (950)" },
-            { id: 3, name: "Stealth X Ghost Tactical", cate_id: 2, price: 2190000, image: "https://images.unsplash.com/photo-1629429408209-1f912961dbd8?w=700", detail: "Phiên bản trắng gốm mờ, đệm cao su tổ ong bọc tay cầm chống trượt.", badge: "TACTICAL ELITE", rating: "★ 5.0 (620)" },
-            { id: 4, name: "Cyberpunk Neo-2077 Pro", cate_id: 3, price: 4890000, image: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=700", detail: "Khắc laser độc bản, tặng kèm vali chống sốc Titanium nguyên khối.", badge: "BẢN GIỚI HẠN", rating: "★ 5.0 (310)" }
-        ];
-    }
-
     function renderList(list) {
         grid.innerHTML = "";
         list.forEach(p => grid.append(createCard(p)));
@@ -123,7 +113,7 @@ async function initHomePage() {
     // Hiển thị 4 sản phẩm bán chạy ban đầu
     renderList(products.slice(0, 4));
 
-    // Xử lý 4 nút tab lọc danh mục (Ảnh 74, 78)
+    // lọc danh mục 
     const filterButtons = document.querySelectorAll(".filter-btn");
     filterButtons.forEach(btn => {
         btn.addEventListener("click", () => {
