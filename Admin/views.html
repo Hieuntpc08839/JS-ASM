@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="vi" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOVAPAD - Quản Lý Người Dùng & Phân Quyền Hệ Thống</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../styles/custom.css">
+</head>
+<body class="bg-[#0a0d14] text-slate-200 font-sans antialiased min-h-screen flex">
+
+    <!-- SIDEBAR LEFT -->
+    <aside class="w-64 bg-[#0f131d] border-r border-slate-800 flex flex-col justify-between shrink-0 hidden md:flex">
+        <div>
+            <!-- Logo Header -->
+            <div class="p-5 border-b border-slate-800 flex items-center space-x-3">
+                <div class="w-8 h-8 rounded bg-cyan-500/20 border border-cyan-400/50 flex items-center justify-center text-cyan-400 font-bold">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                </div>
+                <div>
+                    <h1 class="text-sm font-bold tracking-wider text-slate-100">NOVAPAD</h1>
+                    <p class="text-[10px] text-cyan-400 tracking-widest font-mono">CORE CONTROLLER</p>
+                </div>
+            </div>
+
+            <!-- Navigation Menu -->
+           <nav class="p-4 space-y-1 text-sm">
+                <div class="px-3 py-2 text-[11px] font-semibold text-slate-500 uppercase tracking-wider">MAIN COMMAND</div>
+                
+                <a href="index.html" class="flex items-center space-x-3 px-3 py-2.5 rounded-lg bg-cyan-500/10 text-cyan-400 font-medium border border-cyan-500/20">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path></svg>
+                    <span>Overview / Dashboard</span>
+                </a>
+
+                <a href="products.html" class="flex items-center space-x-3 px-3 py-2.5 rounded-lg text-slate-400 hover:bg-slate-800/60 hover:text-slate-200 transition-all">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path></svg>
+                    <span>Quản Lý Sản Phẩm</span>
+                </a>
+
+                <a href="#" class="flex items-center space-x-3 px-3 py-2.5 rounded-lg text-slate-400 hover:bg-slate-800/60 hover:text-slate-200 transition-all">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"></path></svg>
+                    <span>Quản Lý Bài Viết</span>
+                </a>
+
+                <a href="#" class="flex items-center space-x-3 px-3 py-2.5 rounded-lg text-slate-400 hover:bg-slate-800/60 hover:text-slate-200 transition-all">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h10M7 12h10M7 17h10"></path></svg>
+                    <span>Quản Lý Danh Mục</span>
+                </a>
+
+                <a href="views.html" class="flex items-center space-x-3 px-3 py-2.5 rounded-lg text-slate-400 hover:bg-slate-800/60 hover:text-slate-200 transition-all">
+                    <svg class="w-5 h-5" fill="none" saroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                    <span>Quản Lý Người Dùng</span>
+                </a>
+
+                <a href="#" class="flex items-center space-x-3 px-3 py-2.5 rounded-lg text-slate-400 hover:bg-slate-800/60 hover:text-slate-200 transition-all">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path></svg>
+                    <span>Cài Đặt Hệ Thống</span>
+                </a>
+            </nav>
+        </div>
+
+        <div class="p-4 border-t border-slate-800">
+            <div class="bg-slate-900 p-3 rounded border border-slate-800 text-xs font-mono text-slate-400">
+                <div class="text-cyan-400">SYS-ENGINE v4.02-PROD</div>
+                <div class="mt-1 text-slate-500">LATENCY: 12ms</div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- MAIN CONTENT AREA -->
+    <main class="flex-1 flex flex-col min-w-0 overflow-y-auto">
+        <!-- Top Bar Header -->
+        <header class="h-16 border-b border-slate-800 bg-[#0f131d]/50 px-6 flex items-center justify-between sticky top-0 backdrop-blur z-10">
+            <div class="flex items-center space-x-3 text-xs font-mono">
+                <span class="px-2 py-0.5 rounded bg-cyan-500/20 text-cyan-400 border border-cyan-500/30">NOVAPAD ADMIN</span>
+                <span class="text-slate-500">|</span>
+                <span class="text-slate-400">CPU LOAD: 23.4%</span>
+                <span class="text-slate-500">|</span>
+                <span class="text-slate-400">LATENCY: 12ms</span>
+                <span class="text-slate-500">|</span>
+                <span class="text-slate-400">PILOTS ONLINE: <strong class="text-cyan-400">1,842</strong></span>
+            </div>
+
+            <div class="flex items-center space-x-4">
+                <div class="relative w-64">
+                    <input type="text" placeholder="Search telemetry, hardware ID, pilots..." class="w-full bg-slate-900 border border-slate-800 rounded-lg py-1.5 pl-8 pr-3 text-xs text-slate-300 focus:outline-none focus:border-cyan-500">
+                    <svg class="w-4 h-4 text-slate-500 absolute left-2.5 top-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                </div>
+                <a href="index.html" class="p-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded border border-slate-700" title="Trở về Trang Chủ">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+                </a>
+                <div class="w-8 h-8 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center font-bold text-xs text-cyan-400">AD</div>
+            </div>
+        </header>
+
+        <div class="p-6 space-y-6">
+            <!-- Breadcrumb Badge & Header Title -->
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                <div>
+                    <div class="flex items-center space-x-2 text-[11px] font-mono text-cyan-400 mb-1">
+                        <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
+                        <span>SYS: SECURITY LEVEL-0</span>
+                        <span>|</span>
+                        <span>ID // USR-NODE-409</span>
+                    </div>
+                    <h2 class="text-3xl font-extrabold tracking-tight text-slate-100 font-mono uppercase">QUẢN LÝ NGƯỜI DÙNG & PHÂN QUYỀN HỆ THỐNG</h2>
+                    <p class="text-xs text-slate-400 mt-1">Giám sát danh tính phi hành đoàn, điều phối thẻ định danh HWID phần cứng, kiểm soát quyền truy cập node và thiết lập rào chắn bảo mật NovaPad Network.</p>
+                </div>
+                
+                <div class="flex items-center space-x-3 shrink-0 text-xs font-medium">
+                    <button class="px-3.5 py-2.5 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-lg border border-slate-700 flex items-center space-x-2 cursor-pointer">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                        <span>XUẤT DANH SÁCH</span>
+                    </button>
+                    <button id="btn-open-add" class="px-4 py-2.5 bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold rounded-lg flex items-center space-x-2 shadow-lg shadow-cyan-500/20 cursor-pointer">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"></path></svg>
+                        <span>+ CẤP QUYỀN & TẠO MỚI</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- 4 Metric Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="bg-[#111622] border border-slate-800 p-4 rounded-xl flex items-center justify-between">
+                    <div>
+                        <div class="text-[11px] font-mono text-slate-400 uppercase">TỔNG THÀNH VIÊN</div>
+                        <div class="text-3xl font-bold font-mono text-slate-100 mt-1">142,850 <span class="text-xs font-normal text-slate-400">Pilots</span></div>
+                        <div class="text-[10px] text-cyan-400 mt-2 flex items-center space-x-2">
+                            <span>+1,240 tuần này</span>
+                            <span class="text-slate-500">&bull;</span>
+                            <span class="text-slate-300">98.2% Active</span>
+                        </div>
+                    </div>
+                    <div class="w-10 h-10 rounded-lg bg-slate-800/80 border border-slate-700 flex items-center justify-center text-cyan-400">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                    </div>
+                </div>
+
+                <div class="bg-[#111622] border border-slate-800 p-4 rounded-xl flex items-center justify-between">
+                    <div>
+                        <div class="text-[11px] font-mono text-slate-400 uppercase">ĐANG TRỰC TUYẾN</div>
+                        <div class="text-3xl font-bold font-mono text-cyan-400 mt-1">18,420 <span class="text-xs font-normal text-slate-400">Pilots</span></div>
+                        <div class="text-[10px] text-slate-400 mt-2">&bull; Đồng bộ 24 Data-Centers</div>
+                    </div>
+                    <div class="w-10 h-10 rounded-lg bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.636 18.364a9 9 0 010-12.728m12.728 0a9 9 0 010 12.728m-9.9-2.828a5 5 0 010-7.07f12.728 0a5 5 0 010 7.07M12 12h.01"></path></svg>
+                    </div>
+                </div>
+
+                <div class="bg-[#111622] border border-slate-800 p-4 rounded-xl flex items-center justify-between">
+                    <div>
+                        <div class="text-[11px] font-mono text-slate-400 uppercase">QUẢN TRỊ / MODERATOR</div>
+                        <div class="text-3xl font-bold font-mono text-purple-400 mt-1">8 <span class="text-xs font-normal text-slate-400">Root Admins</span></div>
+                        <div class="text-[10px] text-purple-300 mt-2">2-FA YubiKey Enforced</div>
+                    </div>
+                    <div class="w-10 h-10 rounded-lg bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                    </div>
+                </div>
+
+                <div class="bg-[#111622] border border-slate-800 p-4 rounded-xl flex items-center justify-between">
+                    <div>
+                        <div class="text-[11px] font-mono text-slate-400 uppercase">BỊ KHÓA / CẢNH BÁO</div>
+                        <div class="text-3xl font-bold font-mono text-rose-400 mt-1">24 <span class="text-xs font-normal text-rose-500/80">HWID Bans</span></div>
+                        <div class="text-[10px] text-rose-400 mt-2">&bull; Zero-Tolerance Anti-Cheat</div>
+                    </div>
+                    <div class="w-10 h-10 rounded-lg bg-rose-500/10 border border-rose-500/30 flex items-center justify-center text-rose-400">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Search & Filter Controls Bar -->
+            <div class="bg-[#111622] border border-slate-800 p-4 rounded-xl flex flex-wrap items-center gap-3 text-xs">
+                <div class="relative flex-1 min-w-[260px]">
+                    <input type="text" placeholder="Tìm theo Gametag, Email, SĐT, HWID Chip UID..." class="w-full bg-slate-900 border border-slate-800 rounded-lg py-2 pl-9 pr-3 text-slate-200 placeholder-slate-500 focus:outline-none focus:border-cyan-500">
+                    <svg class="w-4 h-4 text-slate-500 absolute left-3 top-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                </div>
+
+                <select class="bg-slate-900 border border-slate-800 rounded-lg py-2 px-3 text-slate-300 focus:outline-none focus:border-cyan-500">
+                    <option>VAI TRÒ: Tất Cả Vai Trò</option>
+                    <option>SUPER ADMIN</option>
+                    <option>VIP PILOT</option>
+                    <option>MODERATOR</option>
+                    <option>THANH VIEN</option>
+                </select>
+
+                <select class="bg-slate-900 border border-slate-800 rounded-lg py-2 px-3 text-slate-300 focus:outline-none focus:border-cyan-500">
+                    <option>TRẠNG THÁI: Toàn bộ trạng thái</option>
+                    <option>ACTIVE</option>
+                    <option>HWID BANNED</option>
+                </select>
+
+                <button class="p-2 bg-slate-900 hover:bg-slate-800 rounded-lg border border-slate-800 text-slate-400" title="Làm mới">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
+                </button>
+            </div>
+
+            <!-- BẢNG DANH SÁCH NGƯỜI DÙNG -->
+            <div class="bg-[#111622] border border-slate-800 rounded-xl overflow-hidden">
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-xs">
+                        <thead class="bg-slate-900/80 text-slate-400 uppercase font-mono border-b border-slate-800">
+                            <tr>
+                                <th class="py-3 px-4">PHI HÀNH GIA / GAMETAG</th>
+                                <th class="py-3 px-4">HỌ TÊN HỒ SƠ</th>
+                                <th class="py-3 px-4">EMAIL & LIÊN HỆ</th>
+                                <th class="py-3 px-4">VAI TRÒ / PHÂN QUYỀN</th>
+                                <th class="py-3 px-4">HWID RIG & CẤP ĐỘ</th>
+                                <th class="py-3 px-4">NGÀY KHỞI TẠO</th>
+                                <th class="py-3 px-4">TRẠNG THÁI</th>
+                                <th class="py-3 px-4 text-right">THAO TÁC</th>
+                            </tr>
+                        </thead>
+                        <tbody id="user-table-body" class="divide-y divide-slate-800/60">
+                            <!-- Dữ liệu sẽ được Render bởi Class UserManagementApp -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Footer Pagination -->
+                <div class="p-4 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 gap-3">
+                    <div class="font-mono">
+                        HIỂN THỊ: <span class="text-slate-200 font-bold">1 - 5</span> TRÊN <span class="text-slate-200 font-bold">142,850</span> HỒ SƠ &bull; NODE LATENCY: 4ms
+                    </div>
+                    <div class="flex items-center space-x-1 font-mono">
+                        <button class="px-3 py-1 bg-slate-900 border border-slate-800 rounded text-slate-400">ĐẦU</button>
+                        <button class="px-3 py-1 bg-slate-900 border border-slate-800 rounded text-slate-400">TRƯỚC</button>
+                        <button class="px-3 py-1 bg-cyan-500 text-slate-950 font-bold rounded">1</button>
+                        <button class="px-3 py-1 bg-slate-900 border border-slate-800 rounded text-slate-300">2</button>
+                        <button class="px-3 py-1 bg-slate-900 border border-slate-800 rounded text-slate-300">3</button>
+                        <span class="px-1 text-slate-600">...</span>
+                        <button class="px-3 py-1 bg-slate-900 border border-slate-800 rounded text-slate-300">2857</button>
+                        <button class="px-3 py-1 bg-slate-900 border border-slate-800 rounded text-slate-400">TIẾP</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PHẦN DƯỚI: LOGS BẢO MẬT & TỶ LỆ HWID LOCK -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <!-- Live Log Feed -->
+                <div class="lg:col-span-2 bg-[#111622] border border-slate-800 p-5 rounded-xl space-y-3">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-2">
+                            <svg class="w-4 h-4 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                            <h3 class="font-bold text-xs font-mono uppercase text-slate-200">NHẬT KÝ PHÂN QUYỀN & XÁC THỰC HWID THỜI GIAN THỰC</h3>
+                        </div>
+                        <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">LIVE FEED</span>
+                    </div>
+
+                    <div class="bg-slate-950 p-3.5 rounded-lg border border-slate-800/80 font-mono text-[11px] space-y-2">
+                        <div class="flex items-center space-x-2">
+                            <span class="text-slate-500">[15:42:09]</span>
+                            <span class="text-emerald-400 font-bold">AUTH_OK</span>
+                            <span class="text-slate-300">Pilot [ShadowAim_VN] linked new NovaController Pro Elite (HWID: 0F-B2-AB-11-E4)</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <span class="text-slate-500">[15:41:00]</span>
+                            <span class="text-rose-400 font-bold">VANGUARD_BAN</span>
+                            <span class="text-slate-400">Security Engine banned Pilot [MacroCheater_X] :: Reason: Rapid-Trigger Script injection</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <span class="text-slate-500">[15:38:12]</span>
+                            <span class="text-purple-400 font-bold">ROLE_ELEVATE</span>
+                            <span class="text-slate-300">Super Admin [Admin_NovaRoot] granted [Content Moderator] permissions to [Mod_CyberHunter]</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <span class="text-slate-500">[15:30:45]</span>
+                            <span class="text-cyan-400 font-bold">PASS_RESET</span>
+                            <span class="text-slate-300">Auth Token refreshed for user [ViperTekken] via TOTP Hardware Key</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- HWID Lock Security Donut Chart -->
+                <div class="bg-[#111622] border border-slate-800 p-5 rounded-xl flex flex-col justify-between">
+                    <div class="flex items-center justify-between">
+                        <h3 class="font-bold text-xs font-mono uppercase text-slate-200">TỶ LỆ BẢO VỆ PHẦN CỨNG</h3>
+                        <svg class="w-4 h-4 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                    </div>
+
+                    <div class="flex items-center space-x-4 my-3">
+                        <div class="relative w-24 h-24 shrink-0 flex items-center justify-center">
+                            <div class="w-24 h-24 rounded-full border-4 border-cyan-400 border-t-slate-800 flex items-center justify-center">
+                                <span class="text-lg font-bold font-mono text-slate-100">96%</span>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="font-bold text-xs text-slate-200">HWID Lock Active</div>
+                            <p class="text-[11px] text-slate-400 mt-1 leading-snug">Hơn 137,000 tay cầm NovaPad được bảo vệ chống sao chép và gắn chip giả mạo.</p>
+                        </div>
+                    </div>
+
+                    <button class="w-full py-2 bg-slate-900 hover:bg-slate-800 text-slate-300 text-xs font-mono rounded border border-slate-800 transition-colors">
+                        XEM BÁO CÁO BẢO MẬT HWID
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- CLASS JAVASCRIPT LOGIC (ES5 CLASS / CONSTRUCTOR FUNCTION - KHÔNG DÙNG ES6) -->
+    <!-- Thay thế toàn bộ thẻ <script> cũ ở cuối file views.html bằng dòng này -->
+    <script type="module" src="./controllers/userController.js"></script>
+</body>
+</html>
