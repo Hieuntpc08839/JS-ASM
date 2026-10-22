@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOVAPAD - Quản Lý Danh Mục Hệ Thống</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            bg: '#0b0f17',
+                            card: '#111827',
+                            sidebar: '#080c14',
+                            accent: '#00f0ff',
+                            cyan: '#06b6d4',
+                            border: '#1f293d',
+                            muted: '#6b7280'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0b0f17;
+            color: #e5e7eb;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+    </style>
+</head>
+
+<body class="flex min-h-screen">
+
+    <!-- SIDEBAR LEFT -->
+    <aside class="w-64 bg-[#080c14] border-r border-[#1f293d] flex flex-col justify-between shrink-0">
+        <div>
+            <!-- LOGO -->
+            <div class="p-5 border-b border-[#1f293d] flex items-center space-x-3">
+                <div class="w-8 h-8 bg-cyan-500 flex items-center justify-center rounded">
+                    <svg class="w-5 h-5 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                    </svg>
+                </div>
+                <div>
+                    <h1 class="font-bold tracking-wider text-white text-base">NOVAPAD</h1>
+                    <p class="text-[10px] text-cyan-400 tracking-widest uppercase">Core Controller</p>
+                </div>
+            </div>
+
+            <!-- MAIN COMMAND MENU -->
+            <div class="px-4 py-4">
+                <span class="text-[10px] font-bold tracking-widest text-gray-500 uppercase block mb-3">Main
+                    Command</span>
+                <nav class="space-y-1">
+                    <a href="index.html"
+                        class="flex items-center space-x-3 px-3 py-2.5 rounded text-sm text-gray-400 hover:bg-gray-800/50 hover:text-white transition">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z">
+                            </path>
+                        </svg>
+                        <span>Overview / Dashboard</span>
+                    </a>
+                    <a href="products.html"
+                        class="flex items-center space-x-3 px-3 py-2.5 rounded text-sm text-gray-400 hover:bg-gray-800/50 hover:text-white transition">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M15 5v2m0 4v2m0 4v2M5 5a2 2 0 00-2 2v3a2 2 0 002 2h14a2 2 0 002-2V7a2 2 0 00-2-2H5z">
+                            </path>
+                        </svg>
+                        <span>Quản Lý Sản Phẩm</span>
+                    </a>
+                    <a href="post.html"
+                        class="flex items-center space-x-3 px-3 py-2.5 rounded text-sm text-gray-400 hover:bg-gray-800/50 hover:text-white transition">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z">
+                            </path>
+                        </svg>
+                        <span>Quản Lý Bài Viết</span>
+                    </a>
+                    <a href="category.html"
+                        class="flex items-center space-x-3 px-3 py-2.5 rounded text-sm bg-cyan-950/40 text-cyan-400 font-medium border-l-2 border-cyan-400">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 10h16M4 14h16M4 18h16"></path>
+                        </svg>
+                        <span>Quản Lý Danh Mục</span>
+                    </a>
+                    <a href="#"
+                        class="flex items-center space-x-3 px-3 py-2.5 rounded text-sm text-gray-400 hover:bg-gray-800/50 hover:text-white transition">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 4.354a4 4 0 100 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z">
+                            </path>
+                        </svg>
+                        <span>Quản Lý Người Dùng</span>
+                    </a>
+                    <a href="#"
+                        class="flex items-center space-x-3 px-3 py-2.5 rounded text-sm text-gray-400 hover:bg-gray-800/50 hover:text-white transition">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z">
+                            </path>
+                        </svg>
+                        <span>Cài Đặt Hệ Thống</span>
+                    </a>
+                </nav>
+            </div>
+        </div>
+
+        <!-- SIDEBAR FOOTER -->
+        <div class="p-4 border-t border-[#1f293d] bg-[#05080e]">
+            <div class="text-[10px] text-gray-500 uppercase tracking-wider">SYS-ENGINE</div>
+            <div class="flex items-center justify-between text-xs mt-1">
+                <span class="font-bold text-gray-300">V4.92-PROD</span>
+                <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+            </div>
+        </div>
+    </aside>
+
+    <!-- MAIN CONTENT AREA -->
+    <div class="flex-1 flex flex-col min-w-0">
+
+        <!-- TOP HEADER -->
+        <header
+            class="h-14 border-b border-[#1f293d] bg-[#0d131f] flex items-center justify-between px-6 text-xs text-gray-400">
+            <!-- Left System Stats -->
+            <div class="flex items-center space-x-6">
+                <div class="flex items-center space-x-2">
+                    <span class="text-cyan-400 font-mono">ADMIN CPU LOAD:</span>
+                    <span class="text-white font-mono">23.4%</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <span class="text-cyan-400 font-mono">LATENCY:</span>
+                    <span class="text-white font-mono">12ms</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <span class="text-cyan-400 font-mono">PILOTS ONLINE:</span>
+                    <span class="text-white font-mono">1,842</span>
+                </div>
+            </div>
+
+            <!-- Right Search & Actions -->
+            <div class="flex items-center space-x-4">
+                <div class="relative w-64">
+                    <input type="text" placeholder="Search telemetry, hardware ID, pilots..."
+                        class="w-full bg-[#111827] border border-[#1f293d] rounded px-3 py-1.5 text-xs text-gray-200 focus:outline-none focus:border-cyan-500 placeholder-gray-600">
+                </div>
+                <button class="p-1.5 hover:bg-gray-800 rounded">
+                    <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v1.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9">
+                        </path>
+                    </svg>
+                </button>
+                <button class="p-1.5 hover:bg-gray-800 rounded">
+                    <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z">
+                        </path>
+                    </svg>
+                </button>
+                <div
+                    class="w-7 h-7 rounded-full bg-cyan-500/20 text-cyan-400 flex items-center justify-center font-bold border border-cyan-500/40">
+                    U
+                </div>
+            </div>
+        </header>
+
+        <!-- PAGE BODY CONTAINER -->
+        <main class="flex-1 p-6 overflow-y-auto">
+
+            <!-- BREADCRUMB & PAGE HEADER -->
+            <div class="flex items-center justify-between mb-6">
+                <div>
+                    <div class="text-[11px] font-mono text-cyan-400 tracking-wider">DATA ARCHITECTURE // TAXONOMY <span
+                            class="text-gray-500">• NODE CLUSTERING ACTIVE</span></div>
+                    <h2 class="text-3xl font-extrabold text-white mt-1">Quản Lý Danh Mục Hệ Thống</h2>
+                    <p class="text-xs text-gray-400 mt-1">(Category Hierarchy) Tổ chức phân tầng cây thư mục phần cứng
+                        gaming gear, linh kiện cơ khí và kho nội dung cẩm nang chiến thuật.</p>
+                </div>
+                <div class="flex items-center space-x-3">
+                    <div class="bg-[#111827] border border-[#1f293d] px-4 py-2 rounded flex items-center space-x-3">
+                        <svg class="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10">
+                            </path>
+                        </svg>
+                        <div class="text-xs">
+                            <span class="text-gray-400 block text-[10px] uppercase">TỔNG DANH MỤC</span>
+                            <span id="statTotalCount" class="font-bold text-white">18 NHÁNH</span>
+                        </div>
+                    </div>
+<button onclick="addNewCategory()" class="bg-cyan-400 hover:bg-cyan-300 text-black font-bold px-4 py-2.5 rounded text-xs transition flex items-center space-x-1">
+    <span>+ THÊM DANH MỤC MỚI</span>
+</button>
+                </div>
+            </div>
+
+            <!-- 4 KPI SUMMARY CARDS -->
+            <div class="grid grid-cols-4 gap-4 mb-6">
+                <!-- Card 1 -->
+                <div class="bg-[#111827] border border-[#1f293d] p-4 rounded flex justify-between items-center">
+                    <div>
+                        <div class="text-[10px] uppercase text-gray-400 font-medium">MỤC PHẦN CỨNG GỐC</div>
+                        <div class="text-2xl font-black text-white mt-1"><span id="statRootCount">04</span> <span
+                                class="text-xs font-normal text-gray-400">Phân nhóm chính</span></div>
+                    </div>
+                    <div class="p-3 bg-cyan-950/40 rounded border border-cyan-500/20 text-cyan-400">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M11 4a2 2 0 114 0v1a2 2 0 01-2 2 2 2 0 01-2-2V4zM4 8a2 2 0 012-2h12a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V8z">
+                            </path>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-[#111827] border border-[#1f293d] p-4 rounded flex justify-between items-center">
+                    <div>
+                        <div class="text-[10px] uppercase text-gray-400 font-medium">SẢN PHẨM ĐANG GẮN NHÃN</div>
+                        <div class="text-2xl font-black text-white mt-1"><span id="statProductCount">42</span> <span
+                                class="text-xs font-normal text-gray-400">Mặt hàng hoạt động</span></div>
+                    </div>
+                    <div class="p-3 bg-cyan-950/40 rounded border border-cyan-500/20 text-cyan-400">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-[#111827] border border-[#1f293d] p-4 rounded flex justify-between items-center">
+                    <div>
+                        <div class="text-[10px] uppercase text-gray-400 font-medium">CHUYÊN MỤC BÀI VIẾT</div>
+                        <div class="text-2xl font-black text-white mt-1"><span id="statPostCount">03</span> <span
+                                class="text-xs font-normal text-gray-400">Kho tri thức & Tin</span></div>
+                    </div>
+                    <div class="p-3 bg-purple-950/40 rounded border border-purple-500/20 text-purple-400">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253">
+                            </path>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="bg-[#111827] border border-[#1f293d] p-4 rounded flex justify-between items-center">
+                    <div>
+                        <div class="text-[10px] uppercase text-gray-400 font-medium">ĐỘ SÂU CÂY PHÂN CẤP</div>
+                        <div class="text-2xl font-black text-white mt-1"><span id="statMaxDepth">L3</span> <span
+                                class="text-xs font-normal text-gray-400">Max Node Depth</span></div>
+                    </div>
+                    <div class="p-3 bg-blue-950/40 rounded border border-blue-500/20 text-blue-400">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MAIN CONTENT GRID (FORM & TREE) -->
+            <div class="grid grid-cols-12 gap-6">
+
+                <!-- LEFT COLUMN: CATEGORY CONFIG FORM -->
+                <div class="col-span-5 bg-[#111827] border border-[#1f293d] rounded-lg p-5">
+                    <div class="flex items-center justify-between pb-4 border-b border-[#1f293d] mb-4">
+                        <h3 class="font-bold text-white text-base flex items-center space-x-2">
+                            <svg class="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4">
+                                </path>
+                            </svg>
+                            <span>Cấu Hình Danh Mục</span>
+                        </h3>
+                        <span class="text-[10px] bg-gray-800 text-gray-400 px-2 py-0.5 rounded uppercase">MỤC MỚI</span>
+                    </div>
+
+                    <form id="categoryForm" onsubmit="handleFormSubmit(event)" class="space-y-4 text-xs">
+                        <!-- TÊN DANH MỤC -->
+                        <div>
+                            <div class="flex justify-between items-center mb-1">
+                                <label class="text-gray-300 font-medium">TÊN DANH MỤC *</label>
+                                <span class="text-[10px] text-gray-500">Bắt buộc</span>
+                            </div>
+                            <div class="relative">
+                                <input type="text" id="categoryName" 
+                                    class="w-full bg-[#0b0f17] border border-[#1f293d] rounded px-3 py-2 text-white focus:outline-none focus:border-cyan-500">
+                                <svg class="w-4 h-4 text-gray-500 absolute right-3 top-2.5" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z">
+                                    </path>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <!-- SLUG -->
+                        <div>
+                            <div class="flex justify-between items-center mb-1">
+                                <label class="text-gray-300 font-medium">ĐƯỜNG DẪN THÂN THIỆN (SLUG)</label>
+                                <span class="text-[10px] text-cyan-400">Tự động chuẩn hóa</span>
+                            </div>
+                            <div
+                                class="flex items-center bg-[#0b0f17] border border-[#1f293d] rounded text-gray-500 px-3 py-2">
+                                <span class="mr-1 font-mono text-gray-600">/catalog/</span>
+                                <input type="text" id="categorySlug" 
+                                    class="bg-transparent text-white font-mono focus:outline-none w-full">
+                            </div>
+                        </div>
+
+                        <!-- DANH MỤC CHA -->
+                        <div>
+                            <label class="text-gray-300 font-medium block mb-1">DANH MỤC CHA (PARENT CATEGORY)</label>
+                            <select id="parentCategory"
+                                class="w-full bg-[#0b0f17] border border-[#1f293d] rounded px-3 py-2 text-white focus:outline-none focus:border-cyan-500">
+                                <option value="root">-- Chọn danh mục cha (Gốc) --</option>
+                            </select>
+                        </div>
+
+                        <!-- MÔ TẢ NGẮN -->
+                        <div>
+                            <div class="flex justify-between items-center mb-1">
+                                <label class="text-gray-300 font-medium">MÔ TẢ NGẮN (SEO & STOREFRONT)</label>
+                                <span class="text-[10px] text-gray-500">Tối đa 240 ký tự</span>
+                            </div>
+                            <textarea id="categoryDesc" 
+                                class="w-full bg-[#0b0f17] border border-[#1f293d] rounded p-3 text-gray-300 focus:outline-none focus:border-cyan-500">Dòng tay cầm chuyên nghiệp dành cho tuyển thủ giải đấu với tần số lấy mẫu 8000Hz, cảm biến Hall Effect chống trôi stick vĩnh viễn.</textarea>
+                        </div>
+
+                        <!-- ICON SELECTION -->
+                        <div>
+                            <label class="text-gray-300 font-medium block mb-2">ICON / HÌNH ẢNH ĐẠI DIỆN</label>
+                            <div class="grid grid-cols-5 gap-2 mb-3">
+                                <button type="button"
+                                    class="p-2 bg-[#0b0f17] border-2 border-cyan-400 rounded flex justify-center text-cyan-400">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M11 4a2 2 0 114 0v1a2 2 0 01-2 2 2 2 0 01-2-2V4zM4 8a2 2 0 012-2h12a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V8z">
+                                        </path>
+                                    </svg>
+                                </button>
+                                <button type="button"
+                                    class="p-2 bg-[#0b0f17] border border-[#1f293d] rounded flex justify-center text-gray-400 hover:text-white">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4">
+                                        </path>
+                                    </svg>
+                                </button>
+                                <button type="button"
+                                    class="p-2 bg-[#0b0f17] border border-[#1f293d] rounded flex justify-center text-gray-400 hover:text-white">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z">
+                                        </path>
+                                    </svg>
+                                </button>
+                                <button type="button"
+                                    class="p-2 bg-[#0b0f17] border border-[#1f293d] rounded flex justify-center text-gray-400 hover:text-white">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                                    </svg>
+                                </button>
+                                <button type="button"
+                                    class="p-2 bg-[#0b0f17] border border-[#1f293d] rounded flex justify-center text-gray-400 hover:text-white">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
+                                        </path>
+                                    </svg>
+                                </button>
+                            </div>
+
+                            <div
+                                class="bg-[#0b0f17] border border-[#1f293d] rounded p-2 flex items-center justify-between">
+                                <div class="flex items-center space-x-3">
+                                    <div
+                                        class="w-10 h-10 bg-cyan-950/60 border border-cyan-500/40 rounded flex items-center justify-center text-cyan-400">
+                                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M11 4a2 2 0 114 0v1a2 2 0 01-2 2 2 2 0 01-2-2V4zM4 8a2 2 0 012-2h12a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V8z">
+                                            </path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <span
+                                            class="text-white font-mono text-[11px] block">category-badge-esports.svg</span>
+                                        <span class="text-gray-500 text-[10px]">256x256px • Vector PNG/SVG</span>
+                                    </div>
+                                </div>
+                                <button type="button" id="btnUpload"
+                                    class="bg-gray-800 hover:bg-gray-700 text-gray-200 px-3 py-1.5 rounded text-[11px] font-medium">
+                                    TẢI ẢNH
+                                </button>
+                                <input type="file" id="fileInput" class="hidden" accept="image/*">
+                            </div>
+                        </div>
+
+                        <!-- THỨ TỰ & TRẠNG THÁI -->
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="text-gray-300 font-medium block mb-1">THỨ TỰ HIỂN THỊ</label>
+                                <input type="number" id="sortOrder" value="1"
+                                    class="w-full bg-[#0b0f17] border border-[#1f293d] rounded px-3 py-2 text-white focus:outline-none">
+                            </div>
+                            <div>
+                                <label class="text-gray-300 font-medium block mb-1">TRẠNG THÁI HIỂN THỊ</label>
+                                <div class="flex items-center space-x-2 mt-2">
+                                    <button type="button" id="toggleStatusBtn" onclick="toggleStatus()"
+                                        class="w-10 h-5 bg-cyan-400 rounded-full relative p-0.5 transition">
+                                        <div id="toggleDot"
+                                            class="w-4 h-4 bg-black rounded-full translate-x-5 transition"></div>
+                                    </button>
+                                    <span id="statusText" class="text-cyan-400 font-bold text-[11px] uppercase">
+                                        HIỂN THỊ</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- BUTTONS -->
+                        <div class="flex items-center space-x-3 pt-3">
+                            <button type="button" onclick="resetForm()"
+                                class="w-1/2 bg-gray-800 hover:bg-gray-700 text-gray-300 font-bold py-2.5 rounded flex items-center justify-center space-x-2">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15">
+                                    </path>
+                                </svg>
+                                <span>LÀM MỚI / HỦY</span>
+                            </button>
+                            <button type="submit"
+                                class="w-1/2 bg-cyan-400 hover:bg-cyan-300 text-black font-bold py-2.5 rounded flex items-center justify-center space-x-2">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4">
+                                    </path>
+                                </svg>
+                                <span>LƯU THAY ĐỔI</span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- RIGHT COLUMN: CATEGORY TREE STRUCTURE -->
+                <div class="col-span-7 bg-[#111827] border border-[#1f293d] rounded-lg p-5">
+                    <div class="flex items-center justify-between pb-4 border-b border-[#1f293d] mb-4">
+                        <div>
+                            <h3 class="font-bold text-white text-base">CÂY DANH MỤC TRỰC QUAN</h3>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <span
+                                class="text-[10px] bg-cyan-950 text-cyan-400 border border-cyan-500/30 px-2 py-0.5 rounded font-mono">LIVE
+                                ENGINE</span>
+                            <div class="relative">
+                                <input type="text" placeholder="Lọc nhanh nhánh..."
+                                    class="bg-[#0b0f17] border border-[#1f293d] rounded px-3 py-1 text-xs text-gray-300 w-44">
+                            </div>
+                            <button
+                                class="p-1.5 bg-[#0b0f17] border border-[#1f293d] rounded text-gray-400 hover:text-white">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- TREE ITEMS LIST -->
+                    <div class="space-y-3">
+                        <!-- Danh mục sẽ được render tự động từ API thông qua categoryController.js -->
+                    </div>
+
+                    <!-- DRAG HINT FOOTER -->
+                    <div
+                        class="mt-6 pt-4 border-t border-[#1f293d] flex items-center justify-between text-xs text-gray-500">
+                        <div class="flex items-center space-x-2">
+                            <svg class="w-4 h-4 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15">
+                                </path>
+                            </svg>
+                            <span>Kéo thả linh hoạt vị trí cây: Giữ biểu tượng ::: để trượt cấp độ cha/con hoặc đổi thứ
+                                tự hiển thị ưu tiên.</span>
+                        </div>
+                        <button
+                            class="bg-gray-800 hover:bg-gray-700 text-gray-200 px-3 py-1.5 rounded text-[11px] font-bold uppercase">ĐỒNG
+                            BỘ THỨ TỰ</button>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </main>
+    </div>
+
+<!-- Nhúng Controller quản lý danh mục dạng ES6 Module -->
+<script type="module" src="controllers/categoryController.js"></script>
+</body>
+
+</html>
