@@ -3,13 +3,49 @@ import User from "../models/User.js";
 import Cart from "../models/Cart.js";
 import { getUsers, registerUserApi } from "../services/api.js";
 
+const KEY = "novapad_current_user"; // Khóa lưu session người dùng
+
 class AuthController {
     constructor() {
         this.cart = new Cart();
-        this.sessionKey = "novapad_current_user";
     }
 
-    // Cập nhật số lượng và tổng tiền giỏ hàng trên Header
+    // Tự động render menu Header dựa vào trạng thái đăng nhập
+    updateHeaderAuth() {
+        const userJson = localStorage.getItem(KEY);
+        const user = userJson ? JSON.parse(userJson) : null;
+        const authMenuContainer = document.getElementById("auth-menu");
+
+        if (!authMenuContainer) return;
+
+        if (!user) {
+            authMenuContainer.innerHTML = `
+                <a href="login.html" class="w-9 h-9 rounded-full bg-cyan-400 text-black flex items-center justify-center transition shrink-0 shadow-[0_0_12px_rgba(0,240,255,0.4)]" title="Đăng nhập tài khoản">
+                    <svg class="w-4 h-4 fill-none stroke-current" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                </a>
+            `;
+        } else {
+            const displayName = user.gametag || user.name || "Pilot";
+            authMenuContainer.innerHTML = `
+                <div class="flex items-center gap-2 text-xs font-mono bg-[#0a101d] border border-gray-800 px-3 h-9 rounded text-gray-300">
+                    <span class="text-cyan-400 font-bold truncate max-w-[120px]" title="${displayName}">[${displayName}]</span>
+                    <button id="btn-logout" class="text-gray-400 hover:text-red-400 transition ml-1 uppercase text-[10px] font-bold border-l border-gray-700 pl-2 cursor-pointer">Đăng xuất</button>
+                </div>
+            `;
+
+            // Bắt sự kiện đăng xuất
+            const btnLogout = document.getElementById("btn-logout");
+            if (btnLogout) {
+                btnLogout.addEventListener("click", () => {
+                    this.logout();
+                });
+            }
+        }
+    }
+
     updateHeaderCart() {
         const badge = document.getElementById("header-cart-badge");
         const total = document.getElementById("header-cart-total");
@@ -17,77 +53,54 @@ class AuthController {
         if (total) total.innerText = Number(this.cart.totalAmount).toLocaleString("vi-VN") + " đ";
     }
 
-    // Logic xử lý bật / tắt ẩn hiện mật khẩu (Eye Toggle)
-    setupPasswordToggle(btnId, inputId) {
-        const btn = document.getElementById(btnId);
-        const input = document.getElementById(inputId);
-        if (!btn || !input) return;
-
-        btn.addEventListener("click", () => {
-            const isPassword = input.type === "password";
-            input.type = isPassword ? "text" : "password";
-
-            const eyeOpen = btn.querySelector(".eye-open");
-            const eyeClosed = btn.querySelector(".eye-closed");
-
-            if (eyeOpen && eyeClosed) {
-                eyeOpen.classList.toggle("hidden", isPassword);
-                eyeClosed.classList.toggle("hidden", !isPassword);
-            }
-        });
-    }
-
-    // 1. Xử lý ĐĂNG NHẬP 
+    // Xử lý Đăng Nhập
     async handleLogin(e) {
         e.preventDefault();
-        const accountInput = document.getElementById("input-account");
-        const passwordInput = document.getElementById("input-password");
+        const accountInput = document.getElementById("input-account") || document.querySelector('input[name="username"]');
+        const passwordInput = document.getElementById("input-password") || document.querySelector('input[name="password"]');
 
         const account = accountInput ? accountInput.value.trim() : "";
         const password = passwordInput ? passwordInput.value : "";
 
-        if (!account) {
-            alert("Vui lòng nhập Email hoặc Gametag đấu trường!");
-            return;
-        }
-        if (!password) {
-            alert("Vui lòng nhập Mật khẩu bảo mật!");
+        if (!account || !password) {
+            alert("Vui lòng điền đầy đủ tài khoản và mật khẩu!");
             return;
         }
 
-        const users = await getUsers();
-        const foundUser = users.find(u => 
-            (u.email?.toLowerCase() === account.toLowerCase() || u.gametag?.toLowerCase() === account.toLowerCase()) &&
-            u.password === password
-        );
+        try {
+            const users = await getUsers();
+            const foundUser = users.find(u => 
+                (u.email?.toLowerCase() === account.toLowerCase() || u.gametag?.toLowerCase() === account.toLowerCase() || u.username?.toLowerCase() === account.toLowerCase()) &&
+                u.password === password
+            );
 
-        if (foundUser) {
-            localStorage.setItem(this.sessionKey, JSON.stringify(foundUser));
-            alert(`Đăng nhập thành công! Chào mừng Pilot [${foundUser.gametag || foundUser.name}] trở lại.`);
-            window.location.href = "index.html";
-        } else {
-            alert("Gametag/Email hoặc Mật khẩu không chính xác. Vui lòng thử lại!");
+            if (foundUser) {
+                const { password: _, ...safeUser } = foundUser;
+                localStorage.setItem(KEY, JSON.stringify(safeUser));
+                alert(`Đăng nhập thành công! Chào mừng Pilot [${safeUser.gametag || safeUser.username || safeUser.name}].`);
+                window.location.href = "index.html";
+            } else {
+                alert("Tài khoản hoặc Mật khẩu không chính xác!");
+            }
+        } catch (err) {
+            alert("Lỗi kết nối hệ thống: " + err.message);
         }
     }
 
-    // 2. Xử lý ĐĂNG KÝ (dành cho trang register.html)
+    // Xử lý Đăng Ký
     async handleRegister(e) {
         e.preventDefault();
-        const gametagInput = document.getElementById("input-reg-gametag");
-        const fullnameInput = document.getElementById("input-reg-fullname");
-        const emailInput = document.getElementById("input-reg-email");
-        const phoneInput = document.getElementById("input-reg-phone");
-        const passwordInput = document.getElementById("input-reg-password");
-        const confirmPassInput = document.getElementById("input-reg-confirm");
+        const fullnameInput = document.querySelector('input[name="fullname"]') || document.getElementById("input-reg-fullname");
+        const usernameInput = document.querySelector('input[name="username"]') || document.getElementById("input-reg-gametag");
+        const passwordInput = document.querySelector('input[name="password"]') || document.getElementById("input-reg-password");
+        const confirmInput = document.querySelector('input[name="confirm"]') || document.getElementById("input-reg-confirm");
 
-        const gametag = gametagInput ? gametagInput.value.trim() : "";
         const fullname = fullnameInput ? fullnameInput.value.trim() : "";
-        const email = emailInput ? emailInput.value.trim() : "";
-        const phone = phoneInput ? phoneInput.value.trim() : "";
+        const username = usernameInput ? usernameInput.value.trim() : "";
         const password = passwordInput ? passwordInput.value : "";
-        const confirmPass = confirmPassInput ? confirmPassInput.value : "";
+        const confirm = confirmInput ? confirmInput.value : "";
 
-        if (!gametag || !fullname || !email || !password) {
+        if (!fullname || !username || !password) {
             alert("Vui lòng điền đầy đủ các thông tin bắt buộc!");
             return;
         }
@@ -97,62 +110,55 @@ class AuthController {
             return;
         }
 
-        if (password !== confirmPass) {
-            alert("Mật khẩu xác nhận không khớp. Vui lòng kiểm tra lại!");
+        if (confirm && password !== confirm) {
+            alert("Mật khẩu xác nhận không khớp!");
             return;
         }
 
-        const users = await getUsers();
-        const isExisted = users.some(u => 
-            (u.email && u.email.toLowerCase() === email.toLowerCase()) ||
-            (u.gametag && u.gametag.toLowerCase() === gametag.toLowerCase())
-        );
+        try {
+            const users = await getUsers();
+            const isExisted = users.some(u => u.username?.toLowerCase() === username.toLowerCase() || u.email?.toLowerCase() === username.toLowerCase());
 
-        if (isExisted) {
-            alert("Email hoặc Gametag đấu trường này đã được sử dụng!");
-            return;
-        }
+            if (isExisted) {
+                alert("Tên đăng nhập hoặc Gametag này đã tồn tại!");
+                return;
+            }
 
-        // Tạo đối tượng từ Model User
-        const newUser = new User(
-            fullname,
-            email,
-            phone,
-            "Việt Nam",
-            "member",
-            gametag,
-            password
-        );
-        newUser.id = Date.now();
+            const newUser = new User(fullname, `${username}@novapad.gg`, "", "Việt Nam", "member", username, password);
+            newUser.id = Date.now();
 
-        const result = await registerUserApi(newUser);
-        if (result) {
-            alert(`Khởi tạo hồ sơ Pilot [${gametag}] thành công! Chuyển sang trang Đăng nhập.`);
-            window.location.href = "login.html";
-        } else {
-            alert("Đăng ký thất bại. Hãy kiểm tra lại kết nối JSON-Server cổng 3000!");
+            const result = await registerUserApi(newUser);
+            if (result) {
+                alert(`Khởi tạo hồ sơ Pilot [${username}] thành công! Chuyển sang trang Đăng nhập.`);
+                window.location.href = "login.html";
+            } else {
+                alert("Đăng ký thất bại. Kiểm tra lại kết nối JSON Server!");
+            }
+        } catch (err) {
+            alert("Lỗi đăng ký: " + err.message);
         }
     }
 
-    // Khởi tạo và gắn các sự kiện DOM
+    // Xử lý Đăng Xuất
+    logout() {
+        localStorage.removeItem(KEY);
+        alert("Đã đăng xuất khỏi hệ thống.");
+        window.location.href = "index.html";
+    }
+
     init() {
         this.updateHeaderCart();
+        this.updateHeaderAuth();
 
-        // 1. Kích hoạt tính năng ẩn/hiện mật khẩu
-        this.setupPasswordToggle("toggle-login-pass", "input-password");
-        this.setupPasswordToggle("toggle-reg-pass", "input-reg-password");
-        this.setupPasswordToggle("toggle-reg-confirm", "input-reg-confirm");
-
-        // 2. Bắt sự kiện submit form Đăng nhập
-        const loginForm = document.getElementById("form-login");
-        if (loginForm) {
-            loginForm.addEventListener("submit", (e) => this.handleLogin(e));
+        // Gắn sự kiện submit cho form (dù là form tĩnh ở file html hay render động)
+        const formLogin = document.getElementById("form-login") || document.getElementById("auth-form");
+        if (formLogin && window.location.pathname.includes("login")) {
+            formLogin.addEventListener("submit", (e) => this.handleLogin(e));
         }
 
-        // 3. Bắt sự kiện submit form Đăng ký
-        const regForm = document.getElementById("form-register");
-        if (regForm) {
-            regForm.addEventListener("submit", (e) => this.handleRegister(e));
+        const formRegister = document.getElementById("form-register") || document.getElementById("auth-form");
+        if (formRegister && window.location.pathname.includes("register")) {
+            formRegister.addEventListener("submit", (e) => this.handleRegister(e));
         }
     }
 }

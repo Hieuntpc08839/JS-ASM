@@ -23,17 +23,17 @@
         </script>
     <link rel="stylesheet" href="styles/style.css">
 <!-- ================= HEADER CHUẨN XÁC, THẲNG HÀNG 100% ================= -->
-<header class="border-b border-gray-800/80 bg-[#040812]/95 backdrop-blur sticky top-0 z-50">
+<header class="border-b border-gray-800/80 bg-[#040812]/95 backdrop-blur sticky top-0 z-55">
     <div class="max-w-[1440px] mx-auto px-4 lg:px-8 h-20 flex items-center justify-between gap-4">
         
-        <!-- Cụm Trái: Logo & Menu Điều Hướng (Khóa cứng 1 dòng, không gãy chữ) -->
+        <!-- Cụm Trái: Logo & Menu Điều Hướng -->
         <div class="flex items-center gap-8 shrink-0">
             <!-- Logo -->
             <a href="index.html" class="flex items-center shrink-0">
                 <span class="text-2xl font-black tracking-widest text-white hover:text-cyan-400 transition">NOVAPAD</span>
             </a>
 
-            <!-- Menu Điều Hướng: Khóa cứng 1 dòng, không bao giờ vỡ layout -->
+            <!-- Menu Điều Hướng -->
             <nav class="hidden lg:flex items-center space-x-6 text-[11px] xl:text-xs font-mono font-bold tracking-wider whitespace-nowrap shrink-0">
                 <a href="index.html" class="text-cyan-400 border-b-2 border-cyan-400 py-1 inline-block">TRANG CHỦ</a>
                 <a href="products.html" class="text-gray-300 hover:text-cyan-400 transition py-1 inline-block border-b-2 border-transparent">CATALOG / TAY CẦM</a>
@@ -42,7 +42,7 @@
             </nav>
         </div>
 
-        <!-- Cụm Phải: Tìm Kiếm, Profile, Giỏ Hàng & Avatar (Căn đều thẳng hàng) -->
+        <!-- Cụm Phải: Tìm Kiếm, Profile, Giỏ Hàng & Quản Lý Đăng Nhập -->
         <div class="flex items-center gap-3 shrink-0">
             
             <!-- Ô Tìm kiếm co giãn thông minh -->
@@ -78,18 +78,20 @@
                 <span id="header-cart-total" class="font-mono text-xs font-semibold text-white whitespace-nowrap">$0.00</span>
             </a>
 
-            <!-- Nút User / Login -->
-            <a href="login.html" class="w-9 h-9 rounded-full bg-gray-800 flex items-center justify-center hover:bg-cyan-400 hover:text-black transition shrink-0 text-gray-300">
-                <svg class="w-4 h-4 fill-none stroke-current" stroke-width="2" viewBox="0 0 24 24">
-                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                    <circle cx="12" cy="7" r="4"></circle>
-                </svg>
-            </a>
+            <!-- VÙNG QUẢN LÝ TÀI KHOẢN (Đã chuyển href thành #/login để chạy mượt mà theo dạng SPA) -->
+            <div id="auth-menu" class="shrink-0 flex items-center">
+                <a href="#/login" class="w-9 h-9 rounded-full bg-gray-800 flex items-center justify-center hover:bg-cyan-400 hover:text-black transition shrink-0 text-gray-300" title="Đăng nhập tài khoản">
+                    <svg class="w-4 h-4 fill-none stroke-current" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                </a>
+            </div>
+
         </div>
 
     </div>
 </header>
-
     <!-- ================= HERO SECTION (Ảnh 3) ================= -->
     <section class="relative overflow-hidden py-16 lg:py-24 border-b border-gray-800/80">
         <div class="max-w-7xl mx-auto px-4 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
@@ -107,7 +109,7 @@
                 </div>
 
                 <div class="space-y-2">
-                    <p class="text-xs uppercase tracking-widest text-cyan-400 font-mono font-semibold">// APEX HARDWARE GENESIS</p>
+                    <p class="text-xs uppercase tracking-widest text-cyan-400 font-mono font-semibold">APEX HARDWARE GENESIS</p>
                     <h1 class="text-4xl sm:text-6xl font-black tracking-tight text-white uppercase leading-none">
                         NOVAPAD APEX PRO<br><span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400">V3.2</span>
                     </h1>
@@ -138,7 +140,7 @@
                 <div class="flex flex-wrap items-center gap-4 pt-4">
                     <button onclick="handleAddToCart(1)" class="bg-cyan-400 hover:bg-cyan-300 text-black font-bold px-6 py-3.5 rounded flex items-center gap-2 transition shadow-[0_0_20px_rgba(0,240,255,0.3)]">
                         <svg class="w-4 h-4 fill-none stroke-current" stroke-width="2.5" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
-                        ĐẶT MUA NGAY — $149.99
+                        ĐẶT MUA NGAY — 3.690.000đ
                     </button>
                     <a href="#features" class="border border-gray-700 bg-gray-900/60 hover:bg-gray-800 text-gray-300 font-semibold px-6 py-3.5 rounded flex items-center gap-2 transition">
                         <svg class="w-4 h-4 fill-none stroke-current" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg>
@@ -600,5 +602,6 @@
 
 <!-- ĐÃ CẬP NHẬT: Nhúng duy nhất 1 Controller bằng type="module" -->
     <script type="module" src="app/controllers/homeController.js"></script>
+    <script type="module" src="app/controllers/authController.js"></script>
 </body>
 </html>
