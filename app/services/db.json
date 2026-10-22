@@ -215,6 +215,16 @@
       "gametag": "venus01",
       "password": "hieu0123",
       "id": "KdYb1L-kchA"
+    },
+    {
+      "name": "Nguyễn Hiệp",
+      "email": "hvsh@gmail.com",
+      "phone": "0812596720",
+      "address": "Việt Nam",
+      "role": "member",
+      "gametag": "pobb",
+      "password": "1234567890",
+      "id": "9UqW5a6j72o"
     }
   ],
   "orders": [
