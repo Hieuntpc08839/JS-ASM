@@ -107,6 +107,20 @@ export const createCategory = async (catData) => {
         return null;
     }
 };
+// Bổ sung hàm cập nhật danh mục cho Admin CRUD
+export const updateCategory = async (id, catData) => {
+    try {
+        const res = await fetch(`${BASE_URL}/categories/${id}`, {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(catData)
+        });
+        return await res.json();
+    } catch (err) {
+        console.error("Lỗi updateCategory:", err);
+        return null;
+    }
+};
 
 export const deleteCategory = async (id) => {
     try {

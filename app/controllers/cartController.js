@@ -1,4 +1,3 @@
-// app/controllers/cartController.js
 import Cart from "../models/Cart.js";
 import CartView from "../views/CartView.js";
 

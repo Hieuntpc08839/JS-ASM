@@ -1,11 +1,6 @@
 {
   "categories": [
     {
-      "id": "1",
-      "name": "Flagship Gamepad",
-      "parent_id": null
-    },
-    {
       "id": "2",
       "name": "Tactical & Limited Edition",
       "parent_id": null
@@ -14,6 +9,15 @@
       "id": "3",
       "name": "Phụ kiện Mod Kit & Dock Sạc",
       "parent_id": null
+    },
+    {
+      "name": "tay cầm chơi game",
+      "slug": "tay-cam-choi-game",
+      "parentCategory": "3",
+      "description": "ssss",
+      "sortOrder": 1,
+      "status": true,
+      "id": "kKVOX5-hgGc"
     }
   ],
   "products": [
@@ -136,6 +140,14 @@
         "Tool Included"
       ],
       "status": "in_stock"
+    },
+    {
+      "name": "ban phim to",
+      "sku": "12312",
+      "price": 1234440,
+      "stock": 2,
+      "image": "https://cdn-media.sforum.vn/storage/app/media/thanhhuyen/h%C3%ACnh%20n%E1%BB%81n%20th%E1%BB%8F%20b%E1%BA%A3y%20m%C3%A0u/hinh-nen-tho-bay-mau-thumbnail.jpg",
+      "id": "pUnjouvuS2E"
     }
   ],
   "product_variants": [
