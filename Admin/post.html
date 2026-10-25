@@ -1,652 +1,295 @@
 <!DOCTYPE html>
-<html lang="vi">
-
+<html lang="vi" class="dark">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NOVAPAD - Quản Lý Bài Viết & Tin Tức Kỹ Thuật</title>
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            brand: {
-              bg: '#090d16',
-              card: '#111827',
-              panel: '#131b2e',
-              sidebar: '#070b12',
-              accent: '#00f0ff',
-              cyan: '#06b6d4',
-              border: '#1e293b',
-              muted: '#64748b'
-            }
-          }
-        }
-      }
-    }
-  </script>
-  <style>
-    body {
-      background-color: #090d16;
-      color: #e2e8f0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-    }
-
-    /* Custom Scrollbar */
-    ::-webkit-scrollbar {
-      width: 6px;
-      height: 6px;
-    }
-
-    ::-webkit-scrollbar-track {
-      background: #090d16;
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background: #1e293b;
-      border-radius: 3px;
-    }
-
-    ::-webkit-scrollbar-thumb:hover {
-      background: #06b6d4;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOVAPAD - Quản Lý Bài Viết & Tin Tức</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../styles/custom.css">
+    <style>
+        /* Tối ưu hiển thị nội dung soạn thảo và xem trước */
+        #articleContent h1, #previewModalContent h1 { font-size: 1.5rem; font-weight: 800; color: #fff; margin: 0.75rem 0; }
+        #articleContent h2, #previewModalContent h2 { font-size: 1.25rem; font-weight: 700; color: #fff; margin: 0.6rem 0; }
+        #articleContent h3, #previewModalContent h3 { font-size: 1.125rem; font-weight: 600; color: #e2e8f0; margin: 0.5rem 0; }
+        #articleContent img, #previewModalContent img { max-width: 100%; border-radius: 0.5rem; margin: 0.5rem 0; }
+        #articleContent blockquote, #previewModalContent blockquote { border-left: 3px solid #06b6d4; padding-left: 1rem; color: #94a3b8; font-style: italic; margin: 0.5rem 0; }
+    </style>
 </head>
+<body class="bg-[#0a0d14] text-slate-200 font-sans antialiased min-h-screen flex">
 
-<body class="flex min-h-screen selection:bg-cyan-500 selection:text-black">
-
-  <!-- SIDEBAR LEFT -->
-  <aside class="w-64 bg-[#070b12] border-r border-[#1e293b] flex flex-col justify-between shrink-0 select-none">
-    <div>
-      <!-- LOGO -->
-      <div class="p-5 border-b border-[#1e293b] flex items-center space-x-3">
-        <div class="w-8 h-8 bg-cyan-400 flex items-center justify-center rounded text-black">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 10V3L4 14h7v7l9-11h-7z">
-            </path>
-          </svg>
-        </div>
+    <!-- SIDEBAR -->
+    <aside class="w-64 bg-[#0f131d] border-r border-slate-800 flex flex-col justify-between shrink-0">
         <div>
-          <h1 class="font-black tracking-wider text-white text-base leading-none">NOVAPAD</h1>
-          <p class="text-[9px] text-cyan-400 tracking-widest uppercase font-mono mt-1">CORE CONTROLLER</p>
-        </div>
-      </div>
-
-      <!-- MAIN COMMAND MENU -->
-      <div class="px-3 py-4">
-        <span class="text-[10px] font-bold tracking-widest text-slate-500 uppercase block px-3 mb-3 font-mono">MAIN
-          COMMAND</span>
-        <nav class="space-y-1">
-          <a href="index.html"
-            class="flex items-center space-x-3 px-3 py-2.5 rounded text-xs font-medium text-slate-400 hover:bg-slate-800/50 hover:text-white transition">
-            <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z">
-              </path>
-            </svg>
-            <span>Overview / Dashboard</span>
-          </a>
-          <a href="products.html"
-            class="flex items-center space-x-3 px-3 py-2.5 rounded text-xs font-medium text-slate-400 hover:bg-slate-800/50 hover:text-white transition">
-            <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M15 5v2m0 4v2m0 4v2M5 5a2 2 0 00-2 2v3a2 2 0 002 2h14a2 2 0 002-2V7a2 2 0 00-2-2H5z"></path>
-            </svg>
-            <span>Quản Lý Sản Phẩm</span>
-          </a>
-          <a href="post.html"
-            class="flex items-center space-x-3 px-3 py-2.5 rounded text-xs font-medium bg-cyan-950/50 text-cyan-400 border-l-2 border-cyan-400 shadow-lg shadow-cyan-950/20">
-            <svg class="w-4 h-4 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z">
-              </path>
-            </svg>
-            <span class="font-bold">Quản Lý Bài Viết</span>
-          </a>
-          <a href="category.html"
-            class="flex items-center space-x-3 px-3 py-2.5 rounded text-xs font-medium text-slate-400 hover:bg-slate-800/50 hover:text-white transition">
-            <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16">
-              </path>
-            </svg>
-            <span>Quản Lý Danh Mục</span>
-          </a>
-          <a href="#"
-            class="flex items-center space-x-3 px-3 py-2.5 rounded text-xs font-medium text-slate-400 hover:bg-slate-800/50 hover:text-white transition">
-            <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M12 4.354a4 4 0 100 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z">
-              </path>
-            </svg>
-            <span>Quản Lý Người Dùng</span>
-          </a>
-        </nav>
-      </div>
-    </div>
-
-    <!-- SIDEBAR FOOTER -->
-    <div class="p-4 border-t border-[#1e293b] bg-[#05080f]">
-      <div class="text-[9px] text-slate-500 font-mono uppercase tracking-wider">SYS-ENGINE</div>
-      <div class="flex items-center justify-between text-xs mt-1 font-mono">
-        <span class="font-bold text-slate-300">V4.02-PROD</span>
-        <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse shadow-sm shadow-cyan-400"></span>
-      </div>
-    </div>
-  </aside>
-
-  <!-- MAIN CONTENT CONTAINER -->
-  <div class="flex-1 flex flex-col min-w-0">
-
-    <!-- TOP HEADER / CONTROLS -->
-    <header
-      class="h-14 border-b border-[#1e293b] bg-[#0d1320] flex items-center justify-between px-6 text-xs text-slate-400 shrink-0">
-      <div class="flex items-center space-x-6">
-        <div class="flex items-center space-x-2">
-          <span
-            class="text-[10px] font-mono text-cyan-400 bg-cyan-950/60 px-1.5 py-0.5 rounded border border-cyan-500/20 uppercase">CMS
-            TELEMETRY HUB</span>
-          <span class="text-slate-600">|</span>
-          <span class="text-slate-400 font-mono text-[11px]">SYS-NODE: EDIT-09</span>
-        </div>
-      </div>
-
-      <div class="flex items-center space-x-3">
-        <div
-          class="w-7 h-7 rounded bg-cyan-500/20 text-cyan-400 flex items-center justify-center font-bold text-xs border border-cyan-500/40 font-mono">
-          AD
-        </div>
-      </div>
-    </header>
-
-    <!-- PAGE BODY CONTAINER -->
-    <main class="flex-1 p-6 overflow-y-auto space-y-6">
-
-      <!-- PAGE HEADER -->
-      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
-        <div>
-          <h2 class="text-2xl md:text-3xl font-black text-white tracking-tight">Quản Lý Bài Viết & Tin Tức Kỹ Thuật</h2>
-          <p class="text-xs text-slate-400 mt-1">Trung tâm điều phối thông tin công nghệ, cẩm nang switch cơ học & giải
-            đấu NovaPad eSports.</p>
-        </div>
-        <div class="flex items-center space-x-2 shrink-0">
-          <button onclick="window.createNewArticle()"
-            class="bg-cyan-400 hover:bg-cyan-300 text-black font-bold px-4 py-2 rounded text-xs transition flex items-center space-x-2 shadow-lg shadow-cyan-400/10">
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"></path>
-            </svg>
-            <span>Viết Bài Mới</span>
-          </button>
-          <button class="bg-[#111827] text-slate-200 border border-[#1e293b] px-3 py-2 rounded text-xs font-semibold">
-            <span id="statTotalPosts">0 BÀI ĐÃ ĐĂNG</span>
-          </button>
-        </div>
-      </div>
-
-      <!-- 4 KPI SUMMARY CARDS -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <!-- Card 1 -->
-        <div class="bg-[#111827] border border-[#1e293b] p-4 rounded-lg flex items-center justify-between">
-          <div>
-            <div class="text-[10px] uppercase text-slate-400 font-bold tracking-wider font-mono">ĐÃ XUẤT BẢN</div>
-            <div class="text-2xl font-black text-white mt-1"><span id="statPublishedCount">00</span></div>
-          </div>
-          <div class="p-2.5 bg-cyan-950/40 rounded-lg border border-cyan-500/20 text-cyan-400">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-            </svg>
-          </div>
-        </div>
-
-        <!-- Card 2 -->
-        <div class="bg-[#111827] border border-[#1e293b] p-4 rounded-lg flex items-center justify-between">
-          <div>
-            <div class="text-[10px] uppercase text-slate-400 font-bold tracking-wider font-mono">BẢN NHÁP / ĐANG XỬ LÝ
-            </div>
-            <div class="text-2xl font-black text-white mt-1"><span id="statDraftCount">00</span></div>
-          </div>
-          <div class="p-2.5 bg-amber-950/40 rounded-lg border border-amber-500/20 text-amber-400">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z">
-              </path>
-            </svg>
-          </div>
-        </div>
-
-        <!-- Card 3 -->
-        <div class="bg-[#111827] border border-[#1e293b] p-4 rounded-lg flex items-center justify-between">
-          <div>
-            <div class="text-[10px] uppercase text-slate-400 font-bold tracking-wider font-mono">LƯỢT ĐỌC THÁNG NÀY
-            </div>
-            <div class="text-2xl font-black text-white mt-1">125.4K <span
-                class="text-xs font-normal text-cyan-400 ml-1">↑ 18.2%</span></div>
-          </div>
-          <div class="p-2.5 bg-blue-950/40 rounded-lg border border-blue-500/20 text-blue-400">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-            </svg>
-          </div>
-        </div>
-
-        <!-- Card 4 -->
-        <div class="bg-[#111827] border border-[#1e293b] p-4 rounded-lg flex items-center justify-between">
-          <div>
-            <div class="text-[10px] uppercase text-slate-400 font-bold tracking-wider font-mono">TƯƠNG TÁC / BÌNH LUẬN
-            </div>
-            <div class="text-2xl font-black text-white mt-1">842 <span
-                class="text-xs font-normal text-emerald-400 ml-1">88% hài lòng</span></div>
-          </div>
-          <div class="p-2.5 bg-purple-950/40 rounded-lg border border-purple-500/20 text-purple-400">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M8 10h.01M12 10h.01M16 10h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z">
-              </path>
-            </svg>
-          </div>
-        </div>
-      </div>
-
-      <!-- MAIN CONTENT GRID (EDITOR & SIDEBAR) -->
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
-
-        <!-- LEFT COLUMN: ARTICLE EDITOR & PREVIEW (8 cols) -->
-        <div class="lg:col-span-8 space-y-4">
-
-          <!-- TITLE & SLUG SECTION -->
-          <div class="bg-[#111827] border border-[#1e293b] rounded-lg p-5 space-y-4">
-            <div>
-              <div class="flex items-center justify-between mb-1.5">
-                <label class="text-xs font-bold text-slate-300 uppercase tracking-wider font-mono">TIÊU ĐỀ BÀI VIẾT KỸ
-                  THUẬT *</label>
-                <span class="text-[10px] font-mono text-slate-500">82 / 120 ký tự</span>
-              </div>
-              <input type="text" id="articleTitle" placeholder="Nhập tiêu đề bài viết..."
-                class="w-full bg-[#090d16] border border-[#1e293b] rounded-md px-3.5 py-2 text-sm font-bold text-white focus:outline-none focus:border-cyan-500 transition">
+            <div class="p-5 border-b border-slate-800 flex items-center space-x-3">
+                <div class="w-8 h-8 rounded bg-cyan-500/20 border border-cyan-400/50 flex items-center justify-center text-cyan-400 font-bold">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                </div>
+                <div>
+                    <h1 class="text-sm font-bold tracking-wider text-slate-100">NOVAPAD</h1>
+                    <p class="text-[10px] text-cyan-400 tracking-widest font-mono">CORE CONTROLLER</p>
+                </div>
             </div>
 
-            <div
-              class="flex items-center justify-between text-xs bg-[#090d16] border border-[#1e293b] rounded-md px-3 py-2 font-mono">
-              <div class="flex items-center space-x-1 overflow-hidden w-full">
-                <span class="text-slate-500 shrink-0">SLUG:</span>
-                <input type="text" id="articleSlug"
-                  class="w-full bg-transparent text-cyan-400 focus:outline-none font-mono text-xs"
-                  placeholder="/tin-tuc/duong-dan-bai-viet">
-              </div>
-            </div>
+            <nav class="p-4 space-y-1 text-sm">
+                <div class="px-3 py-2 text-[11px] font-semibold text-slate-500 uppercase tracking-wider">MAIN COMMAND</div>
+                
+                <a href="index.html" class="flex items-center space-x-3 px-3 py-2.5 rounded-lg text-slate-400 hover:bg-slate-800/60 hover:text-slate-200 transition-all">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path></svg>
+                    <span>Overview / Dashboard</span>
+                </a>
 
-            <!-- EXCERPT / SHORT SUMMARY -->
-            <div>
-              <label class="text-xs font-bold text-slate-300 uppercase tracking-wider font-mono block mb-1.5">TÓM TẮT
-                NGẮN (EXCERPT & META DESCRIPTION)</label>
-              <textarea id="articleExcerpt" rows="2"
-                class="w-full bg-[#090d16] border border-[#1e293b] rounded-md p-3 text-xs text-slate-300 focus:outline-none focus:border-cyan-500 transition leading-relaxed"
-                placeholder="Nhập tóm tắt ngắn..."></textarea>
-            </div>
-          </div>
+                <a href="products.html" class="flex items-center space-x-3 px-3 py-2.5 rounded-lg text-slate-400 hover:bg-slate-800/60 hover:text-slate-200 transition-all">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path></svg>
+                    <span>Quản Lý Sản Phẩm</span>
+                </a>
 
-          <!-- WYSIWYG TOOLBAR & EDITOR CONTENT -->
-          <div class="bg-[#111827] border border-[#1e293b] rounded-lg overflow-hidden">
-            <!-- Toolbar -->
-            <div class="bg-[#131b2e] border-b border-[#1e293b] p-2 flex flex-wrap items-center justify-between gap-1">
-              <div class="flex items-center space-x-1">
-                <button type="button" title="Bold"
-                  class="p-1.5 hover:bg-slate-800 rounded text-slate-300 hover:text-cyan-400 font-bold text-xs">B</button>
-                <button type="button" title="Italic"
-                  class="p-1.5 hover:bg-slate-800 rounded text-slate-300 hover:text-cyan-400 italic text-xs">I</button>
-                <button type="button" title="Underline"
-                  class="p-1.5 hover:bg-slate-800 rounded text-slate-300 hover:text-cyan-400 underline text-xs">U</button>
-                <button type="button" title="Strikethrough"
-                  class="p-1.5 hover:bg-slate-800 rounded text-slate-300 hover:text-cyan-400 line-through text-xs">S</button>
-                <span class="text-slate-700">|</span>
-                <button type="button" title="Heading 1"
-                  class="p-1.5 hover:bg-slate-800 rounded text-slate-300 hover:text-cyan-400 text-xs font-bold">H1</button>
-                <button type="button" title="Heading 2"
-                  class="p-1.5 hover:bg-slate-800 rounded text-cyan-400 text-xs font-bold bg-slate-800/80">H2</button>
-                <button type="button" title="Heading 3"
-                  class="p-1.5 hover:bg-slate-800 rounded text-slate-300 hover:text-cyan-400 text-xs font-bold">H3</button>
-                <span class="text-slate-700">|</span>
-                <button type="button" title="Bullet List"
-                  class="p-1.5 hover:bg-slate-800 rounded text-slate-300 hover:text-cyan-400">
-                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
-                    </path>
-                  </svg>
-                </button>
-                <button type="button" title="Numbered List"
-                  class="p-1.5 hover:bg-slate-800 rounded text-slate-300 hover:text-cyan-400">
-                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                      d="M7 8h14M7 12h14M7 16h14M3 8h.01M3 12h.01M3 16h.01"></path>
-                  </svg>
-                </button>
-                <button type="button" title="Quote"
-                  class="p-1.5 hover:bg-slate-800 rounded text-slate-300 hover:text-cyan-400">
-                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                      d="M8 10h.01M12 10h.01M16 10h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z">
-                    </path>
-                  </svg>
-                </button>
-                <button type="button" title="Code Block"
-                  class="p-1.5 hover:bg-slate-800 rounded text-slate-300 hover:text-cyan-400 font-mono text-xs">&lt;/&gt;</button>
-                <span class="text-slate-700">|</span>
-                <button type="button" title="Insert Image"
-                  class="p-1.5 hover:bg-slate-800 rounded text-slate-300 hover:text-cyan-400">
-                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                      d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z">
-                    </path>
-                  </svg>
-                </button>
-                <button type="button" title="Insert Media"
-                  class="p-1.5 hover:bg-slate-800 rounded text-cyan-400 bg-cyan-950/40">
-                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                      d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z">
-                    </path>
-                  </svg>
-                </button>
-              </div>
-              <div class="text-[10px] font-mono text-slate-500 flex items-center space-x-1">
-                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
-                <span>Tự động lưu: 1 phút trước</span>
-              </div>
-            </div>
+                <a href="post.html" class="flex items-center space-x-3 px-3 py-2.5 rounded-lg bg-cyan-500/10 text-cyan-400 font-medium border border-cyan-500/20">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"></path></svg>
+                    <span>Quản Lý Bài Viết</span>
+                </a>
 
-<!-- Editor Content Area (Rich Text / ContentEditable) -->
-<div class="p-0 bg-[#090d16]">
-  <div id="articleContent" contenteditable="true" class="w-full min-h-[300px] max-h-[500px] overflow-y-auto bg-[#090d16] text-slate-200 text-sm leading-relaxed focus:outline-none font-sans p-4 border-0 block rounded-none" placeholder="Nhập nội dung chi tiết bài viết kỹ thuật..."></div>
-</div>
+                <a href="category.html" class="flex items-center space-x-3 px-3 py-2.5 rounded-lg text-slate-400 hover:bg-slate-800/60 hover:text-slate-200 transition-all">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h10M7 12h10M7 17h10"></path></svg>
+                    <span>Quản Lý Danh Mục</span>
+                </a>
+                <a href="views.html"class="flex items-center space-x-3 px-3 py-2.5 rounded text-sm text-gray-400 hover:bg-gray-800/50 hover:text-white transition">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 100 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                        <span>Quản Lý Người Dùng</span>
+                </a>
 
-<style>
-  /* Định dạng trực quan ngay trong khung soạn thảo VÀ khung Xem trước */
-  #articleContent h1, #previewModalContent h1 { font-size: 1.5rem; font-weight: 800; color: #fff; margin: 0.75rem 0; }
-  #articleContent h2, #previewModalContent h2 { font-size: 1.25rem; font-weight: 700; color: #fff; margin: 0.6rem 0; }
-  #articleContent h3, #previewModalContent h3 { font-size: 1.125rem; font-weight: 600; color: #e2e8f0; margin: 0.5rem 0; }
-  #articleContent img, #articleContent video, #previewModalContent img, #previewModalContent video { max-width: 100%; border-radius: 0.5rem; margin: 0.5rem 0; }
-  #articleContent blockquote, #previewModalContent blockquote { border-left: 3px solid #06b6d4; padding-left: 1rem; color: #94a3b8; font-style: italic; margin: 0.5rem 0; }
-</style>
-
-            <!-- FOOTER EDITOR STATS -->
-            <div
-              class="bg-[#0d1320] border-t border-[#1e293b] px-4 py-2.5 flex items-center justify-between text-[11px] text-slate-500 font-mono">
-              <div class="flex items-center space-x-4">
-                <span>Trạng thái: <strong class="text-cyan-400">Sẵn sàng chỉnh sửa</strong></span>
-              </div>
-            </div>
-          </div>
-
+                <a href="#" class="flex items-center space-x-3 px-3 py-2.5 rounded-lg text-slate-400 hover:bg-slate-800/60 hover:text-slate-200 transition-all">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path></svg>
+                    <span>Cài Đặt Hệ Thống</span>
+                </a>
+            </nav>
         </div>
 
-        <!-- RIGHT COLUMN: PUBLISH SETTINGS (4 cols) -->
-        <div class="lg:col-span-4 space-y-4">
-
-          <!-- PUBLISH STATUS PANEL -->
-          <div class="bg-[#111827] border border-[#1e293b] rounded-lg p-5 space-y-4">
-            <div class="flex items-center justify-between border-b border-[#1e293b] pb-3">
-              <h3 class="font-bold text-white text-xs uppercase tracking-wider font-mono">CẤU HÌNH XUẤT BẢN</h3>
+        <div class="p-4 border-t border-slate-800">
+            <div class="bg-slate-900 p-3 rounded border border-slate-800 text-xs font-mono text-slate-400">
+                <div class="text-cyan-400">SYS-ENGINE v4.02-PROD</div>
+                <div class="mt-1 text-slate-500">LATENCY: 12ms</div>
             </div>
-
-            <div class="space-y-3">
-              <div>
-                <label class="text-xs font-bold text-slate-300 uppercase tracking-wider font-mono block mb-1">TÁC
-                  GIẢ</label>
-                <input type="text" id="articleAuthor" value="Admin Dev"
-                  class="w-full bg-[#090d16] border border-[#1e293b] rounded px-3 py-1.5 text-xs text-white focus:outline-none focus:border-cyan-500">
-              </div>
-
-              <div>
-                <label class="text-xs font-bold text-slate-300 uppercase tracking-wider font-mono block mb-1">TRẠNG
-                  THÁI</label>
-                <select id="articleStatus"
-                  class="w-full bg-[#090d16] border border-[#1e293b] rounded px-3 py-1.5 text-xs text-white focus:outline-none focus:border-cyan-500">
-                  <option value="published">Đã Xuất Bản (Published)</option>
-                  <option value="draft">Bản Nháp (Draft)</option>
-                </select>
-              </div>
-            </div>
-
-            <!-- Action Buttons -->
-            <div class="pt-2">
-              <button onclick="window.saveArticle()"
-                class="w-full bg-cyan-400 hover:bg-cyan-300 text-black font-bold py-2.5 rounded text-xs transition flex items-center justify-center space-x-2 shadow-lg shadow-cyan-400/10">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
-                    d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15">
-                  </path>
-                </svg>
-                <span>LƯU BÀI VIẾT</span>
-              </button>
-            </div>
-          </div>
-
-          <!-- CATEGORY SELECTION -->
-          <div class="bg-[#111827] border border-[#1e293b] rounded-lg p-5 space-y-3">
-            <div class="flex items-center justify-between">
-              <label class="text-xs font-bold text-slate-300 uppercase tracking-wider font-mono">DANH MỤC CHUYÊN
-                MỤC</label>
-              <div class="flex items-center space-x-2">
-                <button type="button" onclick="window.addNewCategory()"
-                  class="text-[11px] text-cyan-400 hover:underline font-mono">+ Tạo mới</button>
-                <span class="text-slate-600">|</span>
-                <button type="button" onclick="window.deleteCustomCategory()"
-                  class="text-[11px] text-red-400 hover:underline font-mono">- Xóa</button>
-              </div>
-            </div>
-            <select id="articleCategory"
-              class="w-full bg-[#090d16] border border-[#1e293b] rounded-md px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-cyan-500 font-medium">
-              <option value="CẨM NANG PHẦN CỨNG">Cẩm Nang Phần Cứng (Hardware)</option>
-              <option value="REVIEW & SO SÁNH">Review & So Sánh Switch</option>
-              <option value="THỦ THUẬT MOD">Thủ Thuật Mod Controller</option>
-              <option value="TIN TỨC GIẢI ĐẤU">Tin Tức Giải Đấu eSports</option>
-            </select>
-          </div>
-
         </div>
+    </aside>
 
-      </div>
-
-      <!-- BOTTOM ARTICLE MANAGEMENT TABLE -->
-      <div class="bg-[#111827] border border-[#1e293b] rounded-lg p-5 space-y-4">
-
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-[#1e293b] pb-4">
-          <div>
-            <h3 class="font-bold text-white text-base">Kho Lưu Trữ & Quản Trị Bài Viết</h3>
-          </div>
-
-          <div class="flex items-center space-x-2">
-            <div class="relative w-64">
-              <input type="text" id="tableFilterInput" placeholder="Lọc theo từ khóa..."
-                class="w-full bg-[#090d16] border border-[#1e293b] rounded px-3 py-1.5 text-xs text-slate-300 focus:outline-none focus:border-cyan-500">
+    <!-- MAIN CONTENT -->
+    <main class="flex-1 flex flex-col min-w-0 overflow-y-auto">
+        
+        <header class="h-16 border-b border-slate-800 bg-[#0f131d]/50 px-6 flex items-center justify-between sticky top-0 backdrop-blur z-10">
+            <div class="flex items-center space-x-3 text-xs font-mono">
+                <span class="px-2 py-0.5 rounded bg-cyan-500/20 text-cyan-400 border border-cyan-500/30">CMS HUB // ARTICLES</span>
+                <span class="text-slate-500">|</span>
+                <span class="text-slate-400">SYS-NODE: EDIT-09</span>
             </div>
-          </div>
+
+            <div class="flex items-center space-x-4">
+                <div class="w-8 h-8 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center font-bold text-xs text-cyan-400 font-mono">
+                    AD
+                </div>
+            </div>
+        </header>
+
+        <div class="p-6 space-y-6">
+            
+            <!-- PAGE HEADER -->
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                <div>
+                    <h2 class="text-xl font-bold tracking-tight text-slate-100 uppercase font-mono">QUẢN LÝ BÀI VIẾT & TIN TỨC // ARTICLES COMMAND</h2>
+                    <p class="text-xs text-slate-400 mt-1">Trung tâm điều phối thông tin công nghệ, cẩm nang switch cơ học và giải đấu NovaPad eSports.</p>
+                </div>
+                <div class="flex items-center space-x-3 shrink-0">
+                    <button onclick="window.createNewArticle()" class="px-4 py-2 bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-xs rounded flex items-center space-x-2 transition">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"></path></svg>
+                        <span>VIẾT BÀI MỚI</span>
+                    </button>
+                    <button class="px-3 py-2 bg-[#111622] text-slate-200 border border-slate-800 rounded text-xs font-semibold font-mono">
+                        <span id="statTotalPosts">0 BÀI ĐÃ ĐĂNG</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- KPI CARDS -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="bg-[#111622] border border-slate-800 p-4 rounded-xl flex items-center justify-between">
+                    <div>
+                        <div class="text-xs font-mono text-slate-400 uppercase">ĐÃ XUẤT BẢN</div>
+                        <div class="text-2xl font-bold font-mono text-slate-100 mt-1" id="statPublishedCount">00</div>
+                    </div>
+                    <div class="p-2.5 bg-cyan-950/40 rounded-lg border border-cyan-500/20 text-cyan-400">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                </div>
+
+                <div class="bg-[#111622] border border-slate-800 p-4 rounded-xl flex items-center justify-between">
+                    <div>
+                        <div class="text-xs font-mono text-slate-400 uppercase">BẢN NHÁP / ĐANG XỬ LÝ</div>
+                        <div class="text-2xl font-bold font-mono text-slate-100 mt-1" id="statDraftCount">00</div>
+                    </div>
+                    <div class="p-2.5 bg-amber-950/40 rounded-lg border border-amber-500/20 text-amber-400">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
+                    </div>
+                </div>
+
+                <div class="bg-[#111622] border border-slate-800 p-4 rounded-xl flex items-center justify-between">
+                    <div>
+                        <div class="text-xs font-mono text-slate-400 uppercase">LƯỢT ĐỌC THÁNG NÀY</div>
+                        <div class="text-2xl font-bold font-mono text-slate-100 mt-1">125.4K <span class="text-xs font-normal text-cyan-400">↑ 18.2%</span></div>
+                    </div>
+                    <div class="p-2.5 bg-blue-950/40 rounded-lg border border-blue-500/20 text-blue-400">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- EDITOR & CONFIG GRID -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+                
+                <!-- LEFT: EDITOR (8 COLS) -->
+                <div class="lg:col-span-8 space-y-4">
+                    <div class="bg-[#111622] border border-slate-800 rounded-xl p-5 space-y-4">
+                        <div>
+                            <label class="text-xs font-bold text-slate-300 uppercase tracking-wider font-mono block mb-1.5">TIÊU ĐỀ BÀI VIẾT *</label>
+                            <input type="text" id="articleTitle" placeholder="Nhập tiêu đề bài viết..." class="w-full bg-[#0a0d14] border border-slate-800 rounded-lg px-3.5 py-2 text-sm font-bold text-white focus:outline-none focus:border-cyan-500">
+                        </div>
+
+                        <div>
+                            <label class="text-xs font-bold text-slate-300 uppercase tracking-wider font-mono block mb-1.5">ĐƯỜNG DẪN (SLUG)</label>
+                            <input type="text" id="articleSlug" class="w-full bg-[#0a0d14] border border-slate-800 rounded-lg px-3.5 py-2 text-xs font-mono text-cyan-400 focus:outline-none focus:border-cyan-500" placeholder="/tin-tuc/duong-dan-bai-viet">
+                        </div>
+
+                        <div>
+                            <label class="text-xs font-bold text-slate-300 uppercase tracking-wider font-mono block mb-1.5">TÓM TẮT NGẮN (EXCERPT)</label>
+                            <textarea id="articleExcerpt" rows="2" class="w-full bg-[#0a0d14] border border-slate-800 rounded-lg p-3 text-xs text-slate-300 focus:outline-none focus:border-cyan-500 leading-relaxed" placeholder="Nhập tóm tắt ngắn..."></textarea>
+                        </div>
+                    </div>
+
+                    <!-- WYSIWYG EDITOR -->
+                    <div class="bg-[#111622] border border-slate-800 rounded-xl overflow-hidden">
+                        <div class="bg-[#151b2a] border-b border-slate-800 p-2.5 flex items-center space-x-2">
+                            <button type="button" onclick="document.execCommand('bold', false, null)" class="px-2 py-1 bg-slate-800 hover:bg-slate-700 rounded text-xs font-bold text-slate-200">B</button>
+                            <button type="button" onclick="document.execCommand('italic', false, null)" class="px-2 py-1 bg-slate-800 hover:bg-slate-700 rounded text-xs italic text-slate-200">I</button>
+                            <button type="button" onclick="document.execCommand('underline', false, null)" class="px-2 py-1 bg-slate-800 hover:bg-slate-700 rounded text-xs underline text-slate-200">U</button>
+                            <span class="text-slate-700">|</span>
+                            <button type="button" onclick="document.execCommand('formatBlock', false, '<h1>')" class="px-2 py-1 bg-slate-800 hover:bg-slate-700 rounded text-xs font-bold text-slate-200">H1</button>
+                            <button type="button" onclick="document.execCommand('formatBlock', false, '<h2>')" class="px-2 py-1 bg-slate-800 hover:bg-slate-700 rounded text-xs font-bold text-cyan-400">H2</button>
+                            <button type="button" onclick="document.execCommand('insertUnorderedList', false, null)" class="px-2 py-1 bg-slate-800 hover:bg-slate-700 rounded text-xs text-slate-200">• List</button>
+                            <button type="button" onclick="document.execCommand('formatBlock', false, '<blockquote>')" class="px-2 py-1 bg-slate-800 hover:bg-slate-700 rounded text-xs text-slate-200">Quote</button>
+                        </div>
+                        <div class="p-0 bg-[#0a0d14]">
+                            <div id="articleContent" contenteditable="true" class="w-full min-h-[300px] max-h-[500px] overflow-y-auto bg-[#0a0d14] text-slate-200 text-sm leading-relaxed focus:outline-none p-4" placeholder="Nhập nội dung chi tiết bài viết..."></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RIGHT: CONFIG (4 COLS) -->
+                <div class="lg:col-span-4 space-y-4">
+                    <div class="bg-[#111622] border border-slate-800 rounded-xl p-5 space-y-4">
+                        <h3 class="font-bold text-white text-xs uppercase tracking-wider font-mono border-b border-slate-800 pb-3">CẤU HÌNH XUẤT BẢN</h3>
+
+                        <div class="space-y-3">
+                            <div>
+                                <label class="text-xs font-bold text-slate-300 uppercase tracking-wider font-mono block mb-1">TÁC GIẢ</label>
+                                <input type="text" id="articleAuthor" value="Admin Dev" class="w-full bg-[#0a0d14] border border-slate-800 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-cyan-500">
+                            </div>
+
+                            <div>
+                                <label class="text-xs font-bold text-slate-300 uppercase tracking-wider font-mono block mb-1">TRẠNG THÁI</label>
+                                <select id="articleStatus" class="w-full bg-[#0a0d14] border border-slate-800 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-cyan-500">
+                                    <option value="published">Đã Xuất Bản (Published)</option>
+                                    <option value="draft">Bản Nháp (Draft)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="pt-2">
+                            <button onclick="window.saveArticle()" class="w-full bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold py-2.5 rounded-lg text-xs transition shadow-lg shadow-cyan-500/10">
+                                LƯU BÀI VIẾT VÀO HỆ THỐNG
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="bg-[#111622] border border-slate-800 rounded-xl p-5 space-y-3">
+                        <div class="flex items-center justify-between">
+                            <label class="text-xs font-bold text-slate-300 uppercase tracking-wider font-mono">CHUYÊN MỤC</label>
+                            <button type="button" onclick="window.addNewCategory()" class="text-[11px] text-cyan-400 hover:underline font-mono">+ Thêm mới</button>
+                        </div>
+                        <select id="articleCategory" class="w-full bg-[#0a0d14] border border-slate-800 rounded-lg px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-cyan-500">
+                            <option value="CẨM NANG PHẦN CỨNG">Cẩm Nang Phần Cứng (Hardware)</option>
+                            <option value="REVIEW & SO SÁNH">Review & So Sánh Switch</option>
+                            <option value="THỦ THUẬT MOD">Thủ Thuật Mod Controller</option>
+                            <option value="TIN TỨC GIẢI ĐẤU">Tin Tức Giải Đấu eSports</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TABLE MANAGEMENT -->
+            <div class="bg-[#111622] border border-slate-800 rounded-xl p-5 space-y-4">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-800 pb-4">
+                    <h3 class="font-bold text-white text-base">Kho Lưu Trữ & Quản Trị Bài Viết</h3>
+                    <div class="w-64">
+                        <input type="text" id="tableFilterInput" placeholder="Lọc theo từ khóa..." class="w-full bg-[#0a0d14] border border-slate-800 rounded-lg px-3 py-1.5 text-xs text-slate-300 focus:outline-none focus:border-cyan-500">
+                    </div>
+                </div>
+
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-xs text-slate-300">
+                        <thead class="bg-[#0a0d14] text-[10px] uppercase font-mono text-slate-500 border-b border-slate-800">
+                            <tr>
+                                <th class="p-3">BÀI VIẾT / CHUYÊN MỤC</th>
+                                <th class="p-3">TÁC GIẢ</th>
+                                <th class="p-3">TRẠNG THÁI</th>
+                                <th class="p-3 text-right">THAO TÁC</th>
+                            </tr>
+                        </thead>
+                        <tbody id="postTableBody" class="divide-y divide-slate-800/50">
+                            <!-- Render tự động bởi postController.js -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <div id="postPagination" class="flex items-center justify-center space-x-2 mt-4"></div>
+            </div>
         </div>
-
-        <!-- TABLE DATA -->
-        <div class="overflow-x-auto">
-          <table class="w-full text-left text-xs text-slate-300" id="articleTable">
-            <thead class="bg-[#090d16] text-[10px] uppercase font-mono text-slate-500 border-b border-[#1e293b]">
-              <tr>
-                <th class="p-3">BÀI VIẾT / CHUYÊN MỤC</th>
-                <th class="p-3">TÁC GIẢ</th>
-                <th class="p-3">TRẠNG THÁI</th>
-                <th class="p-3 text-right">THAO TÁC</th>
-              </tr>
-            </thead>
-            <tbody id="postTableBody" class="divide-y divide-[#1e293b]">
-              <!-- Được render tự động từ postController.js -->
-            </tbody>
-          </table>
-        </div>
-
-        <!-- PAGINATION BAR CONTAINER -->
-        <div id="postPagination" class="flex items-center justify-center space-x-2 mt-4"></div>
-
-      </div>
-
     </main>
-  </div>
 
-  <!-- ================= MODALS ĐẶT ĐỘC LẬP Ở CUỐI TRANG ================= -->
-
-  <!-- MODAL CHỌN ẢNH (URL HOẶC TẢI TỪ MÁY) -->
-  <div id="imagePickerModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm hidden">
-    <div class="bg-[#111827] border border-[#1f293d] rounded-xl p-6 w-[450px] shadow-2xl text-white">
-      <div class="flex items-center justify-between mb-4 border-b border-[#1f293d] pb-3">
-        <h3 class="text-lg font-bold text-cyan-400">Chèn Hình Ảnh</h3>
-        <button onclick="closeImageModal()" class="text-gray-400 hover:text-white text-xl font-bold">&times;</button>
-      </div>
-
-      <!-- Tab lựa chọn -->
-      <div class="flex space-x-2 mb-4 bg-[#0b0f17] p-1 rounded-lg border border-[#1f293d]">
-        <button type="button" onclick="switchImageTab('url')" id="tabUrlBtn" class="flex-1 py-2 text-sm font-semibold rounded-md bg-cyan-500 text-black transition">Dùng Link URL</button>
-        <button type="button" onclick="switchImageTab('file')" id="tabFileBtn" class="flex-1 py-2 text-sm font-semibold rounded-md text-gray-400 hover:text-white transition">Tải từ máy tính</button>
-      </div>
-
-      <!-- Nội dung Tab URL -->
-      <div id="contentUrlTab" class="space-y-3">
-        <label class="block text-xs text-gray-400">Đường dẫn URL hình ảnh:</label>
-        <input type="text" id="modalImageUrl" placeholder="https://example.com/image.jpg" class="w-full bg-[#0b0f17] border border-[#1f293d] rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-cyan-400">
-      </div>
-
-      <!-- Nội dung Tab Tải file từ máy -->
-      <div id="contentFileTab" class="space-y-3 hidden">
-        <label class="block text-xs text-gray-400">Chọn file ảnh từ thư mục:</label>
-        <input type="file" id="modalImageFile" accept="image/*" class="w-full bg-[#0b0f17] border border-[#1f293d] rounded-lg px-3 py-2 text-sm text-gray-300 file:mr-4 file:py-1 file:px-3 file:rounded-md file:border-0 file:text-xs file:font-semibold file:bg-cyan-500 file:text-black hover:file:bg-cyan-400">
-      </div>
-
-      <!-- Nút hành động -->
-      <div class="flex justify-end space-x-3 mt-6 pt-3 border-t border-[#1f293d]">
-        <button type="button" onclick="closeImageModal()" class="px-4 py-2 bg-gray-800 hover:bg-gray-700 text-gray-300 text-sm rounded-lg transition">Hủy</button>
-        <button type="button" onclick="confirmInsertImage()" class="px-4 py-2 bg-cyan-500 hover:bg-cyan-400 text-black font-bold text-sm rounded-lg transition">Chèn Ảnh</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- MODAL CHỌN VIDEO (URL HOẶC TẢI TỪ MÁY) -->
-  <div id="videoPickerModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm hidden">
-    <div class="bg-[#111827] border border-[#1f293d] rounded-xl p-6 w-[450px] shadow-2xl text-white">
-      <div class="flex items-center justify-between mb-4 border-b border-[#1f293d] pb-3">
-        <h3 class="text-lg font-bold text-cyan-400">Chèn Video / Media</h3>
-        <button onclick="closeVideoModal()" class="text-gray-400 hover:text-white text-xl font-bold">&times;</button>
-      </div>
-
-      <!-- Tab lựa chọn -->
-      <div class="flex space-x-2 mb-4 bg-[#0b0f17] p-1 rounded-lg border border-[#1f293d]">
-        <button type="button" onclick="switchVideoTab('url')" id="tabVideoUrlBtn" class="flex-1 py-2 text-sm font-semibold rounded-md bg-cyan-500 text-black transition">Dùng Link URL</button>
-        <button type="button" onclick="switchVideoTab('file')" id="tabVideoFileBtn" class="flex-1 py-2 text-sm font-semibold rounded-md text-gray-400 hover:text-white transition">Tải từ máy tính</button>
-      </div>
-
-      <!-- Nội dung Tab URL -->
-      <div id="contentVideoUrlTab" class="space-y-3">
-        <label class="block text-xs text-gray-400">Đường dẫn URL Video (mp4, youtube...):</label>
-        <input type="text" id="modalVideoUrl" placeholder="https://example.com/video.mp4" class="w-full bg-[#0b0f17] border border-[#1f293d] rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-cyan-400">
-      </div>
-
-      <!-- Nội dung Tab Tải file từ máy -->
-      <div id="contentVideoFileTab" class="space-y-3 hidden">
-        <label class="block text-xs text-gray-400">Chọn file Video từ thư mục (mp4, webm...):</label>
-        <input type="file" id="modalVideoFile" accept="video/*" class="w-full bg-[#0b0f17] border border-[#1f293d] rounded-lg px-3 py-2 text-sm text-gray-300 file:mr-4 file:py-1 file:px-3 file:rounded-md file:border-0 file:text-xs file:font-semibold file:bg-cyan-500 file:text-black hover:file:bg-cyan-400">
-      </div>
-
-      <!-- Nút hành động -->
-      <div class="flex justify-end space-x-3 mt-6 pt-3 border-t border-[#1f293d]">
-        <button type="button" onclick="closeVideoModal()" class="px-4 py-2 bg-gray-800 hover:bg-gray-700 text-gray-300 text-sm rounded-lg transition">Hủy</button>
-        <button type="button" onclick="confirmInsertVideo()" class="px-4 py-2 bg-cyan-500 hover:bg-cyan-400 text-black font-bold text-sm rounded-lg transition">Chèn Video</button>
-      </div>
-    </div>
-  </div>
-  <!-- MODAL XEM CHI TIẾT / XEM TRƯỚC BÀI VIẾT -->
-<div id="previewPostModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm hidden">
-    <div class="bg-[#111827] border border-[#1f293d] rounded-xl w-[700px] max-h-[85vh] flex flex-col shadow-2xl text-white overflow-hidden">
-        <!-- Header Modal -->
-        <div class="flex items-center justify-between px-6 py-4 border-b border-[#1f293d] bg-[#0d1320]">
-            <div class="flex items-center space-x-2">
-                <span class="text-xs font-mono text-cyan-400 bg-cyan-950/60 px-2 py-0.5 rounded border border-cyan-500/20 uppercase">PREVIEW MODE</span>
-                <h3 class="text-base font-bold text-white" id="previewModalCategory">CHUYÊN MỤC</h3>
-            </div>
-            <button onclick="closePreviewModal()" class="text-gray-400 hover:text-white text-xl font-bold">&times;</button>
-        </div>
-
-        <!-- Body Nội dung bài viết -->
-        <div class="p-6 overflow-y-auto space-y-4 flex-1">
-            <h1 id="previewModalTitle" class="text-2xl font-black text-white leading-tight"></h1>
-            
-            <div class="flex items-center space-x-3 text-xs text-slate-400 font-mono border-b border-[#1f293d] pb-3">
-                <span>Tác giả: <strong class="text-slate-200" id="previewModalAuthor"></strong></span>
-                <span>•</span>
-                <span>Trạng thái: <span id="previewModalStatusBadge"></span></span>
-                <span>•</span>
-                <span>Slug: <span class="text-cyan-400" id="previewModalSlug"></span></span>
+    <!-- MODAL PREVIEW -->
+    <div id="previewPostModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm hidden">
+        <div class="bg-[#111622] border border-slate-800 rounded-xl w-[700px] max-h-[85vh] flex flex-col shadow-2xl text-white overflow-hidden">
+            <div class="flex items-center justify-between px-6 py-4 border-b border-slate-800 bg-[#0f131d]">
+                <div class="flex items-center space-x-2">
+                    <span class="text-xs font-mono text-cyan-400 bg-cyan-950/60 px-2 py-0.5 rounded border border-cyan-500/20 uppercase">PREVIEW MODE</span>
+                    <h3 class="text-base font-bold text-white" id="previewModalCategory">CHUYÊN MỤC</h3>
+                </div>
+                <button onclick="document.getElementById('previewPostModal').classList.add('hidden')" class="text-gray-400 hover:text-white text-xl font-bold">&times;</button>
             </div>
 
-            <div class="bg-[#090d16] p-4 rounded-lg border border-[#1f293d]">
-                <span class="text-[10px] font-mono uppercase text-slate-500 block mb-1">Tóm tắt ngắn (Excerpt):</span>
-                <p id="previewModalExcerpt" class="text-xs text-slate-300 italic leading-relaxed"></p>
+            <div class="p-6 overflow-y-auto space-y-4 flex-1">
+                <h1 id="previewModalTitle" class="text-2xl font-black text-white leading-tight"></h1>
+                <div class="flex items-center space-x-3 text-xs text-slate-400 font-mono border-b border-slate-800 pb-3">
+                    <span>Tác giả: <strong class="text-slate-200" id="previewModalAuthor"></strong></span>
+                    <span>•</span>
+                    <span>Trạng thái: <span id="previewModalStatusBadge"></span></span>
+                    <span>•</span>
+                    <span>Slug: <span class="text-cyan-400" id="previewModalSlug"></span></span>
+                </div>
+                <div class="bg-[#0a0d14] p-4 rounded-lg border border-slate-800">
+                    <span class="text-[10px] font-mono uppercase text-slate-500 block mb-1">Tóm tắt ngắn:</span>
+                    <p id="previewModalExcerpt" class="text-xs text-slate-300 italic leading-relaxed"></p>
+                </div>
+                <div>
+                    <span class="text-[10px] font-mono uppercase text-slate-500 block mb-1">Nội dung chi tiết:</span>
+                    <div id="previewModalContent" class="text-sm text-slate-200 leading-relaxed bg-[#0a0d14] p-4 rounded-lg border border-slate-800 overflow-x-auto"></div>
+                </div>
             </div>
 
-<div>
-                <span class="text-[10px] font-mono uppercase text-slate-500 block mb-1">Nội dung chi tiết (HTML Render):</span>
-                <!-- Khu vực hiển thị nội dung mới đã tích hợp Tailwind Typography -->
-                <div id="previewModalContent" class="prose prose-invert max-w-none text-sm leading-relaxed bg-[#090d16] p-4 rounded-lg border border-[#1f293d] overflow-x-auto"></div>
+            <div class="flex justify-end px-6 py-3 border-t border-slate-800 bg-[#0f131d]">
+                <button type="button" onclick="document.getElementById('previewPostModal').classList.add('hidden')" class="px-5 py-2 bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-xs rounded-lg transition">Đóng</button>
             </div>
-        </div>
-
-        <!-- Footer Modal -->
-        <div class="flex justify-end px-6 py-3 border-t border-[#1f293d] bg-[#0d1320]">
-            <button type="button" onclick="closePreviewModal()" class="px-5 py-2 bg-cyan-500 hover:bg-cyan-400 text-black font-bold text-xs rounded-lg transition">Đóng xem trước</button>
         </div>
     </div>
-</div>
-<!-- MODAL XEM CHI TIẾT / XEM TRƯỚC BÀI VIẾT -->
-<div id="previewPostModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm hidden">
-    <div class="bg-[#111827] border border-[#1f293d] rounded-xl w-[700px] max-h-[85vh] flex flex-col shadow-2xl text-white overflow-hidden">
-        <!-- Header Modal -->
-        <div class="flex items-center justify-between px-6 py-4 border-b border-[#1f293d] bg-[#0d1320]">
-            <div class="flex items-center space-x-2">
-                <span class="text-xs font-mono text-cyan-400 bg-cyan-950/60 px-2 py-0.5 rounded border border-cyan-500/20 uppercase">PREVIEW MODE</span>
-                <h3 class="text-base font-bold text-white" id="previewModalCategory">CHUYÊN MỤC</h3>
-            </div>
-            <button onclick="closePreviewModal()" class="text-gray-400 hover:text-white text-xl font-bold">&times;</button>
-        </div>
 
-        <!-- Body Nội dung bài viết -->
-        <div class="p-6 overflow-y-auto space-y-4 flex-1">
-            <h1 id="previewModalTitle" class="text-2xl font-black text-white leading-tight"></h1>
-            
-            <div class="flex items-center space-x-3 text-xs text-slate-400 font-mono border-b border-[#1f293d] pb-3">
-                <span>Tác giả: <strong class="text-slate-200" id="previewModalAuthor"></strong></span>
-                <span>•</span>
-                <span>Trạng thái: <span id="previewModalStatusBadge"></span></span>
-                <span>•</span>
-                <span>Slug: <span class="text-cyan-400" id="previewModalSlug"></span></span>
-            </div>
-
-            <div class="bg-[#090d16] p-4 rounded-lg border border-[#1f293d]">
-                <span class="text-[10px] font-mono uppercase text-slate-500 block mb-1">Tóm tắt ngắn (Excerpt):</span>
-                <p id="previewModalExcerpt" class="text-xs text-slate-300 italic leading-relaxed"></p>
-            </div>
-
-            <div>
-                <span class="text-[10px] font-mono uppercase text-slate-500 block mb-1">Nội dung chi tiết (HTML Render):</span>
-                <!-- Khu vực hiển thị nội dung, hỗ trợ render cả thẻ ảnh/video -->
-                <div id="previewModalContent" class="text-sm text-slate-200 leading-relaxed space-y-3 bg-[#090d16] p-4 rounded-lg border border-[#1f293d] overflow-x-auto"></div>
-            </div>
-        </div>
-
-        <!-- Footer Modal -->
-        <div class="flex justify-end px-6 py-3 border-t border-[#1f293d] bg-[#0d1320]">
-            <button type="button" onclick="closePreviewModal()" class="px-5 py-2 bg-cyan-500 hover:bg-cyan-400 text-black font-bold text-xs rounded-lg transition">Đóng xem trước</button>
-        </div>
-    </div>
-</div>
-  <!-- Nhúng Controller quản lý bài viết dạng ES6 Module -->
-  <script type="module" src="controllers/postController.js"></script>
+    <!-- Script điều khiển -->
+    <script type="module" src="controllers/postController.js"></script>
 </body>
-
 </html>
