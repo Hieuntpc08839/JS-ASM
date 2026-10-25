@@ -185,7 +185,7 @@ class CategoryController {
             });
         }
 
-        // Submit Form (Thêm mới hoặc Cập nhật)
+        // Thêm mới hoặc Cập nhật
         if (this.form) {
             this.form.addEventListener("submit", async (e) => {
                 e.preventDefault();
