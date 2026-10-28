@@ -290,6 +290,20 @@
       "created_date": "2026-10-17T15:21:45.502Z",
       "status": "pending",
       "id": "2fYafdwyPTU"
+    },
+    {
+      "order_code": "#NV-2845",
+      "user_id": "KdYb1L-kchA",
+      "customer_name": "nguyễn trung hiếu",
+      "phone": "0962896153",
+      "email": "venusgaming3625@gmail.com",
+      "address": "Việt Nam",
+      "note": "",
+      "total_price": 3240000,
+      "payment_method": "momo",
+      "created_date": "2026-10-28T01:17:15.880Z",
+      "status": "pending",
+      "id": "5uVJLsKBfbQ"
     }
   ],
   "order_details": [
@@ -324,6 +338,14 @@
       "quantity": 1,
       "unit_price": 3690000,
       "id": "Ra8IIhayHIM"
+    },
+    {
+      "order_id": "5uVJLsKBfbQ",
+      "product_id": "1",
+      "product_name": "NovaPad Apex Pro v3.2",
+      "quantity": 1,
+      "unit_price": 3690000,
+      "id": "FNNuaQ54e98"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

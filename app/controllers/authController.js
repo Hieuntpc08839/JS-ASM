@@ -141,7 +141,10 @@ class AuthController {
 
     // Xử lý Đăng Xuất
     logout() {
-        localStorage.removeItem(KEY);
+        this.cart.clear();           
+        this.updateHeaderCart();     
+        localStorage.removeItem(KEY); 
+
         alert("Đã đăng xuất khỏi hệ thống.");
         window.location.href = "index.html";
     }
