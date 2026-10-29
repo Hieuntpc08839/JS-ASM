@@ -52,9 +52,9 @@
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h10M7 12h10M7 17h10"></path></svg>
                     <span>Quản Lý Danh Mục</span>
                 </a>
-                <a href="views.html"class="flex items-center space-x-3 px-3 py-2.5 rounded text-sm text-gray-400 hover:bg-gray-800/50 hover:text-white transition">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 100 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
-                        <span>Quản Lý Người Dùng</span>
+                <a href="views.html" class="flex items-center space-x-3 px-3 py-2.5 rounded text-sm text-gray-400 hover:bg-gray-800/50 hover:text-white transition">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 100 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                    <span>Quản Lý Người Dùng</span>
                 </a>
 
                 <a href="#" class="flex items-center space-x-3 px-3 py-2.5 rounded-lg text-slate-400 hover:bg-slate-800/60 hover:text-slate-200 transition-all">
@@ -163,18 +163,71 @@
                         </div>
                     </div>
 
-                    <!-- WYSIWYG EDITOR -->
-                    <div class="bg-[#111622] border border-slate-800 rounded-xl overflow-hidden">
-                        <div class="bg-[#151b2a] border-b border-slate-800 p-2.5 flex items-center space-x-2">
-                            <button type="button" onclick="document.execCommand('bold', false, null)" class="px-2 py-1 bg-slate-800 hover:bg-slate-700 rounded text-xs font-bold text-slate-200">B</button>
-                            <button type="button" onclick="document.execCommand('italic', false, null)" class="px-2 py-1 bg-slate-800 hover:bg-slate-700 rounded text-xs italic text-slate-200">I</button>
-                            <button type="button" onclick="document.execCommand('underline', false, null)" class="px-2 py-1 bg-slate-800 hover:bg-slate-700 rounded text-xs underline text-slate-200">U</button>
+                    <!-- WYSIWYG TOOLBAR & EDITOR CONTENT -->
+                    <div class="bg-[#111827] border border-[#1e293b] rounded-lg overflow-hidden">
+                        <!-- Toolbar -->
+                        <div class="bg-[#131b2e] border-b border-[#1e293b] p-2 flex flex-wrap items-center justify-between gap-1">
+                          <div class="flex items-center space-x-1 flex-wrap gap-y-1">
+                            <button type="button" title="Bold" onclick="document.execCommand('bold', false, null)"
+                              class="p-1.5 hover:bg-slate-800 rounded text-slate-300 hover:text-cyan-400 font-bold text-xs">B</button>
+                            <button type="button" title="Italic" onclick="document.execCommand('italic', false, null)"
+                              class="p-1.5 hover:bg-slate-800 rounded text-slate-300 hover:text-cyan-400 italic text-xs">I</button>
+                            <button type="button" title="Underline" onclick="document.execCommand('underline', false, null)"
+                              class="p-1.5 hover:bg-slate-800 rounded text-slate-300 hover:text-cyan-400 underline text-xs">U</button>
+                            <button type="button" title="Strikethrough" onclick="document.execCommand('strikethrough', false, null)"
+                              class="p-1.5 hover:bg-slate-800 rounded text-slate-300 hover:text-cyan-400 line-through text-xs">S</button>
                             <span class="text-slate-700">|</span>
-                            <button type="button" onclick="document.execCommand('formatBlock', false, '<h1>')" class="px-2 py-1 bg-slate-800 hover:bg-slate-700 rounded text-xs font-bold text-slate-200">H1</button>
-                            <button type="button" onclick="document.execCommand('formatBlock', false, '<h2>')" class="px-2 py-1 bg-slate-800 hover:bg-slate-700 rounded text-xs font-bold text-cyan-400">H2</button>
-                            <button type="button" onclick="document.execCommand('insertUnorderedList', false, null)" class="px-2 py-1 bg-slate-800 hover:bg-slate-700 rounded text-xs text-slate-200">• List</button>
-                            <button type="button" onclick="document.execCommand('formatBlock', false, '<blockquote>')" class="px-2 py-1 bg-slate-800 hover:bg-slate-700 rounded text-xs text-slate-200">Quote</button>
+                            <button type="button" title="Heading 1" onclick="document.execCommand('formatBlock', false, '<h1>')"
+                              class="p-1.5 hover:bg-slate-800 rounded text-slate-300 hover:text-cyan-400 text-xs font-bold">H1</button>
+                            <button type="button" title="Heading 2" onclick="document.execCommand('formatBlock', false, '<h2>')"
+                              class="p-1.5 hover:bg-slate-800 rounded text-cyan-400 text-xs font-bold bg-slate-800/80">H2</button>
+                            <button type="button" title="Heading 3" onclick="document.execCommand('formatBlock', false, '<h3>')"
+                              class="p-1.5 hover:bg-slate-800 rounded text-slate-300 hover:text-cyan-400 text-xs font-bold">H3</button>
+                            <span class="text-slate-700">|</span>
+                            <button type="button" title="Bullet List" onclick="document.execCommand('insertUnorderedList', false, null)"
+                              class="p-1.5 hover:bg-slate-800 rounded text-slate-300 hover:text-cyan-400">
+                              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                              </svg>
+                            </button>
+                            <button type="button" title="Numbered List" onclick="document.execCommand('insertOrderedList', false, null)"
+                              class="p-1.5 hover:bg-slate-800 rounded text-slate-300 hover:text-cyan-400">
+                              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h14M7 12h14M7 16h14M3 8h.01M3 12h.01M3 16h.01"></path>
+                              </svg>
+                            </button>
+                            <button type="button" title="Quote" onclick="document.execCommand('formatBlock', false, '<blockquote>')"
+                              class="p-1.5 hover:bg-slate-800 rounded text-slate-300 hover:text-cyan-400">
+                              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+                              </svg>
+                            </button>
+                            <button type="button" title="Code Block" onclick="document.execCommand('formatBlock', false, '<pre>')"
+                              class="p-1.5 hover:bg-slate-800 rounded text-slate-300 hover:text-cyan-400 font-mono text-xs">&lt;/&gt;</button>
+                            <span class="text-slate-700">|</span>
+                            
+                            <!-- Nút mở Modal Chèn Ảnh -->
+                            <button type="button" title="Insert Image" onclick="window.openImageModal()"
+                              class="p-1.5 hover:bg-slate-800 rounded text-slate-300 hover:text-cyan-400">
+                              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                              </svg>
+                            </button>
+
+                            <!-- Nút mở Modal Chèn Video -->
+                            <button type="button" title="Insert Media" onclick="window.openVideoModal()"
+                              class="p-1.5 hover:bg-slate-800 rounded text-cyan-400 bg-cyan-950/40">
+                              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                              </svg>
+                            </button>
+                          </div>
+                          <div class="text-[10px] font-mono text-slate-500 flex items-center space-x-1">
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
+                            <span>Tự động lưu: 1 phút trước</span>
+                          </div>
                         </div>
+
                         <div class="p-0 bg-[#0a0d14]">
                             <div id="articleContent" contenteditable="true" class="w-full min-h-[300px] max-h-[500px] overflow-y-auto bg-[#0a0d14] text-slate-200 text-sm leading-relaxed focus:outline-none p-4" placeholder="Nhập nội dung chi tiết bài viết..."></div>
                         </div>
@@ -285,6 +338,62 @@
 
             <div class="flex justify-end px-6 py-3 border-t border-slate-800 bg-[#0f131d]">
                 <button type="button" onclick="document.getElementById('previewPostModal').classList.add('hidden')" class="px-5 py-2 bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-xs rounded-lg transition">Đóng</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL CHÈN HÌNH ẢNH -->
+    <div id="mediaImageModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm hidden font-sans">
+        <div class="bg-[#111622] border border-slate-800 rounded-2xl w-[480px] overflow-hidden shadow-2xl text-white">
+            <div class="flex items-center justify-between px-6 py-4 border-b border-slate-800 bg-[#151b2a]">
+                <h3 class="text-sm font-bold tracking-wide">Chèn Hình Ảnh</h3>
+                <button onclick="window.closeImageModal()" class="text-slate-400 hover:text-white text-lg font-bold">&times;</button>
+            </div>
+            <div class="p-6 space-y-5">
+                <div class="grid grid-cols-2 bg-[#0a0d14] p-1 rounded-xl border border-slate-800 text-xs font-medium text-center">
+                    <button type="button" id="imgTabUrl" onclick="window.switchImgTab('url')" class="py-2 rounded-lg bg-cyan-500 text-slate-950 font-bold transition">Dùng Link URL</button>
+                    <button type="button" id="imgTabFile" onclick="window.switchImgTab('file')" class="py-2 rounded-lg text-slate-400 hover:text-white transition">Tải từ máy tính</button>
+                </div>
+                <div id="imgContentUrl" class="space-y-2">
+                    <label class="text-xs text-slate-400 block font-mono">Đường dẫn URL hình ảnh:</label>
+                    <input type="text" id="modalImgUrlInput" placeholder="https://example.com/image.jpg" class="w-full bg-[#0a0d14] border border-slate-800 rounded-lg px-3.5 py-2.5 text-xs text-slate-200 focus:outline-none focus:border-cyan-500 font-mono">
+                </div>
+                <div id="imgContentFile" class="space-y-2 hidden">
+                    <label class="text-xs text-slate-400 block font-mono">Chọn file ảnh từ thiết bị:</label>
+                    <input type="file" id="modalImgFileInput" accept="image/*" class="w-full bg-[#0a0d14] border border-slate-800 rounded-lg p-2 text-xs text-slate-300 cursor-pointer">
+                </div>
+                <div class="flex items-center justify-end space-x-3 pt-2">
+                    <button type="button" onclick="window.closeImageModal()" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-lg text-xs font-medium transition">Hủy</button>
+                    <button type="button" onclick="window.confirmInsertImage()" class="px-5 py-2 bg-cyan-500 hover:bg-cyan-400 text-slate-950 rounded-lg text-xs font-bold transition">Chèn Ảnh</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL CHÈN VIDEO -->
+    <div id="mediaVideoModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm hidden font-sans">
+        <div class="bg-[#111622] border border-slate-800 rounded-2xl w-[480px] overflow-hidden shadow-2xl text-white">
+            <div class="flex items-center justify-between px-6 py-4 border-b border-slate-800 bg-[#151b2a]">
+                <h3 class="text-sm font-bold tracking-wide">Chèn Video</h3>
+                <button onclick="window.closeVideoModal()" class="text-slate-400 hover:text-white text-lg font-bold">&times;</button>
+            </div>
+            <div class="p-6 space-y-5">
+                <div class="grid grid-cols-2 bg-[#0a0d14] p-1 rounded-xl border border-slate-800 text-xs font-medium text-center">
+                    <button type="button" id="vidTabUrl" onclick="window.switchVidTab('url')" class="py-2 rounded-lg bg-cyan-500 text-slate-950 font-bold transition">Dùng Link URL</button>
+                    <button type="button" id="vidTabFile" onclick="window.switchVidTab('file')" class="py-2 rounded-lg text-slate-400 hover:text-white transition">Tải từ máy tính</button>
+                </div>
+                <div id="vidContentUrl" class="space-y-2">
+                    <label class="text-xs text-slate-400 block font-mono">Đường dẫn URL video (YouTube hoặc MP4):</label>
+                    <input type="text" id="modalVidUrlInput" placeholder="https://youtube.com/watch?v=..." class="w-full bg-[#0a0d14] border border-slate-800 rounded-lg px-3.5 py-2.5 text-xs text-slate-200 focus:outline-none focus:border-cyan-500 font-mono">
+                </div>
+                <div id="vidContentFile" class="space-y-2 hidden">
+                    <label class="text-xs text-slate-400 block font-mono">Chọn file video từ thiết bị:</label>
+                    <input type="file" id="modalVidFileInput" accept="video/*" class="w-full bg-[#0a0d14] border border-slate-800 rounded-lg p-2 text-xs text-slate-300 cursor-pointer">
+                </div>
+                <div class="flex items-center justify-end space-x-3 pt-2">
+                    <button type="button" onclick="window.closeVideoModal()" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-lg text-xs font-medium transition">Hủy</button>
+                    <button type="button" onclick="window.confirmInsertVideo()" class="px-5 py-2 bg-cyan-500 hover:bg-cyan-400 text-slate-950 rounded-lg text-xs font-bold transition">Chèn Video</button>
+                </div>
             </div>
         </div>
     </div>

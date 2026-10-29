@@ -1,23 +1,28 @@
 {
   "categories": [
     {
-      "id": "2",
-      "name": "Tactical & Limited Edition",
-      "parent_id": null
-    },
-    {
-      "id": "3",
-      "name": "Phụ kiện Mod Kit & Dock Sạc",
-      "parent_id": null
-    },
-    {
-      "name": "tay cầm chơi game",
-      "slug": "tay-cam-choi-game",
-      "parentCategory": "3",
-      "description": "ssss",
+      "name": "Tay cầm eSports Pro",
+      "slug": "tay-cam-esports-pro",
+      "description": "Dòng tay cầm hiệu năng cao trang bị cảm biến Hall-Effect chống drift vĩnh viễn và polling rate 1000Hz chuẩn giải đấu.",
       "sortOrder": 1,
       "status": true,
-      "id": "kKVOX5-hgGc"
+      "id": "rRnVM4EMXhc"
+    },
+    {
+      "name": "Tactical & Limited Edition",
+      "slug": "tactical-limited-edition",
+      "description": "Các phiên bản giới hạn thiết kế độc bản với vỏ gốm, hợp kim titanium và số sê-ri riêng dành cho nhà sưu tập.",
+      "sortOrder": 1,
+      "status": true,
+      "id": "4YgorE0SXeE"
+    },
+    {
+      "name": "Phụ kiện Mod Kit & Dock Sạc",
+      "slug": "phu-kien-mod-kit-dock-sac",
+      "description": "Hệ thống đế sạc từ tính thông minh và bộ nắp cần xoay, D-pad thay thế tùy biến theo sở thích cá nhân.",
+      "sortOrder": 1,
+      "status": true,
+      "id": "-dFSL1knwes"
     }
   ],
   "products": [
@@ -148,6 +153,14 @@
       "stock": 2,
       "image": "https://cdn-media.sforum.vn/storage/app/media/thanhhuyen/h%C3%ACnh%20n%E1%BB%81n%20th%E1%BB%8F%20b%E1%BA%A3y%20m%C3%A0u/hinh-nen-tho-bay-mau-thumbnail.jpg",
       "id": "pUnjouvuS2E"
+    },
+    {
+      "name": "NovaPad Test - Tay Cầm eSports Pro",
+      "sku": "TEST-PRO",
+      "price": 1559000,
+      "stock": 100,
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEP5fHTWNc4ccuvRz0vNZpCK5zpiPSGy-H8fiTqK7s3Q&s=10",
+      "id": "qJ5Yvh6bUyA"
     }
   ],
   "product_variants": [
